@@ -1,0 +1,376 @@
+/*Import fonts from Google fonts */
+@import url(http://fonts.googleapis.com/css?family=Comfortaa&subset=latin,cyrillic);
+@import url(http://fonts.googleapis.com/css?family=Philosopher:400,700,400italic,700italic&subset=latin,cyrillic);
+/*@import 'head';*/
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .container-fluid > .navbar-collapse, .container-fluid > .navbar-header, .container > .navbar-collapse, .container > .navbar-header {
+    margin-right: -15px;
+    margin-left: -15px; }
+
+  .top-menu .navbar-collapse.collapse {
+    display: none !important; }
+  .top-menu .collapse.in {
+    display: block !important; }
+
+  .navbar-toggle {
+    display: block; }
+
+  .navbar-header {
+    float: none; }
+
+  .navbar {
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0; }
+
+  .navbar-nav > li {
+    float: none; } }
+/* Medium devices (desktops, 992px and up) */
+/* Large devices (large desktops, 1200px and up) */
+/* ----------------------------------------------
+ Reset
+ ---------------------------------------------- */
+* {
+  padding: 0;
+  margin: 0;
+  background-position: center;
+  background-repeat: no-repeat; }
+
+/* ----------------------------------------------
+ Main
+ ---------------------------------------------- */
+html, body, section, header, footer, .page-wrap {
+  width: 100%; }
+
+body {
+  min-width: 320px;
+  font: 16px "Ubuntu", Arial, sans-serif;
+  background-color: #fff; }
+
+section, .page-wrap {
+  position: relative;
+  z-index: 2; }
+
+.page-wrap {
+  max-width: 600px;
+  height: 100vh;
+  min-height: 480px;
+  margin: 0 auto; }
+
+/* ----------------------------------------------
+ Fonts Paragrahps
+ ---------------------------------------------- */
+h3 {
+  font-size: 22px;
+  font-weight: bold; }
+
+/* ----------------------------------------------
+ Links Img
+ ---------------------------------------------- */
+a {
+  color: inherit;
+  text-decoration: none;
+  outline: 0; }
+
+li {
+  list-style: none; }
+
+img {
+  width: 100%;
+  vertical-align: bottom; }
+
+/* ----------------------------------------------
+ Form Buttons Inputs
+ ---------------------------------------------- */
+/* ---------------------------------------------- /*
+ Transition elsements
+/* ---------------------------------------------- */
+a, .btn {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out; }
+
+/* ----------------------------------------------
+ Header
+ ---------------------------------------------- */
+header {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0; }
+
+.top-menu {
+  margin-bottom: 0;
+  color: #fff;
+  background-color: #465257;
+  border: none; }
+  .top-menu .navbar-toggle {
+    float: left;
+    margin-left: 15px;
+    border-color: #7f7f7f; }
+  .top-menu .icon-bar {
+    background-color: #fff; }
+  .top-menu .dropdown {
+    float: right;
+    margin: 8px 0;
+    border-left: 1px solid #7f7f7f; }
+    .top-menu .dropdown .btn {
+      background-color: transparent; }
+      .top-menu .dropdown .btn i {
+        color: #fff; }
+      .top-menu .dropdown .btn:hover, .top-menu .dropdown .btn:focus {
+        color: #fff; }
+  .top-menu .dropdown-menu {
+    min-width: 100%;
+    background-color: #465257;
+    border-color: #465257; }
+    .top-menu .dropdown-menu a {
+      color: #fff; }
+      .top-menu .dropdown-menu a:hover {
+        color: #fff;
+        background-color: transparent; }
+  .top-menu .nav {
+    font: 20px "Museo Sans", Arial, sans-serif;
+    border: 1px solid #3a9fe3; }
+    .top-menu .nav > li > a {
+      background-color: #3a9fe3; }
+      .top-menu .nav > li > a:hover, .top-menu .nav > li > a:focus {
+        color: #3a9fe3;
+        background-color: #fff; }
+  .top-menu .navbar-nav {
+    margin: 0 -15px; }
+  .top-menu .city-menu, .top-menu .game-list {
+    display: none; }
+
+.city-menu {
+  position: relative;
+  z-index: 15;
+  font: 20px "Museo Sans", Arial, sans-serif; }
+  .city-menu > li > a {
+    position: relative;
+    z-index: 15;
+    display: block;
+    color: #fff;
+    border: 2px solid #fff; }
+    .city-menu > li > a p {
+      position: absolute;
+      z-index: 20;
+      left: 15px;
+      bottom: 12px;
+      margin: 0;
+      font-weight: bold;
+      text-shadow: 0 0 4.7px rgba(81, 81, 81, 0.8); }
+    .city-menu > li > a::after {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 15;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 50px;
+      background-image: -webkit-linear-gradient(top, rgba(50, 50, 50, 0), #323232);
+      background-image: linear-gradient(to bottom, rgba(50, 50, 50, 0), #323232);
+      /*zoom: 1;*/
+      opacity: 0.7; }
+    .city-menu > li > a:hover {
+      color: #fff; }
+  .city-menu .title a {
+    padding: 10px 15px;
+    text-align: center;
+    background-color: #3a9fe3; }
+    .city-menu .title a::after {
+      display: none; }
+    .city-menu .title a:hover, .city-menu .title a:focus {
+      color: #3a9fe3;
+      text-decoration: none;
+      background-color: #fff; }
+
+.game-list {
+  padding-bottom: 10px;
+  color: #666;
+  background-color: #fff; }
+  .game-list h3 {
+    margin: 0 0 5px; }
+  .game-list p {
+    font-size: 14px;
+    text-align: justify; }
+  .game-list li:not(.title) {
+    display: none; }
+  .game-list li.active {
+    display: block; }
+  .game-list .title a {
+    display: block;
+    padding: 10px 15px;
+    color: #fff;
+    text-align: center;
+    border: 2px solid #fff;
+    background-color: #3a9fe3; }
+    .game-list .title a:hover, .game-list .title a:focus {
+      color: #3a9fe3;
+      text-decoration: none;
+      background-color: #fff; }
+  .game-list .image-box {
+    position: relative;
+    z-index: 15; }
+  .game-list .infographics {
+    margin: 15px 0 10px;
+    font-size: 14px;
+    color: #555;
+    text-align: center; }
+    .game-list .infographics span {
+      margin: 0 5px; }
+    .game-list .infographics i {
+      color: #2e7fb6; }
+  .game-list .game-info {
+    padding: 0 15px; }
+  .game-list .price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff7a22;
+    text-align: right; }
+
+.btn-wrap {
+  position: absolute;
+  z-index: 15;
+  right: 20px;
+  bottom: 10px;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.3); }
+
+.btn-booking {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-image: -webkit-linear-gradient(top, #ffb131 0%, #ff7a22 100%);
+  background-image: linear-gradient(to bottom, #ffb131 0%, #ff7a22 100%);
+  border: 1px solid #e1691d;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px; }
+  .btn-booking:hover {
+    color: #fff;
+    background-image: -webkit-linear-gradient(top, #ffda22 0%, #ff8d27 100%);
+    background-image: linear-gradient(to bottom, #ffda22 0%, #ff8d27 100%); }
+
+.active-another-city .city-menu {
+  display: block; }
+
+.active-game-list .game-list {
+  display: block; }
+
+/* ----------------------------------------------
+ Footer
+ ---------------------------------------------- */
+footer {
+  padding: 5px 0;
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  bottom: 0;
+  height: 80px;
+  text-align: center;
+  background-color: #b6b5a1; }
+  footer .btn {
+    padding: 6px 10px;
+    font-size: 12px;
+    color: #fff; }
+    footer .btn i {
+      display: block;
+      font-size: 36px; }
+  footer .btn-bonus {
+    color: #333; }
+
+.btn-questions {
+  background-color: #3a9fe3;
+  border-color: #3a9fe3; }
+  .btn-questions:hover {
+    color: #3a9fe3;
+    background-color: #fff; }
+
+.btn-support {
+  background-color: #9ddc94;
+  border-color: #9ddc94; }
+  .btn-support:hover {
+    color: #9ddc94;
+    background-color: #fff; }
+
+.btn-bonus {
+  background-color: #fff;
+  border-color: #fff; }
+  .btn-bonus:hover {
+    color: #fff;
+    background-color: #333; }
+
+.btn-next {
+  background-color: #f7757f;
+  border-color: #f7757f; }
+  .btn-next:hover {
+    color: #f7757f;
+    background-color: #fff; }
+
+/* ----------------------------------------------
+ Sections
+ ---------------------------------------------- */
+.content {
+  height: 100%;
+  padding: 50px 0 80px;
+  background-image: url("../img/map_bg.jpg");
+  background-size: cover; }
+  .content .container-fluid {
+    padding: 0; }
+
+.places-slider .slide {
+  position: relative;
+  z-index: 2;
+  max-height: 100%;
+  overflow: hidden; }
+.places-slider .title {
+  position: absolute;
+  z-index: 2;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  padding: 0 15px;
+  font-size: 24px;
+  text-align: center; }
+  .places-slider .title span {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px; }
+.places-slider .info {
+  position: absolute;
+  z-index: 2;
+  top: 80px;
+  right: 15px;
+  width: 120px;
+  height: 74px;
+  padding: 5px;
+  font: 14px "Museo Sans", Arial, sans-serif;
+  background-color: #fff;
+  cursor: pointer; }
+
+/* ----------------------------------------------
+ Colors Backgrounds
+ ---------------------------------------------- */
+/* ----------------------------------------------
+Pop up
+---------------------------------------------- */
+/*.pop-up-bg {
+  position: fixed;
+  display: none;
+  width:100%;
+  min-height:100%;
+  height: 100%;
+  top:0;
+  background-color: rgba(0,0,0,0.8);
+  overflow:hidden;
+  z-index: 99;
+}*/
+
+/*# sourceMappingURL=styles.css.map */

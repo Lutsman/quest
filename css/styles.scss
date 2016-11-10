@@ -1,0 +1,432 @@
+@charset "UTF-8";
+
+@import 'mixin';
+@import 'fonts';
+@import 'variables';
+/*@import 'head';*/
+@import 'media';
+
+/* ----------------------------------------------
+ Reset
+ ---------------------------------------------- */
+* {
+    padding: 0;
+    margin: 0;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+/* ----------------------------------------------
+ Main
+ ---------------------------------------------- */
+
+html, body, section, header, footer, .page-wrap {
+    width: 100%;
+}
+
+body {
+    min-width: 320px;
+    font: 16px $ubuntu;
+    background-color: #fff;
+}
+
+section, .page-wrap {
+    position: relative;
+    z-index: 2;
+}
+
+.page-wrap {
+    max-width: 600px;
+    height: 100vh;
+    min-height: 480px;
+    margin: 0 auto;
+}
+
+/* ----------------------------------------------
+ Fonts Paragrahps
+ ---------------------------------------------- */
+
+h3 {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* ----------------------------------------------
+ Links Img
+ ---------------------------------------------- */
+
+a {
+    color: inherit;
+    text-decoration: none;
+    outline: 0;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+    vertical-align: bottom;
+}
+
+/* ----------------------------------------------
+ Form Buttons Inputs
+ ---------------------------------------------- */
+
+/* ---------------------------------------------- /*
+ Transition elsements
+/* ---------------------------------------------- */
+
+a, .btn {
+    @include transition(all 0.2s ease-in-out);
+}
+
+/* ----------------------------------------------
+ Header
+ ---------------------------------------------- */
+
+header {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+}
+.top-menu {
+    margin-bottom: 0;
+    color: #fff;
+    background-color: $menu-bg;
+    border: none;
+    .navbar-toggle {
+        float: left;
+        margin-left: 15px;
+        border-color: $menu-border;
+    }
+    .icon-bar {
+        background-color: #fff;
+    }
+    .dropdown {
+        float: right;
+        margin: 8px 0;
+        border-left: 1px solid $menu-border;
+        .btn {
+            background-color: transparent;
+            i {
+                color: #fff;
+            }
+            &:hover, &:focus {
+                color: #fff;
+            }
+        }
+    }
+    .dropdown-menu {
+        min-width: 100%;
+        background-color: $menu-bg;
+        border-color: $menu-bg;
+        a {
+            color: #fff;
+            &:hover {
+                color: #fff;
+                background-color: transparent;
+            }
+        }
+    }
+    .nav {
+        font: 20px $museoSans;
+        border: 1px solid $blue;
+        > li > a {
+            background-color: $blue;
+            &:hover, &:focus {
+                color: $blue;
+                background-color: #fff;
+            }
+        }
+    }
+    .navbar-nav {
+        margin: 0 -15px;
+    }
+    .city-menu, .game-list {
+        display: none;
+    }
+}
+.city-menu {
+    position: relative;
+    z-index: 15;
+    font: 20px $museoSans;
+    > li {
+        > a {
+            position: relative;
+            z-index: 15;
+            display: block;
+            color: #fff;
+            border: 2px solid #fff;
+            p {
+                position: absolute;
+                z-index: 20;
+                left: 15px;
+                bottom: 12px;
+                margin: 0;
+                font-weight: bold;
+                text-shadow: 0 0 4.7px rgba(81, 81, 81, 0.8);
+            }
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                z-index: 15;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                height: 50px;
+                background-image: -webkit-linear-gradient(top,rgba(50,50,50,0),#323232);
+                background-image: linear-gradient(to bottom,rgba(50,50,50,0),#323232);
+                /*zoom: 1;*/
+                opacity: 0.7;
+            }
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+    .title {
+        a {
+            padding: 10px 15px;
+            text-align: center;
+            background-color: $blue;
+            &::after {
+                display: none;
+            }
+            &:hover, &:focus {
+                color: $blue;
+                text-decoration: none;
+                background-color: #fff;
+            }
+        }
+    }
+}
+
+.game-list {
+    padding-bottom: 10px;
+    color: #666;
+    background-color: #fff;
+    h3 {
+        margin: 0 0 5px;
+    }
+    p {
+        font-size: 14px;
+        text-align: justify;
+    }
+    li:not(.title) {
+        display: none;
+    }
+    li.active {
+        display: block;
+    }
+    .title {
+        a {
+            display: block;
+            padding: 10px 15px;
+            color: #fff;
+            text-align: center;
+            border: 2px solid #fff;
+            background-color: $blue;
+            &:hover, &:focus {
+                color: $blue;
+                text-decoration: none;
+                background-color: #fff;
+            }
+        }
+    }
+    .image-box {
+        position: relative;
+        z-index: 15;
+    }
+    .infographics {
+        margin: 15px 0 10px;
+        font-size: 14px;
+        color: #555;
+        text-align: center;
+        span {
+            margin: 0 5px;
+        }
+        i {
+            color: #2e7fb6;
+        }
+    }
+    .game-info {
+        padding: 0 15px;
+    }
+    .price {
+        font-size: 24px;
+        font-weight: bold;
+        color: $orange;
+        text-align: right;
+    }
+}
+.btn-wrap {
+    position: absolute;
+    z-index: 15;
+    right: 20px;
+    bottom: 10px;
+    padding: 5px;
+    background: rgba(255,255,255,0.3);
+}
+.btn-booking {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background-image: -webkit-linear-gradient(top, #ffb131 0%,#ff7a22 100%);
+    background-image: linear-gradient(to bottom, #ffb131 0%,#ff7a22 100%);
+    border: 1px solid #e1691d;
+    @include  border-radius(3px);
+    &:hover {
+        color: #fff;
+        background-image: -webkit-linear-gradient(top, #ffda22 0%, #ff8d27 100%);
+        background-image: linear-gradient(to bottom, #ffda22 0%, #ff8d27 100%);
+    }
+}
+
+
+.active-another-city {
+    .city-menu {
+        display: block;
+    }
+}
+.active-game-list {
+    .game-list {
+        display: block;
+    }
+}
+
+
+
+/* ----------------------------------------------
+ Footer
+ ---------------------------------------------- */
+
+footer {
+    padding: 5px 0;
+    position: absolute;
+    z-index: 5;
+    left: 0;
+    bottom: 0;
+    height: 80px;
+    text-align: center;
+    background-color: #b6b5a1;
+    .btn {
+        padding: 6px 10px;
+        font-size: 12px;
+        color: #fff;
+        i {
+            display: block;
+            font-size: 36px;
+        }
+    }
+    .btn-bonus {
+        color: #333;
+    }
+}
+
+.btn-questions {
+    background-color: $blue;
+    border-color: $blue;
+    &:hover {
+        color: $blue;
+        background-color: #fff;
+    }
+}
+.btn-support {
+    background-color: $green;
+    border-color: $green;
+    &:hover {
+        color: $green;
+        background-color: #fff;
+    }
+}
+.btn-bonus {
+    background-color: #fff;
+    border-color: #fff;
+    &:hover {
+        color: #fff;;
+        background-color: #333;
+    }
+}
+.btn-next {
+    background-color: $red;
+    border-color: $red;
+    &:hover {
+        color: $red;
+        background-color: #fff;
+    }
+}
+
+/* ----------------------------------------------
+ Sections
+ ---------------------------------------------- */
+
+.content {
+    height: 100%;
+    padding: 50px 0 80px;
+    background-image: url("../img/map_bg.jpg");
+    background-size: cover;
+    .container-fluid {
+        padding: 0;
+    }
+}
+.places-slider {
+    .slide {
+        position: relative;
+        z-index: 2;
+        max-height: 100%;
+        overflow: hidden;
+    }
+    .title {
+        position: absolute;
+        z-index: 2;
+        top: 20px;
+        left: 0;
+        width: 100%;
+        padding: 0 15px;
+        font-size: 24px;
+        text-align: center;
+        span {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            @include border-radius(4px);
+        }
+    }
+    .info {
+        position: absolute;
+        z-index: 2;
+        top: 80px;
+        right: 15px;
+        width: 120px;
+        height: 74px;
+        padding: 5px;
+        font: 14px $museoSans;
+        background-color: #fff;
+        cursor: pointer;
+    }
+}
+/* ----------------------------------------------
+ Colors Backgrounds
+ ---------------------------------------------- */
+
+/* ----------------------------------------------
+Pop up
+---------------------------------------------- */
+
+/*.pop-up-bg {
+  position: fixed;
+  display: none;
+  width:100%;
+  min-height:100%;
+  height: 100%;
+  top:0;
+  background-color: rgba(0,0,0,0.8);
+  overflow:hidden;
+  z-index: 99;
+}*/
+
+
