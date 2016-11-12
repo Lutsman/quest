@@ -287,13 +287,8 @@ header {
 }
 
 
-.active-another-city {
-    .city-menu {
-        display: block;
-    }
-}
-.active-game-list {
-    .game-list {
+.active {
+    > .city-menu, > .game-list {
         display: block;
     }
 }
