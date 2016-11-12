@@ -7,13 +7,21 @@
         this._getTarget = options.getTarget || null; //func, arg: this._block, return: target
         this._groupName = $(this._block).attr('data-group-name');
         this._isActive = false;
-        this._animate = options.animate || 'slide';  // 'none', 'simple', 'slide', 'fade'
+        this._animate = options.animate || 'simple';  // 'none', 'simple', 'slide', 'fade'
         this._onOpen = options.onOpen || null;
         this._onClose = options.onClose || null;
         this._onAfterOpen = options.onAfterOpen || null;
         this._onAfterClose = options.onAfterClose || null;
     }
     BlockToggler.prototype.init = function () {
+        if (!this._target && typeof this._getTarget === 'function') {
+            this._target = this._getTarget(this._block);
+        }
+    
+        console.dir(this);
+        
+        //if (!this._target) return; //if still no target stop init func
+    
         var throttledToggler = this.throttle(this.toggler, 405);
         
         $(this._block).on('click', throttledToggler.bind(this));
@@ -56,19 +64,21 @@
         }
     };
     BlockToggler.prototype.openBlockListener = function (e, block, groupName) {
-        if(this._block.classList.contains('active') && block !== this._block) {
+        var conditions = block !== this._block && groupName === this._groupName && groupName !== undefined;
+        
+        if(this._block.classList.contains('active') && conditions) {
             $(this._block).removeClass('active');
             this.hideBlock();
             return;
         }
         
-        if($(this._getTarget(this._block)).is(':visible') && block !== this._block) {
+        if($(this._target).is(':visible') && conditions) {
             $(this._block).removeClass('active');
             this.hideBlock();
             return;
         }
         
-        if (block === this._block || groupName !== this._groupName || groupName === undefined || !this._isActive) return;
+        if ( !conditions || !this._isActive) return;
         
         $(this._block).removeClass('active');
         this.hideBlock();
@@ -92,24 +102,29 @@
     };
     BlockToggler.prototype.showBlock = function (callback) {
         var target = this._target;
-        
-        if (!this._target && typeof this._getTarget === 'function') {
-            target = this._getTarget(this._block);
-        }
+        callback = callback || function () {};
         
         switch (this._animate) {
             case 'none':
-                if (typeof callback === 'function') callback();
+                callback();
                 break;
             case 'simple':
                 $(target).show();
-                if (typeof callback === 'function') callback();
+                callback();
                 break;
             case 'slide':
-                $(target).slideDown('normal', 'linear', callback);
+                if (!target) {
+                    callback();
+                } else {
+                    $(target).slideDown('normal', 'linear', callback);
+                }
                 break;
             case 'fade':
-                $(target).fadeIn('normal', 'linear', callback);
+                if (!target) {
+                    callback();
+                } else {
+                    $(target).fadeIn('normal', 'linear', callback);
+                }
                 break;
         }
         
@@ -117,10 +132,6 @@
     };
     BlockToggler.prototype.hideBlock = function (callback) {
         var target = this._target;
-        
-        if (!this._target && typeof this._getTarget === 'function') {
-            target = this._getTarget(this._block);
-        }
         
         switch (this._animate) {
             case 'none':
@@ -184,9 +195,38 @@
 $(document).ready(function () {
     /*menu*/
     (function(){
-    	var $navLevel2 = $('ul.nav.navbar-nav > li');
+    	var $navLevel2 = $('[data-group-name="nav-level-2"]');
+        var $navLevel3 = $('[data-group-name="nav-level-3"]');
+        var $navLevel4 = $('ul.game-list > li:not(:first-child)');
         
-        $na
+        $navLevel2.blockToggler({
+            getTarget: getUl
+        });
+        
+        $navLevel3.blockToggler({
+            getTarget: getUl
+        });
+    
+    
+        function getUl(block) {
+            return $(block).parent().children('ul');
+        }
+    })();
+    
+    /*slider*/
+    (function(){
+    	var $menuSlider = $('.menu-slider');
+        
+        $menuSlider.slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false
+        });
+    })();
+    
+    /*helpers*/
+    (function(){
+    	
     })();
     
     
