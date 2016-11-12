@@ -4,7 +4,7 @@
     function BlockToggler(options) {
         this._block = options.block;
         this._target = $(this._block).attr('data-target');
-        this._getTarget = options.getTarget || null; //func, arg: block, return: target
+        this._getTarget = options.getTarget || null; //func, arg: this._block, return: target
         this._groupName = $(this._block).attr('data-group-name');
         this._isActive = false;
         this._animate = options.animate || 'slide';  // 'none', 'simple', 'slide', 'fade'
@@ -184,7 +184,9 @@
 $(document).ready(function () {
     /*menu*/
     (function(){
-    	
+    	var $navLevel2 = $('ul.nav.navbar-nav > li');
+        
+        $na
     })();
     
     
