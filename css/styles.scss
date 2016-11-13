@@ -139,6 +139,22 @@ header {
             &:hover, &:focus {
                 color: $blue;
                 background-color: #fff;
+                &::after {
+                    border-color: $blue;
+                }
+            }
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                width: 8px;
+                height: 8px;
+                border-top: 1px solid #fff;
+                border-right: 1px solid #fff;
+                @include transform(rotate(45deg));
+                @include transition(all 0.2s ease-in-out);
             }
         }
     }
@@ -200,6 +216,22 @@ header {
                 color: $blue;
                 text-decoration: none;
                 background-color: #fff;
+                &::before {
+                    border-color: $blue;
+                }
+            }
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                width: 8px;
+                height: 8px;
+                border-top: 1px solid #fff;
+                border-right: 1px solid #fff;
+                @include transform(rotate(225deg));
+                @include transition(all 0.2s ease-in-out);
             }
         }
     }
@@ -234,6 +266,22 @@ header {
                 color: $blue;
                 text-decoration: none;
                 background-color: #fff;
+                &::after {
+                    border-color: $blue;
+                }
+            }
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                width: 8px;
+                height: 8px;
+                border-top: 1px solid #fff;
+                border-right: 1px solid #fff;
+                @include transform(rotate(225deg));
+                @include transition(all 0.2s ease-in-out);
             }
         }
     }

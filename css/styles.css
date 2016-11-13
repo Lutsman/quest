@@ -134,6 +134,27 @@ header {
       .top-menu .nav > li > a:hover, .top-menu .nav > li > a:focus {
         color: #3a9fe3;
         background-color: #fff; }
+        .top-menu .nav > li > a:hover::after, .top-menu .nav > li > a:focus::after {
+          border-color: #3a9fe3; }
+      .top-menu .nav > li > a::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 8px;
+        height: 8px;
+        border-top: 1px solid #fff;
+        border-right: 1px solid #fff;
+        -ms-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out; }
   .top-menu .navbar-nav {
     margin: 0 -15px; }
   .top-menu .city-menu, .top-menu .game-list {
@@ -182,6 +203,27 @@ header {
       color: #3a9fe3;
       text-decoration: none;
       background-color: #fff; }
+      .city-menu .title a:hover::before, .city-menu .title a:focus::before {
+        border-color: #3a9fe3; }
+    .city-menu .title a::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 8px;
+      height: 8px;
+      border-top: 1px solid #fff;
+      border-right: 1px solid #fff;
+      -ms-transform: rotate(225deg);
+      -moz-transform: rotate(225deg);
+      -webkit-transform: rotate(225deg);
+      -o-transform: rotate(225deg);
+      transform: rotate(225deg);
+      -webkit-transition: all 0.2s ease-in-out;
+      -moz-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out; }
 
 .game-list {
   padding-bottom: 10px;
@@ -207,6 +249,27 @@ header {
       color: #3a9fe3;
       text-decoration: none;
       background-color: #fff; }
+      .game-list .title a:hover::after, .game-list .title a:focus::after {
+        border-color: #3a9fe3; }
+    .game-list .title a::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 8px;
+      height: 8px;
+      border-top: 1px solid #fff;
+      border-right: 1px solid #fff;
+      -ms-transform: rotate(225deg);
+      -moz-transform: rotate(225deg);
+      -webkit-transform: rotate(225deg);
+      -o-transform: rotate(225deg);
+      transform: rotate(225deg);
+      -webkit-transition: all 0.2s ease-in-out;
+      -moz-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out; }
   .game-list .image-box {
     position: relative;
     z-index: 15; }
