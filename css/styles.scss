@@ -287,12 +287,15 @@ header {
 }
 
 
-.active {
+/*.active {
     > .city-menu, > .game-list {
         display: block;
     }
-}
+}*/
 
+.menu-slider {
+    width: 600px;
+}
 
 
 /* ----------------------------------------------

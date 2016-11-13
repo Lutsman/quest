@@ -17,8 +17,6 @@
         if (!this._target && typeof this._getTarget === 'function') {
             this._target = this._getTarget(this._block);
         }
-    
-        console.dir(this);
         
         //if (!this._target) return; //if still no target stop init func
     
@@ -66,22 +64,24 @@
     BlockToggler.prototype.openBlockListener = function (e, block, groupName) {
         var conditions = block !== this._block && groupName === this._groupName && groupName !== undefined;
         
-        if(this._block.classList.contains('active') && conditions) {
+        if ((this._block.classList.contains('active') && conditions) || ($(this._target).is(':visible') && conditions)) {
             $(this._block).removeClass('active');
-            this.hideBlock();
-            return;
-        }
-        
-        if($(this._target).is(':visible') && conditions) {
-            $(this._block).removeClass('active');
-            this.hideBlock();
+            this.hideBlock(this._onAfterClose(this));
+            
+            if (this._onClose) {
+                this._onClose(this);
+            }
             return;
         }
         
         if ( !conditions || !this._isActive) return;
         
         $(this._block).removeClass('active');
-        this.hideBlock();
+        this.hideBlock(this._onAfterClose);
+        
+        if (this._onClose) {
+            this._onClose(this);
+        }
     };
     BlockToggler.prototype.closeGroupListener = function (e, groupName) {
         if (groupName !== this._groupName || groupName === undefined || !this._isActive) return;
@@ -106,15 +106,15 @@
         
         switch (this._animate) {
             case 'none':
-                callback();
+                callback(this);
                 break;
             case 'simple':
                 $(target).show();
-                callback();
+                callback(this);
                 break;
             case 'slide':
                 if (!target) {
-                    callback();
+                    callback(this);
                 } else {
                     $(target).slideDown('normal', 'linear', callback);
                 }
@@ -195,21 +195,75 @@
 $(document).ready(function () {
     /*menu*/
     (function(){
-    	var $navLevel2 = $('[data-group-name="nav-level-2"]');
-        var $navLevel3 = $('[data-group-name="nav-level-3"]');
-        var $navLevel4 = $('ul.game-list > li:not(:first-child)');
+        var $navPanels = $('[data-group-name^="nav-level"]');
+        var $backBtn = $('[data-action="back"]');
+        var $resetBtn = $('[data-action="reset-nav"]');
+        var oneTimeFunc = oneTimeStart();
         
-        $navLevel2.blockToggler({
-            getTarget: getUl
+        $navPanels.blockToggler({
+            animate: 'slide',
+            getTarget: getUl,
+            onOpen: function (togglerObj) {
+                extraTogglerMeth(togglerObj);
+                oneTimeFunc(togglerObj);
+            },
+            onAfterClose: extraTogglerMeth
         });
+        $backBtn.on('click', getBack);
+        $resetBtn.on('click', resetNav);
         
-        $navLevel3.blockToggler({
-            getTarget: getUl
-        });
-    
-    
+        
         function getUl(block) {
             return $(block).parent().children('ul');
+        }
+    
+        function extraTogglerMeth (togglerObj) {
+            var togglerGroup = $(togglerObj._block).attr('data-group-name');
+            var $simillarTogglers = $('[data-group-name="' + togglerGroup + '"]');
+            var prevLevelGroup = togglerGroup.slice(0, -1) + (parseInt(togglerGroup.slice(-1)) - 1);
+            var $backBtn = $('[data-action="back"][data-target="' + prevLevelGroup + '"]');
+            
+            //console.log(prevLevelGroup);
+            //console.log($backBtn);
+            
+            if (togglerObj._isActive) {
+                $simillarTogglers.hide();
+                $backBtn.hide();
+            } else {
+                $simillarTogglers.show();
+                $backBtn.show();
+            }
+        }
+    
+        function oneTimeStart() {
+            var doneArr = [];
+            
+            return function (togglerObj) {
+                if (~doneArr.indexOf(togglerObj._block)) return;
+                
+                $('.menu-slider', $(togglerObj._target)).slick('setPosition');
+                doneArr.push(togglerObj._block);
+            };
+        }
+    
+        function getBack(e) {
+            e.preventDefault();
+            
+            var $self = $(this);
+            var togglerGroup = $self.attr('data-target');
+            
+            $self.trigger('closeGroup', [togglerGroup]);
+        }
+    
+        function resetNav () {
+            var groupLevel2 = 'nav-level-2';
+            var groupLevel3 = 'nav-level-3';
+            var $self = $(this);
+    
+            if ($self.attr('aria-expanded') === 'true') {
+                $self.trigger('closeGroup', [groupLevel2]);
+                $self.trigger('closeGroup', [groupLevel3]);
+            }
         }
     })();
     
@@ -223,11 +277,4 @@ $(document).ready(function () {
             arrows: false
         });
     })();
-    
-    /*helpers*/
-    (function(){
-    	
-    })();
-    
-    
 });

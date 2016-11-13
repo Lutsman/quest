@@ -255,8 +255,13 @@ header {
     background-image: -webkit-linear-gradient(top, #ffda22 0%, #ff8d27 100%);
     background-image: linear-gradient(to bottom, #ffda22 0%, #ff8d27 100%); }
 
-.active > .city-menu, .active > .game-list {
-  display: block; }
+/*.active {
+    > .city-menu, > .game-list {
+        display: block;
+    }
+}*/
+.menu-slider {
+  width: 600px; }
 
 /* ----------------------------------------------
  Footer
