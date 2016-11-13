@@ -4,28 +4,23 @@
 /*@import 'head';*/
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-  .container-fluid > .navbar-collapse, .container-fluid > .navbar-header, .container > .navbar-collapse, .container > .navbar-header {
+  .top-menu .container-fluid > .navbar-collapse, .top-menu .container-fluid > .navbar-header {
     margin-right: -15px;
     margin-left: -15px; }
-
-  .top-menu .navbar-collapse.collapse {
-    display: none !important; }
-  .top-menu .collapse.in {
-    display: block !important; }
-
-  .navbar-toggle {
+  .top-menu .navbar-toggle {
     display: block; }
-
-  .navbar-header {
+  .top-menu .navbar-header {
     float: none; }
-
-  .navbar {
+  .top-menu .navbar {
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
     border-radius: 0; }
-
-  .navbar-nav > li {
-    float: none; } }
+  .top-menu .navbar-nav, .top-menu .navbar-nav > li {
+    float: none; }
+  .top-menu .navbar-collapse.collapse {
+    display: none !important; }
+  .top-menu .collapse.in {
+    display: block !important; } }
 /* Medium devices (desktops, 992px and up) */
 /* Large devices (large desktops, 1200px and up) */
 /* ----------------------------------------------
@@ -261,7 +256,8 @@ header {
     }
 }*/
 .menu-slider {
-  width: 600px; }
+  width: 100%;
+  max-width: 600px; }
 
 /* ----------------------------------------------
  Footer
