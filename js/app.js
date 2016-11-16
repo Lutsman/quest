@@ -270,11 +270,16 @@ $(document).ready(function () {
     /*slider*/
     (function(){
     	var $menuSlider = $('.menu-slider');
+        var $gameSlider = $('.game-slider');
         
         $menuSlider.slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
             arrows: false
+        });
+        
+        $gameSlider.slick({
+            arrows: false,
+            adaptiveHeight: true,
+            infinite: false
         });
     })();
 });
