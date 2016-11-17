@@ -270,7 +270,7 @@ $(document).ready(function () {
     /*slider*/
     (function(){
     	var $menuSlider = $('.menu-slider');
-        var $gameSlider = $('.game-slider');
+        var $gameSlider = $('.content-slider');
         
         $menuSlider.slick({
             arrows: false
