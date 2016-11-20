@@ -195,91 +195,268 @@
 $(document).ready(function () {
     /*menu*/
     (function(){
-        var $navPanels = $('[data-group-name^="nav-level"]');
-        var $backBtn = $('[data-action="back"]');
-        var $resetBtn = $('[data-action="reset-nav"]');
-        var oneTimeFunc = oneTimeStart();
-        
-        $navPanels.blockToggler({
-            animate: 'slide',
-            getTarget: getUl,
-            onOpen: function (togglerObj) {
-                extraTogglerMeth(togglerObj);
-                oneTimeFunc(togglerObj);
-            },
-            onAfterClose: extraTogglerMeth
-        });
-        $backBtn.on('click', getBack);
-        $resetBtn.on('click', resetNav);
-        
-        
-        function getUl(block) {
-            return $(block).parent().children('ul');
+        function TopMenuController() {
+            this.init();
         }
+        TopMenuController.prototype.init = function () {
+            var $navPanels = $('[data-group-name^="nav-level"]');
+            var $backBtn = $('[data-action="back"]');
+            var $resetBtn = $('[data-action="reset-nav"]');
+            var oneTimeFunc = this.oneTimeStart();
+            var self = this;
     
-        function extraTogglerMeth (togglerObj) {
-            var togglerGroup = $(togglerObj._block).attr('data-group-name');
+            $navPanels.blockToggler({
+                animate: 'slide',
+                getTarget: self.getUl,
+                onOpen: function (obj) {
+                    self.extraTogglerMeth.apply(this, [obj]); //работает
+                    oneTimeFunc.apply(this, [obj]);
+                },
+                onAfterClose: self.extraTogglerMeth
+            });
+            $backBtn.on('click', self.getBack);
+            $resetBtn.on('click', self.resetNav);
+        };
+        TopMenuController.prototype.getUl = function (block) {
+            return $(block).parent().children('ul');
+        };
+        TopMenuController.prototype.extraTogglerMeth = function (obj) {
+            var togglerGroup = $(obj._block).attr('data-group-name');
             var $simillarTogglers = $('[data-group-name="' + togglerGroup + '"]');
             var prevLevelGroup = togglerGroup.slice(0, -1) + (parseInt(togglerGroup.slice(-1)) - 1);
             var $backBtn = $('[data-action="back"][data-target="' + prevLevelGroup + '"]');
-            
+        
             //console.log(prevLevelGroup);
             //console.log($backBtn);
-            
-            if (togglerObj._isActive) {
+        
+            if (obj._isActive) {
                 $simillarTogglers.hide();
                 $backBtn.hide();
+                //console.log('extra hide');
             } else {
                 $simillarTogglers.show();
                 $backBtn.show();
+                //console.log('extra show');
             }
-        }
-    
-        function oneTimeStart() {
+        };
+        TopMenuController.prototype.oneTimeStart = function () {
             var doneArr = [];
+        
+            return function (obj) {
+                if (~doneArr.indexOf(obj._block)) return;
             
-            return function (togglerObj) {
-                if (~doneArr.indexOf(togglerObj._block)) return;
-                
-                $('.menu-slider', $(togglerObj._target)).slick('setPosition');
-                doneArr.push(togglerObj._block);
+                $('.menu-slider', $(obj._target)).slick('setPosition');
+                doneArr.push(obj._block);
             };
-        }
-    
-        function getBack(e) {
+        };
+        TopMenuController.prototype.getBack = function (e) {
             e.preventDefault();
-            
+        
             var $self = $(this);
             var togglerGroup = $self.attr('data-target');
-            
+        
             $self.trigger('closeGroup', [togglerGroup]);
-        }
-    
-        function resetNav () {
+        };
+        TopMenuController.prototype.resetNav = function () {
             var groupLevel2 = 'nav-level-2';
             var groupLevel3 = 'nav-level-3';
             var $self = $(this);
-    
+        
             if ($self.attr('aria-expanded') === 'true') {
                 $self.trigger('closeGroup', [groupLevel2]);
                 $self.trigger('closeGroup', [groupLevel3]);
             }
-        }
+        };
+        
+        var menuController = new TopMenuController();
     })();
     
     /*slider*/
     (function(){
-    	var $menuSlider = $('.menu-slider');
-        var $gameSlider = $('.content-slider');
+        /*menu-slider*/
+        (function(){
+            var $menuSlider = $('.menu-slider');
+    
+            $menuSlider.slick({
+                arrows: false
+            });
+        })();
         
-        $menuSlider.slick({
-            arrows: false
-        });
+        /*content slider*/
+        (function(){
+            var s = $gameSlider = $('.content-slider');
+            var nextAttr = '[data-action="next"]';
+            var prevAttr = '[data-action="prev"]';
+            var filterAttr = '[data-action="filter"]';
+            var filters = {
+                start: '.filter-start',
+                game: '.filter-game-',
+                waypoint: '.filter-waypoint-',
+                desc: '.filter-description-',
+                quest: '.filter-question-',
+                hint: '.filter-hint-',
+                true: '.filter-correct-',
+                halfTrue: '.filter-almost-correct-',
+                false: '.filter-incorrect-'
+            };
+            var gameCount = 1;
+            var currGameQuestionCount= 1;
+            var currQuestion = 1;
+            var gameStart = false;
+            var currFilter = '';
+            var stageIsChanged = false;
+            
+            
+    
+            //console.dir(s.slick.Slick.getSlick);
+            //s.slick('getSlick');
+            /*$gameSlider.on('init', function (e, slickObj) {
+                console.log('slick init');
+                console.dir(slickObj);
+                
+                //slickObj.filterSlides('.start');
+                /!*slickObj.filterSlides(function () {
+                    //var slickObj = _.slick('getSlick');
+                    console.log('slick filtered');
+                    var attr = this.getAttribute('data-role');
+    
+                    //console.log(attr);
+    
+                    if (attr === 'start') {
+                        return true;
+                    }
+    
+                    return false;
+    
+                });*!/
+                
+                //$('.content-slider').slick('filterSlides', '.start');
+                
+                //slickObj.slickFilter
+                
+                
+                /!*__.slick('slickFilter', function () {
+                    //var slickObj = _.slick('getSlick');
+                    console.log('slick filtered');
+                    var attr = slickObj.$slides[0].attr('data-role');
+            
+                    console.log(attr);
+            
+                    if (attr === 'start') {
+                        return true;
+                    }
+            
+                    return false;
+            
+                });*!/
+            });*/
+    
+            s.on('afterChange', filteringAfter);
+            
+            
+            $gameSlider.slick({
+                arrows: false,
+                adaptiveHeight: true,
+                infinite: false
+            });
+    
+            
+            
+            /*(function(){
+                var $slider = $('.content-slider');
+            	//console.log($gameSlider.slick('slickCurrentSlide'));
+                //console.dir($gameSlider.slick('getSlick'));
+                
+                //console.dir(_.slick('getSlick'));
+                
+                $slider.on('init', function (slickObj) {
+                    console.log('slick init');
+                    $slider.slick('slickFilter', function () {
+                        //var slickObj = _.slick('getSlick');
+                        console.log('slick filtered');
+                        var attr = slickObj.$slides[0].attr('data-role');
         
-        $gameSlider.slick({
-            arrows: false,
-            adaptiveHeight: true,
-            infinite: false
-        });
+                        console.log(attr);
+        
+                        if (attr === 'start') {
+                            return true;
+                        }
+        
+                        return false;
+        
+                    });
+                });
+                $slider.on('afterChange', function () {
+                    console.log('afterChange');
+                });
+            })();*/
+    
+    
+            function filteringAfter(e, obj, currSlide) {
+                console.dir(obj);
+                //console.log(currSlide);
+                
+                if (!gameStart) {
+                    gameStart = true;
+                    currFilter = filters.game + gameCount;
+                    stageIsChanged = true;
+                }
+    
+                
+                if (stageIsChanged) {
+                    setFilter(currFilter);
+                    stageIsChanged = false;
+                }
+                
+                
+                //console.log('afterChange');
+                
+               /* s.slick('slickUnfilter');
+                s.slick('slickFilter', function () {
+                    //console.log('slick filtered');
+                    var attr = this.getAttribute('data-role');
+            
+                    //console.log(attr);
+            
+                    if (attr === 'start') {
+                        return true;
+                    }
+            
+                    return true;
+            
+                });*/
+            }
+    
+            function setFilter(filter, index) {
+                index = index || 0;
+                //var slick = s.slick('getSlick');
+                //var goToFunc = goTo(index, s, true);
+                
+                
+                
+                //console.dir(slick);
+                //console.log(goto);
+                console.log(index);
+    
+                s.on('reInit', goTo(index, true));
+                s.slick('slickUnfilter');
+                s.slick('slickFilter', filter);
+            }
+    
+            function goTo(index, noAnimate) {
+                //console.log('wrapper');
+                
+                return function inner (e, slick) {
+                    //console.log('goto');
+                    slick.goTo(index, noAnimate);
+                    slick.$slider.off('reInit', inner);
+                };
+            }
+            
+        })();
+        
+        
+    	
+       
     })();
 });
