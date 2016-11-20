@@ -393,7 +393,7 @@ $(document).ready(function () {
     
     
             function filteringAfter(e, obj, currSlide) {
-                console.dir(obj);
+                //console.dir(obj);
                 //console.log(currSlide);
                 
                 if (!gameStart) {
@@ -404,7 +404,7 @@ $(document).ready(function () {
     
                 
                 if (stageIsChanged) {
-                    setFilter(currFilter);
+                    setFilter(currFilter, 0);
                     stageIsChanged = false;
                 }
                 
@@ -429,8 +429,8 @@ $(document).ready(function () {
     
             function setFilter(filter, index) {
                 index = index || 0;
-                //var slick = s.slick('getSlick');
-                //var goToFunc = goTo(index, s, true);
+                var slick = s.slick('getSlick');
+                var goToFunc = goTo(index, s, true);
                 
                 
                 
@@ -438,19 +438,38 @@ $(document).ready(function () {
                 //console.log(goto);
                 console.log(index);
     
-                s.on('reInit', goTo(index, true));
+                //s.on('reInit', goToFunc);
+                
                 s.slick('slickUnfilter');
                 s.slick('slickFilter', filter);
+                slick.currentSlide = index;
+                
+                //s.slick('goTo', index);
+    
+                
             }
     
-            function goTo(index, noAnimate) {
-                //console.log('wrapper');
+            function goTo(index, s, noAnimate) {
+                console.log('wrapper');
                 
-                return function inner (e, slick) {
-                    //console.log('goto');
-                    slick.goTo(index, noAnimate);
-                    slick.$slider.off('reInit', inner);
+                var result = function inner (e, slick) {
+                    console.log('goto');
+                    //slick.goTo(index, noAnimate);
+                    //slick.$slider.off('reInit', inner);
+                    //s.slick('goTo', +index);
+                    /*slick.changeSlide({
+                        data: {
+                            message: 'index',
+                            index: parseInt(index)
+                        }
+                    }, noAnimate);*/
+                    //slick.currentSlide = 3;
+                    //console.log(slick);
+                    s.slick('goTo', +index);
+                    s.off('reInit', inner);
                 };
+                
+                return result;
             }
             
         })();
