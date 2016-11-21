@@ -1143,7 +1143,7 @@
                     </h1>
                     <div class="main__buttons">
                         <div>
-                            <button class="btn btn-start">начать игру</button>
+                            <button class="btn btn-start" data-action="next">начать игру</button>
                         </div>
                         <div>
                             <button class="btn btn-about">инфо</button>
@@ -1157,7 +1157,7 @@
                     <div class="waypoint__content">
                         <h2><span>Улица Бривибас</span></h2>
                         <div class="">
-                            <div class="info">
+                            <div class="info" data-action="next">
                                 <p>Здесь вы видите высокий дом, построенный в начале ХХ ве...</p>
                             </div>
                             <div class="directions-none">
@@ -1172,35 +1172,35 @@
                 </div>
             </div>
 
-            <div class="slide filter-game-1 filter-description-1" data-role="help">
+            <div class="slide filter-game-1 filter-description-1">
                 <div class="waypoint">
                     <div class="waypoint__content">
                         <div class="directions">
                             <h3>Улица Бривибас</h3>
                             <img src="img/street.jpg" alt="image">
                             <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
-                            <span class="btn-close"></span>
+                            <span class="btn-close" data-action="next"></span>
                         </div>
                     </div>
                     <div class="waypoint__map"></div>
                 </div>
             </div>
 
-            <div class="slide filter-game-1 filter-question-1" data-role="waypoint">
+            <div class="slide filter-game-1 filter-question-1">
                 <div class="slide__content">
                    <div class="block">
                        <h2>Улица Бривибас</h2>
                        <h3>Вопрос 1</h3>
                        <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
 
-                       <form id="answer" action="#" method="post">
-                           <p><input id="an1" name="answer" value="a1" type="radio"><label for="an1">
+                       <form id="answer-1" action="#" method="post">
+                           <p data-action="filter" data-filter="true"><input id="an1" name="answer" value="a1" type="radio"><label for="an1">
                                <span class="radio-button"></span>два</label></p>
-                           <p><input id="an2" name="answer" value="a2" type="radio"><label for="an2">
+                           <p data-action="filter" data-filter="halfTrue"><input id="an2" name="answer" value="a2" type="radio"><label for="an2">
                                <span class="radio-button"></span>три</label></p>
-                           <p><input id="an3" name="answer" value="a2" type="radio"><label for="an3">
+                           <p data-action="filter" data-filter="false"><input id="an3" name="answer" value="a2" type="radio"><label for="an3">
                                <span class="radio-button"></span>четыре</label></p>
-                           <p><input id="an4" name="answer" value="a2" type="radio"><label for="an4">
+                           <p data-action="filter" data-filter="false"><input id="an4" name="answer" value="a2" type="radio"><label for="an4">
                                <span class="radio-button"></span>пять</label></p>
                            <button type="submit">Дальше</button>
                        </form>
@@ -1209,7 +1209,7 @@
                 </div>
 
             </div>
-            
+
             <div class="slide filter-hint-1">
                 <div class="slide__content">
                     <div class="block">
@@ -1233,7 +1233,7 @@
                             <p>#историк</p>
                         </div>
                         <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
-                        <span class="btn-close"></span>
+                        <span class="btn-close" data-action="next"></span>
                     </div>
                 </div>
             </div>
@@ -1250,7 +1250,7 @@
                             <p>#историк</p>
                         </div>
                         <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
-                        <span class="btn-close"></span>
+                        <span class="btn-close" data-action="next"></span>
                     </div>
                 </div>
             </div>
@@ -1267,6 +1267,127 @@
                             <p>#историк</p>
                         </div>
                         <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
+                        <span class="btn-close" data-action="next"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide filter-game-2">
+                <div class="waypoint">
+                    <div class="waypoint__content">
+                        <h2><span>Улица Бривибас</span></h2>
+                        <div class="">
+                            <div class="info" data-action="next">
+                                <p>Здесь вы видите высокий дом, построенный в начале ХХ ве...</p>
+                            </div>
+                            <div class="directions-none">
+                                <h3>Улица Бривибас</h3>
+                                <img src="img/street.jpg" alt="image">
+                                <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
+                                <span class="btn-close"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="waypoint__map"></div>
+                </div>
+            </div>
+
+            <div class="slide filter-game-2 filter-description-2">
+                <div class="waypoint">
+                    <div class="waypoint__content">
+                        <div class="directions">
+                            <h3>Улица Бривибас</h3>
+                            <img src="img/street.jpg" alt="image">
+                            <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
+                            <span class="btn-close" data-action="next"></span>
+                        </div>
+                    </div>
+                    <div class="waypoint__map"></div>
+                </div>
+            </div>
+
+            <div class="slide filter-game-2 filter-question-2">
+                <div class="slide__content">
+                    <div class="block">
+                        <h2>Улица Бривибас</h2>
+                        <h3>Вопрос 1</h3>
+                        <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
+
+                        <form id="answer-2" action="#" method="post">
+                            <p data-action="filter" data-filter="true"><input id="an1" name="answer" value="a1" type="radio"><label for="an1">
+                                <span class="radio-button"></span>два</label></p>
+                            <p data-action="filter" data-filter="halfTrue"><input id="an2" name="answer" value="a2" type="radio"><label for="an2">
+                                <span class="radio-button"></span>три</label></p>
+                            <p data-action="filter" data-filter="false"><input id="an3" name="answer" value="a2" type="radio"><label for="an3">
+                                <span class="radio-button"></span>четыре</label></p>
+                            <p data-action="filter" data-filter="false"><input id="an4" name="answer" value="a2" type="radio"><label for="an4">
+                                <span class="radio-button"></span>пять</label></p>
+                            <button type="submit">Дальше</button>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="slide filter-hint-2">
+                <div class="slide__content">
+                    <div class="block">
+                        <h2>Улица Бривибас</h2>
+                        <h3>Подсказка к вопросу 1</h3>
+                        <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
+                        <span class="btn-close" data-action="filter" data-filter="game"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide filter-correct-2">
+                <div class="slide__content">
+                    <div class="block">
+                        <h2>Улица Бривибас</h2>
+                        <h4>Как называлась улица Бривибас раньше?</h4>
+                        <div class="message truly">Верно!</div>
+                        <div class="point-info">
+                            <p>12 очков!</p>
+                            <p>#архитектор</p>
+                            <p>#историк</p>
+                        </div>
+                        <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
+                        <span class="btn-close" data-action="next"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide filter-almost-correct-2">
+                <div class="slide__content">
+                    <div class="block">
+                        <h2>Улица Бривибас</h2>
+                        <h4>Как называлась улица Бривибас раньше?</h4>
+                        <div class="message passably">Да, но могло быть лучше…</div>
+                        <div class="point-info">
+                            <p>12 очков!</p>
+                            <p>#архитектор</p>
+                            <p>#историк</p>
+                        </div>
+                        <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
+                        <span class="btn-close" data-action="next"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide filter-incorrect-2">
+                <div class="slide__content">
+                    <div class="block">
+                        <h2>Улица Бривибас</h2>
+                        <h4>Как называлась улица Бривибас раньше?</h4>
+                        <div class="message wrong">Увы...</div>
+                        <div class="point-info">
+                            <p>12 очков!</p>
+                            <p>#архитектор</p>
+                            <p>#историк</p>
+                        </div>
+                        <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
+                        <span class="btn-close" data-action="next"></span>
                     </div>
                 </div>
             </div>
@@ -1287,7 +1408,7 @@
                     <i class="fa fa-gift" aria-hidden="true"></i>
                     <span>бонус</span>
                 </button>
-                <button type="button" class="btn btn-next" data-action="next">
+                <button type="button" class="btn btn-next disable" data-action="next">
                     <!--    <i class="fa fa-share" aria-hidden="true"></i>-->
                     <i class="fa fa-arrow-right" aria-hidden="true"></i>
                     <span>дальше</span>

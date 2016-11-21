@@ -288,6 +288,7 @@ $(document).ready(function () {
             var nextAttr = '[data-action="next"]';
             var prevAttr = '[data-action="prev"]';
             var filterAttr = '[data-action="filter"]';
+            var $footer = $('footer');
             var filters = {
                 start: '.filter-start',
                 game: '.filter-game-',
@@ -305,6 +306,8 @@ $(document).ready(function () {
             var gameStart = false;
             var currFilter = '';
             var stageIsChanged = false;
+            
+            
             
             
     
@@ -351,7 +354,7 @@ $(document).ready(function () {
                 });*!/
             });*/
     
-            s.on('afterChange', filteringAfter);
+            
             
             
             $gameSlider.slick({
@@ -360,6 +363,29 @@ $(document).ready(function () {
                 infinite: false
             });
     
+            s.on('afterChange', filteringAfter);
+            
+            var slick = s.slick('getSlick');
+            console.dir(slick);
+            $('footer, .content-slider').on('click', function (e) {
+                var target = e.target;
+                var noDisable = ':not(.disable)';
+        
+                if (target.closest(nextAttr + noDisable)) {
+                    slick.next();
+                }
+                
+                if (target.closest(prevAttr + noDisable)) {
+                    slick.prev();
+                }
+                
+                if (target.closest(filterAttr + noDisable)) {
+                    var filter = filters[target.closest(filterAttr).getAttribute('data-filter')] + gameCount;
+                    //console.log(filter);
+                    setFilter(filter);
+                }
+            });
+            
             
             
             /*(function(){
@@ -399,8 +425,11 @@ $(document).ready(function () {
                 if (!gameStart) {
                     gameStart = true;
                     currFilter = filters.game + gameCount;
+                    $footer.fadeIn();
                     stageIsChanged = true;
                 }
+                
+                
     
                 
                 if (stageIsChanged) {
@@ -430,19 +459,25 @@ $(document).ready(function () {
             function setFilter(filter, index) {
                 index = index || 0;
                 var slick = s.slick('getSlick');
-                var goToFunc = goTo(index, s, true);
+                //var goToFunc = goTo(index, s, true);
                 
                 
                 
                 //console.dir(slick);
                 //console.log(goto);
-                console.log(index);
+                //console.log(index);
     
-                //s.on('reInit', goToFunc);
+                //s.one('reInit', goToFunc);
                 
                 s.slick('slickUnfilter');
                 s.slick('slickFilter', filter);
                 slick.currentSlide = index;
+                
+                /*setTimeout(function () {
+                    slick.currentSlide = index + 2;
+                    console.log(slick.currentSlide);
+                    s.slick('goTo', index + 1);
+                },1000);*/
                 
                 //s.slick('goTo', index);
     
@@ -465,8 +500,8 @@ $(document).ready(function () {
                     }, noAnimate);*/
                     //slick.currentSlide = 3;
                     //console.log(slick);
-                    s.slick('goTo', +index);
-                    s.off('reInit', inner);
+                    s.slick('goTo', index);
+                    //s.off('reInit', inner);
                 };
                 
                 return result;
