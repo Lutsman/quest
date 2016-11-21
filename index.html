@@ -1112,28 +1112,6 @@
             </nav>
         </header>
 
-        <!--<section class="content">
-            <div class="container-fluid">
-                &lt;!&ndash;<div class="places-slider">
-                    <div class="slide">
-                        <p class="title"><span>Улица Бривибас</span></p>
-                        <img src="img/street.jpg" alt="place-img">
-                        <div class="info">
-                            <p>Здесь вы видите высокий дом, построенный в начале ХХ ве...</p>
-                        </div>
-                    </div>
-                </div>&ndash;&gt;
-                <div class="game-slider">
-                    <div class="slide"></div>
-
-                    <div class="slide"></div>
-                    <div class="slide"></div>
-                    <div class="slide"></div>
-                    <div class="slide"></div>
-                </div>
-            </div>&lt;!&ndash; /.container-fluid &ndash;&gt;
-        </section>-->
-
         <div class="content-slider">
             <div class="slide filter-start">
                 <div class="main">
@@ -1152,7 +1130,7 @@
                 </div>
             </div>
 
-            <div class="slide filter-game-1">
+            <div class="slide filter-game-1" data-disallow="hintNav">
                 <div class="waypoint">
                     <div class="waypoint__content">
                         <h2><span>Улица Бривибас</span></h2>
@@ -1172,7 +1150,7 @@
                 </div>
             </div>
 
-            <div class="slide filter-game-1 filter-description-1">
+            <div class="slide filter-game-1 filter-description-1" data-disallow="hintNav">
                 <div class="waypoint">
                     <div class="waypoint__content">
                         <div class="directions">
@@ -1186,7 +1164,7 @@
                 </div>
             </div>
 
-            <div class="slide filter-game-1 filter-question-1">
+            <div class="slide filter-game-1 filter-question-1" data-disallow="submit,nextNav">
                 <div class="slide__content">
                    <div class="block">
                        <h2>Улица Бривибас</h2>
@@ -1194,15 +1172,15 @@
                        <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
 
                        <form id="answer-1" action="#" method="post">
-                           <p data-action="filter" data-filter="true"><input id="an1" name="answer" value="a1" type="radio"><label for="an1">
+                           <p><input id="an1-1" name="answer" value="true" type="radio"><label for="an1-1">
                                <span class="radio-button"></span>два</label></p>
-                           <p data-action="filter" data-filter="halfTrue"><input id="an2" name="answer" value="a2" type="radio"><label for="an2">
+                           <p><input id="an2-1" name="answer" value="halfTrue" type="radio"><label for="an2-1">
                                <span class="radio-button"></span>три</label></p>
-                           <p data-action="filter" data-filter="false"><input id="an3" name="answer" value="a2" type="radio"><label for="an3">
+                           <p><input id="an3-1" name="answer" value="false" type="radio"><label for="an3-1">
                                <span class="radio-button"></span>четыре</label></p>
-                           <p data-action="filter" data-filter="false"><input id="an4" name="answer" value="a2" type="radio"><label for="an4">
+                           <p><input id="an4-1" name="answer" value="false" type="radio"><label for="an4-1">
                                <span class="radio-button"></span>пять</label></p>
-                           <button type="submit">Дальше</button>
+                           <button type="submit" data-permit-name="submit">Дальше</button>
                        </form>
                    </div>
 
@@ -1210,7 +1188,7 @@
 
             </div>
 
-            <div class="slide filter-hint-1">
+            <div class="slide filter-hint-1" data-disallow="hintNav">
                 <div class="slide__content">
                     <div class="block">
                         <h2>Улица Бривибас</h2>
@@ -1221,7 +1199,7 @@
                 </div>
             </div>
 
-            <div class="slide filter-correct-1">
+            <div class="slide filter-correct-1" data-disallow="hintNav">
                 <div class="slide__content">
                     <div class="block">
                         <h2>Улица Бривибас</h2>
@@ -1238,7 +1216,7 @@
                 </div>
             </div>
 
-            <div class="slide filter-almost-correct-1">
+            <div class="slide filter-almost-correct-1" data-disallow="hintNav">
                 <div class="slide__content">
                     <div class="block">
                         <h2>Улица Бривибас</h2>
@@ -1255,7 +1233,7 @@
                 </div>
             </div>
 
-            <div class="slide filter-incorrect-1">
+            <div class="slide filter-incorrect-1" data-disallow="hintNav">
                 <div class="slide__content">
                     <div class="block">
                         <h2>Улица Бривибас</h2>
@@ -1314,15 +1292,15 @@
                         <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
 
                         <form id="answer-2" action="#" method="post">
-                            <p data-action="filter" data-filter="true"><input id="an1" name="answer" value="a1" type="radio"><label for="an1">
+                            <p><input id="an1-2" name="answer" value="true" type="radio"><label for="an1-2">
                                 <span class="radio-button"></span>два</label></p>
-                            <p data-action="filter" data-filter="halfTrue"><input id="an2" name="answer" value="a2" type="radio"><label for="an2">
+                            <p><input id="an2-2" name="answer" value="halfTrue" type="radio"><label for="an2-2">
                                 <span class="radio-button"></span>три</label></p>
-                            <p data-action="filter" data-filter="false"><input id="an3" name="answer" value="a2" type="radio"><label for="an3">
+                            <p><input id="an3-2" name="answer" value="false" type="radio"><label for="an3-2">
                                 <span class="radio-button"></span>четыре</label></p>
-                            <p data-action="filter" data-filter="false"><input id="an4" name="answer" value="a2" type="radio"><label for="an4">
+                            <p><input id="an4-2" name="answer" value="false" type="radio"><label for="an4-2">
                                 <span class="radio-button"></span>пять</label></p>
-                            <button type="submit">Дальше</button>
+                            <button type="submit" data-permit-name="submit">Дальше</button>
                         </form>
                     </div>
 
@@ -1400,7 +1378,7 @@
                     <i class="fa fa-question" aria-hidden="true"></i>
                     <span>вопросы</span>
                 </button>
-                <button type="button" class="btn btn-support" data-action="filter" data-filter="hint">
+                <button type="button" class="btn btn-support" data-action="filter" data-filter="hint" data-permit-name="hintNav">
                     <i class="fa fa-info" aria-hidden="true"></i>
                     <span>подсказка</span>
                 </button>
@@ -1408,7 +1386,7 @@
                     <i class="fa fa-gift" aria-hidden="true"></i>
                     <span>бонус</span>
                 </button>
-                <button type="button" class="btn btn-next disable" data-action="next">
+                <button type="button" class="btn btn-next" data-action="next" data-permit-name="nextNav">
                     <!--    <i class="fa fa-share" aria-hidden="true"></i>-->
                     <i class="fa fa-arrow-right" aria-hidden="true"></i>
                     <span>дальше</span>

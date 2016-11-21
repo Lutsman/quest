@@ -469,6 +469,7 @@ footer {
     z-index: 5;
     left: 0;
     bottom: 0;
+    display: none;
     height: 80px;
     text-align: center;
     background-color: #e2e2e2;
@@ -609,7 +610,7 @@ footer {
     }
 }
 .waypoint__map {
-    height: 62px;
+    height: 100%;
     background-image: url("../img/map_bg.jpg");
     background-size: cover;
 }
@@ -660,6 +661,11 @@ footer {
 }
 .wrong {
     background-color: #d3464a;
+}
+
+/*js classes*/
+.disable {
+    opacity: 0.3!important;
 }
 
 /* ----------------------------------------------

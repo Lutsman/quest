@@ -288,6 +288,9 @@ $(document).ready(function () {
             var nextAttr = '[data-action="next"]';
             var prevAttr = '[data-action="prev"]';
             var filterAttr = '[data-action="filter"]';
+            var allowAttr = 'data-allow';
+            var disallowAttr = 'data-disallow';
+            var $answer = $('input[name="answer"]');
             var $footer = $('footer');
             var filters = {
                 start: '.filter-start',
@@ -299,6 +302,23 @@ $(document).ready(function () {
                 true: '.filter-correct-',
                 halfTrue: '.filter-almost-correct-',
                 false: '.filter-incorrect-'
+            };
+            var permitableElements = {
+                hint: {
+                    permit: true,
+                    link: '.btn-support',
+                    isChanged: false
+                },
+                next: {
+                    permit: true,
+                    link: '.btn-next',
+                    isChanged: false
+                },
+                submit: {
+                    permit: true,
+                    link: '.content-slider [type="submit"]',
+                    isChanged: false
+                }
             };
             var gameCount = 1;
             var currGameQuestionCount= 1;
@@ -364,9 +384,10 @@ $(document).ready(function () {
             });
     
             s.on('afterChange', filteringAfter);
+            s.on('reInit', navPermitsController.bind(this, s));
             
             var slick = s.slick('getSlick');
-            console.dir(slick);
+            //console.dir(slick);
             $('footer, .content-slider').on('click', function (e) {
                 var target = e.target;
                 var noDisable = ':not(.disable)';
@@ -385,6 +406,7 @@ $(document).ready(function () {
                     setFilter(filter);
                 }
             });
+            $answer.on('click', onAnswer);
             
             
             
@@ -418,22 +440,24 @@ $(document).ready(function () {
             })();*/
     
     
-            function filteringAfter(e, obj, currSlide) {
+            function filteringAfter(e, slick, currSlide) {
                 //console.dir(obj);
                 //console.log(currSlide);
+                var index = 0;
+                
+                navPermitsController(slick.$slider);
                 
                 if (!gameStart) {
                     gameStart = true;
                     currFilter = filters.game + gameCount;
+                    index = currSlide - 1;
                     $footer.fadeIn();
                     stageIsChanged = true;
                 }
-                
-                
     
                 
                 if (stageIsChanged) {
-                    setFilter(currFilter, 0);
+                    setFilter(currFilter, index);
                     stageIsChanged = false;
                 }
                 
@@ -500,13 +524,76 @@ $(document).ready(function () {
                     }, noAnimate);*/
                     //slick.currentSlide = 3;
                     //console.log(slick);
-                    s.slick('goTo', index);
+                    s.slick('goTo', index, noAnimate);
                     //s.off('reInit', inner);
                 };
                 
                 return result;
             }
+    
+            function getFilter() {
+                
+            }
+    
+            function navPermitsController(s) {
+                var $activeSlide = s.find('.slick-active');
+                //var allows = $activeSlide.attr(allowAttr).split(',');
+                var disallows = $activeSlide.attr(disallowAttr);
+                
+                //console.log(disallows);
+                //if (!disallows) return;
+                
+                //disallows = disallows.split(',');
+                
+                
+                
+                setPermits(disallows);
+            }
+    
+            function setPermits(permits) {
+                var $permitedElements = $('[data-permit-name]');
+                
+                $permitedElements.removeClass('disable');
+                
+                if (!permits) return;
+    
+                //permits = permits.split(',');
+                
+                permits.split(',').forEach(function (item) {
+                    //console.log(item);
+                    //var target = $permitedElements.find('[data-permit-name="' + item + '"]');
+                    $permitedElements.each(function () {
+                        //console.log(this.getAttribute('data-permit-name') === item);
+                       if (this.getAttribute('data-permit-name') === item) {
+                           $(this).addClass('disable');
+                       }
+                    });
+                });
+            }
+    
+            function onAnswer(e) {
+                var target = e.target;
+                var slide = target.closest('[data-disallow]');
+                var attr = slide.getAttribute('data-disallow').split(',');
+                var newAttr = attr.filter(function (name) {
+                    return name !== 'submit';
+                }).join(',');
+                
+                console.log(newAttr);
+                slide.setAttribute('data-disallow', newAttr);
+                
+                setPermits(newAttr);
+            }
             
+            function onSubmit(e) {
+                var target = e.target;
+                var radio = target.closest('form').querySelector(':checked');
+                e.preventDefault();
+                
+                if (!radio) return;
+                
+                setFilter(radio.value);
+            }
         })();
         
         
