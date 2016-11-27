@@ -292,6 +292,7 @@ $(document).ready(function () {
             var disallowAttr = 'data-disallow';
             var $answer = $('input[name="answer"]');
             var $footer = $('footer');
+            var $submit = $('button[type="submit"]');
             var filters = {
                 start: '.filter-start',
                 game: '.filter-game-',
@@ -407,6 +408,7 @@ $(document).ready(function () {
                 }
             });
             $answer.on('click', onAnswer);
+            $submit.on('click', onSubmit);
             
             
             
@@ -592,7 +594,11 @@ $(document).ready(function () {
                 
                 if (!radio) return;
                 
-                setFilter(radio.value);
+                var val = '' + radio.value;
+                console.log(radio);
+                console.log(val);
+                
+                setFilter(filters[val] + gameCount);
             }
         })();
         
