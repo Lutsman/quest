@@ -23,24 +23,36 @@
 html, body, section, header, footer, .page-wrap {
     width: 100%;
 }
-
 body {
     min-width: 320px;
     font: 16px $ubuntu;
-    background-color: #fff;
+    background-color: #fafafa;
+}
+header, footer, div, nav, ul, form {
+    &::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
 }
 
-section, .page-wrap, .content-slider {
+section, .page-wrap {
     position: relative;
     z-index: 2;
 }
+section {
+    max-width: 600px;
+    margin: 0 auto;
+}
 
 .page-wrap {
-    max-width: 600px;
     height: 100%;
     min-height: 100vh;
-  /*  padding: 50px 0 80px;*/
     margin: 0 auto;
+}
+
+.none {
+    display: none !important;
 }
 
 /* ----------------------------------------------
@@ -56,6 +68,7 @@ h2 {
     margin: 0;
     font: 24px $museoSans;
     font-weight: 500;
+    text-align: center;
 }
 h3 {
     font: 22px $museoSans;
@@ -90,50 +103,107 @@ img, video {
  Form Buttons Inputs
  ---------------------------------------------- */
 
+button, input, textarea {
+    outline: none;
+    border: none;
+    @include box-shadow(none);
+}
+button {
+    cursor: pointer;
+}
+
 /* ---------------------------------------------- /*
  Transition elsements
 /* ---------------------------------------------- */
 
-a, .btn {
+a, .btn, button {
     @include transition(all 0.2s ease-in-out);
 }
 
-.btn-start {
-    padding: 10px 20px;
+.btn {
+    padding: 10px 30px;
     font: 20px $museoSans;
     font-weight: 500;
     color: #fff;
-    text-transform: uppercase;
-    background-color: #5cc1d3;
-    border-color: #5cc1d3;
     @include border-radius(0);
     &:hover {
-        color: #5cc1d3;
         background-color: #fff;
     }
 }
-.btn-about {
-    padding: 5px 15px;
-    font: 20px $museoSans;
-    font-weight: 500;
-    color: #fff;
-    background-color: #f46a79;
-    border-color: #f46a79;
-    @include border-radius(0);
-    &:hover {
-        color: #f46a79;
-        background-color: #fff;
-    }
+.btn-small {
+    padding: 5px;
+    font-size: 12px;
 }
 
 .btn-wrap {
-    position: absolute;
-    z-index: 15;
-    right: 20px;
-    bottom: 10px;
-    padding: 5px;
-    background: rgba(255,255,255,0.3);
+    padding: 10px 0;
+    text-align: center;
 }
+.btn-small-wrap {
+    position: absolute;
+    z-index: 5;
+    bottom: -14px;
+    left: 0;
+    width: 100%;
+    padding: 0 5px;
+    .btn {
+        float: right;
+        &:first-of-type {
+            float: left;
+        }
+    }
+}
+.btn-step-wrap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    .btn-step {
+        position: static;
+        float: left;
+        width: 50%;
+        padding: 24px 10px;
+    }
+}
+
+.btn-fb-login {
+    i {
+        margin-right: 5px;
+    }
+}
+
+.btn-add-userpic {
+    display: block;
+    width: 100%;
+    max-width: 152px;
+    margin: 0 auto;
+    background-color: #fafafa;
+    border: 1px solid #dbdbdb;
+    @include border-radius(50%);
+    img {
+        @include border-radius(50%);
+    }
+}
+.btn-exit {
+    float: right;
+    width: 25%;
+    font-size: 16px;
+    line-height: 25px;
+}
+/*.profile */.btn-edit-profile {
+    width: 100%;
+    padding: 0 5px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #999;
+    line-height: 30px;
+    border-color: #999;
+    @include border-radius(3px);
+    &:hover {
+        background-color: transparent;
+    }
+}
+
 .btn-booking {
     font-size: 18px;
     font-weight: bold;
@@ -149,44 +219,46 @@ a, .btn {
     }
 }
 
-.btn-questions {
-    background-color: $blue;
-    border-color: $blue;
-    &:hover {
-        color: $blue;
-        background-color: #fff;
-    }
+.btn-start {
+    text-transform: uppercase;
 }
-.btn-support {
-    background-color: $green;
-    border-color: $green;
-    &:hover {
-        color: $green;
-        background-color: #fff;
+
+.btn-step {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 70px;
+    font-size: 24px;
+    white-space: normal;
+    h2 {
+        padding: 10px 0;
     }
-}
-.btn-bonus {
-    background-color: $yellow;
-    border-color: $yellow;
-    &:hover {
-        color: $yellow;
-        background-color: #fff;
+    h3 {
+        margin: 0;
     }
-}
-.btn-next {
-    background-color: $red;
-    border-color: $red;
-    &:hover {
-        color: $red;
-        background-color: #fff;
+    h4 {
+        font-weight: bold;
+    }
+    span {
+        display: block;
+        font-size: 16px;
+    }
+    i {
+        position: absolute;
+        z-index: 2;
+        top: 20px;
+        right: 15px;
     }
 }
 
 .btn-close {
     display: block;
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 15px;
+    right: 15px;
     width: 30px;
     height: 30px;
     cursor: pointer;
@@ -197,8 +269,8 @@ a, .btn {
         width: 19px;
         height: 19px;
         display: block;
-        border-top: 2px solid #000;
-        border-right: 2px solid #000;
+        border-top: 2px solid #fff;
+        border-right: 2px solid #fff;
     }
     &::before {
         left: -8px;
@@ -211,20 +283,75 @@ a, .btn {
 }
 
 
+
+.btn-pink {
+    background-color: $pink;
+    border-color: $pink;
+    &:hover {
+        color: $pink;
+    }
+}
+.btn-yellow-lime {
+    background-color: $yellow-lime;
+    border-color: $yellow-lime;
+    &:hover {
+        color: $yellow-lime;
+    }
+}
+.btn-green {
+    background-color: $green;
+    border-color: $green;
+    &:hover {
+        color: $green;
+    }
+}
+.btn-light-green {
+    background-color: $light-green;
+    border-color: $light-green;
+    &:hover {
+        color: $light-green;
+    }
+}
+.btn-red {
+    background-color: $red;
+    border-color: $red;
+    &:hover {
+        color: $red;
+    }
+}
+.btn-light-blue {
+    background-color: $light-blue;
+    border-color: $light-blue;
+    &:hover {
+        color: $light-blue;
+    }
+}
+
+.big {
+    text-transform: uppercase;
+}
+
+
+
+
+
 /* ----------------------------------------------
  Header
  ---------------------------------------------- */
 
 header {
-    position: absolute;
+    position: fixed;
     z-index: 10;
     top: 0;
     left: 0;
+    height: 50px;
+    background-color: $header-bg;
 }
 .top-menu {
-    margin-bottom: 0;
+    min-width: 320px;
+    max-width: 960px;
+    margin: 0 auto;
     color: #fff;
-    background-color: $menu-bg;
     border: none;
     .navbar-toggle {
         float: left;
@@ -234,24 +361,65 @@ header {
     .icon-bar {
         background-color: #fff;
     }
-    .dropdown {
+    .navbar-collapse {
+        border-top: 0;
+    }
+    .support-nav {
         float: right;
-        margin: 8px 0;
-        border-left: 1px solid $menu-border;
-        .btn {
-            background-color: transparent;
-            i {
-                color: #fff;
+        padding: 7px 0;
+        margin: 0;
+        > li {
+            float: left;
+            border-left: 1px solid $menu-border;
+            > a {
+                padding: 7px 15px;
+                background-color: transparent;
+                border-color: transparent;
+                &:focus, &:hover {
+                    color: #fff;
+                    background-color: transparent;
+                }
             }
-            &:hover, &:focus {
-                color: #fff;
+        }
+        .open {
+            > a {
+                &:focus, &:hover {
+                    background-color: transparent;
+                    border-color: transparent;
+                }
+            }
+            .dropdown-menu {
+                position: absolute;
+                float: none;
+                width: auto;
+                margin-top: 0;
+                background-color: #465257;
+                border-color: #465257;
+                @include box-shadow(0 6px 12px rgba(0,0,0,.175));
+                > li > a {
+                    padding: 3px 18px;
+                }
+            }
+        }
+        i {
+            font-size: 18px;
+        }
+        .balance {
+            font-size: 24px;
+            font-weight: bold;
+            i {
+                margin-right: 10px;
+                font-size: 22px;
             }
         }
     }
     .dropdown-menu {
         min-width: 100%;
-        background-color: $menu-bg;
-        border-color: $menu-bg;
+        background-color: $header-bg;
+        border-color: $header-bg;
+        > li > a {
+            padding: 3px 18px;
+        }
         a {
             color: #fff;
             &:hover {
@@ -260,191 +428,43 @@ header {
             }
         }
     }
-    .nav {
-        font: 20px $museoSans;
-        border: 1px solid $blue;
-        > li > a {
-            background-color: $blue;
-            &:hover, &:focus {
-                color: $blue;
-                background-color: #fff;
-                &::after {
-                    border-color: $blue;
-                }
-            }
-            &::after {
-                content: '';
-                display: block;
-                position: absolute;
-                top: 20px;
-                right: 20px;
-                width: 8px;
-                height: 8px;
-                border-top: 1px solid #fff;
-                border-right: 1px solid #fff;
-                @include transform(rotate(45deg));
-                @include transition(all 0.2s ease-in-out);
-            }
-        }
-    }
-    .navbar-nav {
-        margin: 0 -15px;
-    }
-    .city-menu, .game-list {
-        display: none;
-    }
 }
-.city-menu {
-    position: relative;
-    z-index: 15;
+.top-menu__nav {
+    margin: 0 -15px;
     font: 20px $museoSans;
-    > li {
-        > a {
-            position: relative;
-            z-index: 15;
-            display: block;
-            color: #fff;
-            border: 2px solid #fff;
-            p {
-                position: absolute;
-                z-index: 20;
-                left: 15px;
-                bottom: 12px;
-                margin: 0;
-                font-weight: bold;
-                text-shadow: 0 0 4.7px rgba(81, 81, 81, 0.8);
-            }
+    border: 1px solid $blue;
+    > li > a {
+        background-color: $blue;
+        &:hover, &:focus {
+            color: $blue;
+            background-color: #fff;
             &::after {
-                content: '';
-                display: block;
-                position: absolute;
-                z-index: 15;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                height: 50px;
-                background-image: -webkit-linear-gradient(top,rgba(50,50,50,0),#323232);
-                background-image: linear-gradient(to bottom,rgba(50,50,50,0),#323232);
-                /*zoom: 1;*/
-                opacity: 0.7;
-            }
-            &:hover {
-                color: #fff;
+                border-color: $blue;
             }
         }
-    }
-    .title {
-        a {
-            padding: 10px 15px;
-            text-align: center;
-            background-color: $blue;
-            &::after {
-                display: none;
-            }
-            &:hover, &:focus {
-                color: $blue;
-                text-decoration: none;
-                background-color: #fff;
-                &::before {
-                    border-color: $blue;
-                }
-            }
-            &::before {
-                content: '';
-                display: block;
-                position: absolute;
-                top: 20px;
-                left: 20px;
-                width: 8px;
-                height: 8px;
-                border-top: 1px solid #fff;
-                border-right: 1px solid #fff;
-                @include transform(rotate(225deg));
-                @include transition(all 0.2s ease-in-out);
-            }
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 8px;
+            height: 8px;
+            border-top: 1px solid #fff;
+            border-right: 1px solid #fff;
+            @include transform(rotate(45deg));
+            @include transition(all 0.2s ease-in-out);
         }
     }
 }
-
-.game-list {
-    padding-bottom: 10px;
-    color: #666;
-    background-color: #fff;
-    h3 {
-        margin: 0 0 5px;
-    }
-    p {
-        font-size: 14px;
-        text-align: justify;
-    }
-    li:not(.title) {
-        display: none;
-    }
-    li.active {
-        display: block;
-    }
-    .title {
-        a {
-            display: block;
-            padding: 10px 15px;
-            color: #fff;
-            text-align: center;
-            border: 2px solid #fff;
-            background-color: $blue;
-            &:hover, &:focus {
-                color: $blue;
-                text-decoration: none;
-                background-color: #fff;
-                &::after {
-                    border-color: $blue;
-                }
-            }
-            &::after {
-                content: '';
-                display: block;
-                position: absolute;
-                top: 20px;
-                left: 20px;
-                width: 8px;
-                height: 8px;
-                border-top: 1px solid #fff;
-                border-right: 1px solid #fff;
-                @include transform(rotate(225deg));
-                @include transition(all 0.2s ease-in-out);
-            }
-        }
-    }
-    .image-box {
-        position: relative;
-        z-index: 15;
-    }
-    .infographics {
-        margin: 15px 0 10px;
-        font-size: 14px;
-        color: #555;
-        text-align: center;
-        span {
-            margin: 0 5px;
-        }
-        i {
-            color: #2e7fb6;
-        }
-    }
-    .game-info {
-        padding: 0 15px;
-    }
-    .price {
-        font-size: 24px;
-        font-weight: bold;
-        color: $orange;
-        text-align: right;
-    }
-}
-
 .choose-lang img {
     width: 16px;
     height: 11px;
     vertical-align: middle;
+}
+.game-steps {
+    padding: 7px 15px;
+    line-height: 20px;
 }
 
 /*.active {
@@ -493,15 +513,21 @@ footer {
  Sections
  ---------------------------------------------- */
 
-.content-slider {
+.content {
     height: 100%;
     min-height: inherit;
-   /* margin: -50px 0 -80px;*/
-    background-color: yellow;
+    padding-top: 50px;
+    background-color: #fff;
     .container-fluid {
-        padding: 0;
+        height: 100%;
+        min-height: inherit;
+        padding: 50px 0 0;
+        margin-top: -50px;
     }
-    .slide {
+    .step-content {
+        padding-bottom: 70px;
+    }
+  /*  .slide {
         width: 100%;
         height: 100%;
         min-height: inherit;
@@ -516,24 +542,383 @@ footer {
         }
     }
     .slick-list, .slick-track {
-        height: 100%;  /*important*/
+        height: 100%;  !*important*!
         min-height: inherit;
+    }*/
+}
+.login-content {
+    background-color: #fafafa;
+}
+.city-menu {
+    margin: 0;
+    font: 20px $museoSans;
+    color: #fff;
+    > h2 {
+        padding: 10px 15px;
+        background-color: $blue;
+        border: 2px solid #fff;
+    }
+    > li {
+        > a {
+            position: relative;
+            z-index: 2;
+            display: block;
+            border: 2px solid #fff;
+            p {
+                position: absolute;
+                z-index: 20;
+                left: 15px;
+                bottom: 12px;
+                margin: 0;
+                font-weight: bold;
+                text-shadow: 0 0 4.7px rgba(81, 81, 81, 0.8);
+            }
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                z-index: 15;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                height: 50px;
+                background-image: -webkit-linear-gradient(top,rgba(50,50,50,0),#323232);
+                background-image: linear-gradient(to bottom,rgba(50,50,50,0),#323232);
+                /*zoom: 1;*/
+                opacity: 0.7;
+            }
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+    /*.title {
+        a {
+            padding: 10px 15px;
+            text-align: center;
+            background-color: $blue;
+            &::after {
+                display: none;
+            }
+            &:hover, &:focus {
+                color: $blue;
+                text-decoration: none;
+                background-color: #fff;
+                &::before {
+                    border-color: $blue;
+                }
+            }
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                width: 8px;
+                height: 8px;
+                border-top: 1px solid #fff;
+                border-right: 1px solid #fff;
+                @include transform(rotate(225deg));
+                @include transition(all 0.2s ease-in-out);
+            }
+        }
+    }*/
+}
+
+.welcome-text {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: $blue;
+    border: 2px solid #fff;
+    h2 {
+        margin-top: 20px;
+    }
+    p {
+        margin-bottom: 0;
+    }
+    a {
+        text-decoration: underline;
+        &:hover {
+            color: #fff;
+            text-decoration: none;
+        }
     }
 }
-.select-main {
-    z-index: 7;
+
+.text-block {
+    padding: 15px 15px 66px;
+    h3 {
+        margin: 20px 0 10px;
+        font-weight: normal;
+    }
+    .btn-wrap {
+        position: absolute;
+        z-index: 2;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
 }
-.slick-initialized {
-    .slide + .slide {
+.game-reference {
+    padding-bottom: 15px;
+    color: #fff;
+    background-color: $red;
+}
+.game-data {
+    margin-bottom: 20px;
+    font-size: 14px;
+    p {
+        margin: 0;
+    }
+}
+.notice {
+    padding: 10px;
+    margin-top: 20px;
+    background-color: $light-blue;
+}
+
+.form-wrap {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    margin-top: 25px;
+    @include transform(translate(0, -50%));
+}
+.form-block, .form-block-bottom {
+    margin: 10px 0;
+    background-color: #fff;
+    border: 1px solid #efefef;
+    @include border-radius(1px);
+}
+.form-block {
+    padding: 40px;
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
+.form-block-bottom {
+    padding: 20px 40px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #262626;
+    text-align: center;
+    p {
+        margin-bottom: 0;
+    }
+    a {
+        color: #3897f0;
+    }
+}
+.login-form {
+    font-weight: 600;
+    color: #999;
+    > p {
+        font-size: 17px;
+        line-height: 20px;
+        text-align: center;
+        &:last-of-type {
+            margin: 10px;
+            font-size: 14px;
+            line-height: 18px;
+        }
+    }
+    input {
+        margin-bottom: 6px;
+    }
+    img {
         display: block;
+        width: 40%;
+        max-width: 200px;
+        margin: 0 auto 30px;
+       @include border-radius(50%);
+    }
+    .btn {
+        display: block;
+        width: 100%;
+        padding: 6px 30px;
+        margin: 20px 0;
+        font-size: 16px;
+        font-weight: 600;
+        background: #3897f0;
+        border-color: #3897f0;
+        @include border-radius(3px);
+        &:hover {
+            background: #3897f0;
+        }
+    }
+    .input-link-box {
+        position: relative;
+        z-index: 2;
+        > a {
+            position: absolute;
+            top: 0;
+            right: 8px;
+            font-size: 14px;
+            color: #003569;
+            line-height: 34px;
+        }
+    }
+}
+.delimiter {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin: 10px 0 20px;
+    font-size: 13px;
+    line-height: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    &::before, &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        width: 40%;
+        height: 1px;
+        background-color: #c7c7c7;
+    }
+    &::before {
+        left: 0;
+    }
+    &::after {
+        right: 0;
+    }
+}
+
+.profile {
+    font-size: 17px;
+    font-weight: bold;
+    > div {
+        float: left;
+        width: 65%;
+        padding: 15px;
+        &:first-of-type {
+            width: 35%;
+            min-width: 100px;
+        }
+    }
+}
+.profile__username {
+    float: left;
+    width: 75%;
+    font-size: 21px;
+    font-weight: normal;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.profile-edit {
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    @include border-radius(3px);
+    aside {
+        float: left;
+        width: 30%;
+        li {
+            > a {
+                display: block;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 20px;
+                padding: 16px;
+                border-left: 2px solid transparent;
+                &:hover {
+                    color: #333;
+                    text-decoration: none;
+                    border-left-color: #dbdbdb;
+                }
+            }
+            .active {
+                border-left-color: #262626;
+            }
+        }
+    }
+}
+.profile-edit__box {
+    float: left;
+    width: 70%;
+    padding: 16px;
+    border-left: 1px solid #dbdbdb;
+    img {
+        float: left;
+        width: 38px;
+        max-width: 25%;
+        border: 1px solid #dbdbdb;
+        @include border-radius(50%);
+    }
+    .profile__username {
+        padding-left: 20px;
+    }
+}
+.profile-edit-form {
+    margin-top: 20px;
+    button[type="submit"] {
+        padding: 0 11px;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 31px;
+        color: #3897f0;
+        background-color: #fff;
+        border-color: #3897f0;
+        @include border-radius(3px);
+    }
+}
+
+.game-list {
+    padding-bottom: 10px;
+    color: #666;
+    background-color: #fff;
+    h3 {
+        margin: 0 0 5px;
+    }
+    p {
+        font-size: 14px;
+        text-align: justify;
+    }
+    li:not(.title) {
+        display: none;
+    }
+    li.active {
+        display: block;
+    }
+    h2 {
+        padding: 10px 15px;
+        color: #fff;
+        border: 2px solid #fff;
+        background-color: $blue;
+    }
+    .image-box {
+        position: relative;
+        z-index: 15;
+    }
+    .infographics {
+        margin: 15px 0 10px;
+        font-size: 14px;
+        color: #555;
+        text-align: center;
+        span {
+            margin: 0 5px;
+        }
+        i {
+            color: #2e7fb6;
+        }
+    }
+    .game-info {
+        padding: 0 15px;
+    }
+    .price {
+        font-size: 24px;
+        font-weight: bold;
+        color: $orange;
+        text-align: right;
     }
 }
 
 .main {
-    position: relative;
-    z-index: 2;
     text-align: center;
-    background-image: url("../img/main-img-600x900.jpg");
     background-size: cover;
     h1 {
         padding: 0 15px;
@@ -542,6 +927,9 @@ footer {
             padding: 10px 15px;
             margin: 10px 0;
             background-color: rgba(255, 255, 255, 0.6);
+            &:first-of-type {
+                padding: 0 15px;
+            }
         }
     }
 }
@@ -553,14 +941,17 @@ footer {
     > div {
         margin-bottom: 20px;
     }
+    .btn {
+        padding: 5px 20px;
+    }
+    .btn-start {
+        padding: 10px 30px;
+    }
 }
 
 .waypoint__content {
     position: relative;
-    z-index: 2;
-    height: 290px;
-    background-image: url("../img/waypoint.jpg");
-    background-size: cover;
+    z-index: 5;
     h2 {
         position: absolute;
         z-index: 2;
@@ -577,43 +968,136 @@ footer {
             /*@include border-radius(4px);*/
         }
     }
-   /* > h2, .info {
-        display: none;
-    }*/
-    .info {
-        position: absolute;
-        z-index: 2;
+    .waypoint-info {
         top: 100px;
+        left: auto;
         right: 15px;
         width: 140px;
         height: 85px;
-        padding: 10px 15px;
-        font: 14px $museoSans;
-        background-color: rgba(255, 255, 255, 0.8);
-        cursor: pointer;
-    }
-    .directions-none {
-        display: none;
-    }
-    .directions, .directions-none {
-        width: 100%;
-        padding: 20px;
-        background-color: #fff;
-        h3 {
-            margin-top: 0;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        img, video {
-            margin-bottom: 20px;
-        }
     }
 }
 .waypoint__map {
-    height: 100%;
+    display: block;
+    position: relative;
+    z-index: 2;
+    height: 72px;
+    background-image: url("../img/map_bg.jpg");
+    background-size: cover;
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: 2;
+        top: 15px;
+        left: 50%;
+        width: 50px;
+        height: 50px;
+        border-top: 7px solid #fff;
+        border-left: 7px solid #fff;
+        @include transform(translate(-50%, 0) rotate(45deg));
+    }
+}
+
+.step-title {
+    position: relative;
+    z-index: 2;
+    padding: 10px 50px 10px 15px;
+    color: #fff;
+    span {
+        display: block;
+        font-size: 16px;
+    }
+}
+.result-title {
+    padding: 10px 15px;
+    font-size: 28px;
+    color: #fff;
+}
+
+.map-wrap {
+    position: relative;
+    z-index: 2;
+    height: 370px;
     background-image: url("../img/map_bg.jpg");
     background-size: cover;
 }
+.waypoint-info {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    padding: 10px 15px;
+    font: 14px $museoSans;
+    text-overflow: ellipsis;
+    background-color: rgba(255, 255, 255, 0.8);
+    overflow: hidden;
+    &:hover {
+        color: #333;
+        text-decoration: none;
+    }
+}
+
+.directions {
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    h3 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    img, video {
+        margin-bottom: 10px;
+    }
+}
+.block {
+    position: relative;
+    z-index: 2;
+    padding: 10px 20px;
+    label {
+        margin-left: 20px;
+    }
+}
+.prompt {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    color: #fff;
+    img, video {
+        margin-bottom: 10px;
+    }
+    .btn-close {
+        top: 5px;
+    }
+}
+
+.message {
+    padding: 10px 20px;
+    margin: 10px 0;
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+}
+
+
+
+
+
+
+.select-main {
+    z-index: 7;
+}
+.slick-initialized {
+    .slide + .slide {
+        display: block;
+    }
+}
+
+
+
 
 .slide__content {
     background-color: #fff;
@@ -621,23 +1105,7 @@ footer {
         margin-bottom: 20px;
     }
 }
-.block {
-    position: relative;
-    z-index: 2;
-    padding: 20px;
-    h3 {
-        margin-top: 10px;
-        font-weight: normal;
-    }
-    label {
-        margin-left: 20px;
-    }
-    button {
-        padding: 7px 20px;
-        border-color: #000;
-        @include border-radius(0);
-    }
-}
+
 .point-info {
     margin-bottom: 10px;
     font-size: 18px;
@@ -646,22 +1114,7 @@ footer {
         margin: 0;
     }
 }
-.message {
-    padding: 10px 20px;
-    margin: 10px 0;
-    font-size: 36px;
-    color: #fff;
-    text-align: center;
-}
-.truly {
-    background-color: #44ac3b;
-}
-.passably {
-    background-color: $yellow;
-}
-.wrong {
-    background-color: #d3464a;
-}
+
 
 /*js classes*/
 .disable {
@@ -671,6 +1124,33 @@ footer {
 /* ----------------------------------------------
  Colors Backgrounds
  ---------------------------------------------- */
+
+.light-blue-bg {
+    background-color: $light-blue;
+}
+.red-bg {
+    background-color: $red;
+}
+.green-bg {
+    background-color: $green;
+}
+.yellow-lime-bg {
+    background-color: $yellow-lime;
+}
+
+.truly {
+    background-color: $light-green;
+}
+.passably {
+    background-color: $yellow-lime;
+}
+.wrong {
+    background-color: $red;
+}
+
+.main-riga {
+    background-image: url("../img/main-img-600x900.jpg");
+}
 
 /* ----------------------------------------------
 Pop up
@@ -688,4 +1168,27 @@ Pop up
   z-index: 99;
 }*/
 
+.exit-profile-menu {
+    display: none;
+    width: 80%;
+    max-width: 500px;
+    button {
+        display: block;
+        width: 100%;
+        font-weight: 600;
+        line-height: 50px;
+        background-color: #fff;
+        border-bottom: 1px solid #dbdbdb;
+        &:hover {
+            background-color: #efefef;
+        }
+    }
+}
+
+.text-popup {
+    display: none;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+}
 

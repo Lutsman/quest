@@ -5,6 +5,10 @@
             margin-right: -15px;
             margin-left: -15px;
         }
+        .navbar-collapse {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
         .navbar-toggle {
             display: block;
         }
@@ -14,7 +18,7 @@
         .navbar {
             @include border-radius(0);
         }
-        .navbar-nav, .navbar-nav > li {
+        .top-menu__nav, .top-menu__nav > li {
             float: none;
         }
         .navbar-collapse.collapse {

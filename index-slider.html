@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="keywords" content="">  <!--Ключевые слова-->
+    <meta name="description" content=""> <!--Описание-->
+
+    <title>Quest-game</title>
+
+    <!--Start Open Graph-->
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="">   <!--Заголовок-->
+    <meta property="og:description" content=""> <!--Краткое описание, которое выводится при формировании превью ссылки-->
+    <meta property="og:url" content="http://"> <!--Ссылка на страницу сайта-->
+    <meta property="og:image" content="http://"> <!--Ссылка на картинку, которая будет отображаться в посте-->
+    <!--End Open Graph-->
+
+    <!--Favicon-->
+  <!--  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" href="images/favicon.png"/>-->
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!--For improved cross-browser rendering-->
+    <link rel="stylesheet" href="css/normalize.css">
+
+    <!--Plugin CSS-->
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/slick-theme.css">
+
+    <!-- Custom styles CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <div class="page-wrap">
+        <header>
+            <nav class="navbar top-menu">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-action="reset-nav" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">Пункт 1</a></li>
+                                <li><a href="#">Пункт 2</a></li>
+                                <li><a href="#">Пункт 3</a></li>
+                            </ul>
+                        </div>
+                        <div class="dropdown choose-lang">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                <img src="img/ru.gif" alt="ru">
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+                                <li><a href="#"><img src="img/ru.gif" alt="ru"></a></li>
+                                <li><a href="#"><img src="img/gb.gif" alt="en"></a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="#" data-group-name="nav-level-2">Все игры в городе Рига</a>
+                                <ul class="game-list">
+                                    <li class="title" data-action="back" data-target="nav-level-2"><a href="#">Все игры в городе Петербург <span>(5 игр)</span></a></li>
+                                    <li class="active">
+                                        <div class="menu-slider">
+                                            <div class="slide">
+                                                <div class="image-box">
+                                                    <img src="img/city.jpg" alt="image">
+                                                    <div class="btn-wrap">
+                                                        <button type="button" class="btn btn-booking">Бронировать</button>
+                                                    </div>
+                                                </div>
+                                                <div class="infographics">
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>2 ч.</span>
+                                                    </span>
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>0,4 км.</span>
+                                                    </span>
+                                                    <span>
+                                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                                        <span>157</span>
+                                                    </span>
+                                                </div>
+                                                <div class="game-info">
+                                                    <h3>Легенды и тайны Михайловского замка</h3>
+                                                    <p>История самого мистического замка Петербурга и его загадочного хозяина в
+                                                        формате квсет-экскурсии</p>
+                                                    <p class="price">
+                                                        <i class="fa fa-eur" aria-hidden="true"></i>
+                                                        <span>15</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="slide">
+                                                <div class="image-box">
+                                                    <img src="img/city.jpg" alt="image">
+                                                    <div class="btn-wrap">
+                                                        <button type="button" class="btn btn-booking">Бронировать</button>
+                                                    </div>
+                                                </div>
+                                                <div class="infographics">
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>2 ч.</span>
+                                                    </span>
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>0,4 км.</span>
+                                                    </span>
+                                                    <span>
+                                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                                        <span>157</span>
+                                                    </span>
+                                                </div>
+                                                <div class="game-info">
+                                                    <h3>Сокровища Эрмитажа</h3>
+                                                    <p>Главные шедевры одного из крупнейших художественных и
+                                                        культурно-исторических музеев не только России, но и мира –
+                                                        лучшее культурное наследие, которое мы собрали для Вас в одном
+                                                        квесте!</p>
+                                                    <p class="price">
+                                                        <i class="fa fa-eur" aria-hidden="true"></i>
+                                                        <span>25</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="slide">
+                                                <div class="image-box">
+                                                    <img src="img/city.jpg" alt="image">
+                                                    <div class="btn-wrap">
+                                                        <button type="button" class="btn btn-booking">Бронировать</button>
+                                                    </div>
+                                                </div>
+                                                <div class="infographics">
+                                                            <span>
+                                                                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                                <span>2 ч.</span>
+                                                            </span>
+                                                    <span>
+                                                                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                                <span>0,4 км.</span>
+                                                            </span>
+                                                    <span>
+                                                                <i class="fa fa-users" aria-hidden="true"></i>
+                                                                <span>157</span>
+                                                            </span>
+                                                </div>
+                                                <div class="game-info">
+                                                    <h3>Назад, в прошлое: Государственный музей истории Санкт-Петербурга</h3>
+                                                    <p>Самый интересный и захватывающий способ познакомиться с историей
+                                                        города на Неве</p>
+                                                    <p class="price">
+                                                        <i class="fa fa-eur" aria-hidden="true"></i>
+                                                        <span>10</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="slide">
+                                                <div class="image-box">
+                                                    <img src="img/city.jpg" alt="image">
+                                                    <div class="btn-wrap">
+                                                        <button type="button" class="btn btn-booking">Бронировать</button>
+                                                    </div>
+                                                </div>
+                                                <div class="infographics">
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>2 ч.</span>
+                                                    </span>
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>0,4 км.</span>
+                                                    </span>
+                                                    <span>
+                                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                                        <span>157</span>
+                                                    </span>
+                                                </div>
+                                                <div class="game-info">
+                                                    <h3>Петергоф - столица фонтанов</h3>
+                                                    <p>Незабываемая квест-экскурсия по Нижнему парку и знакомство с
+                                                        одними из лучших в мире фонтанов</p>
+                                                    <p class="price">
+                                                        <i class="fa fa-eur" aria-hidden="true"></i>
+                                                        <span>15</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="slide">
+                                                <div class="image-box">
+                                                    <img src="img/city.jpg" alt="image">
+                                                    <div class="btn-wrap">
+                                                        <button type="button" class="btn btn-booking">Бронировать</button>
+                                                    </div>
+                                                </div>
+                                                <div class="infographics">
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>2 ч.</span>
+                                                    </span>
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>0,4 км.</span>
+                                                    </span>
+                                                    <span>
+                                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                                        <span>157</span>
+                                                    </span>
+                                                </div>
+                                                <div class="game-info">
+                                                    <h3>Русский музей: эпицентр русского искусства</h3>
+                                                    <p>Потрясающие картины, старейшие иконы, филигранно выполненные
+                                                        скульптуры – не упустите свой шанс наиболее захватывающе
+                                                        познакомиться с собранием Русского музея!</p>
+                                                    <p class="price">
+                                                        <i class="fa fa-eur" aria-hidden="true"></i>
+                                                        <span>35</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" data-group-name="nav-level-2">Другие города</a>
+                                <ul class="city-menu">
+                                    <li class="title" data-action="back" data-target="nav-level-2"><a href="#">Игры в других городах</a></li>
+                                    <li>
+                                        <a href="#" data-group-name="nav-level-3">
+                                            <img src="img/city-list-1.jpg" alt="city-img">
+                                            <p>Петербург <span>(5)</span></p>
+                                        </a>
+                                        <ul class="game-list">
+                                            <li class="title" data-action="back" data-target="nav-level-3"><a href="#">Все игры в городе Петербург <span>(5 игр)</span></a></li>
+                                            <li class="active">
+                                                <div class="menu-slider">
+                                                    <div class="slide">
+                                                        <div class="image-box">
+                                                            <img src="img/city.jpg" alt="image">
+                                                            <div class="btn-wrap">
+                                                                <button type="button" class="btn btn-booking">Бронировать</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infographics">
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>2 ч.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>0,4 км.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                                        <span>157</span>
+                                                    </span>
+                                                        </div>
+                                                        <div class="game-info">
+                                                            <h3>Легенды и тайны Михайловского замка</h3>
+                                                            <p>История самого мистического замка Петербурга и его загадочного хозяина в
+                                                                формате квсет-экскурсии</p>
+                                                            <p class="price">
+                                                                <i class="fa fa-eur" aria-hidden="true"></i>
+                                                                <span>15</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide">
+                                                        <div class="image-box">
+                                                            <img src="img/city.jpg" alt="image">
+                                                            <div class="btn-wrap">
+                                                                <button type="button" class="btn btn-booking">Бронировать</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infographics">
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>2 ч.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>0,4 км.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                                        <span>157</span>
+                                                    </span>
+                                                        </div>
+                                                        <div class="game-info">
+                                                            <h3>Сокровища Эрмитажа</h3>
+                                                            <p>Главные шедевры одного из крупнейших художественных и
+                                                                культурно-исторических музеев не только России, но и мира –
+                                                                лучшее культурное наследие, которое мы собрали для Вас в одном
+                                                                квесте!</p>
+                                                            <p class="price">
+                                                                <i class="fa fa-eur" aria-hidden="true"></i>
+                                                                <span>25</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide">
+                                                        <div class="image-box">
+                                                            <img src="img/city.jpg" alt="image">
+                                                            <div class="btn-wrap">
+                                                                <button type="button" class="btn btn-booking">Бронировать</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infographics">
+                                                            <span>
+                                                                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                                <span>2 ч.</span>
+                                                            </span>
+                                                            <span>
+                                                                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                                <span>0,4 км.</span>
+                                                            </span>
+                                                            <span>
+                                                                <i class="fa fa-users" aria-hidden="true"></i>
+                                                                <span>157</span>
+                                                            </span>
+                                                        </div>
+                                                        <div class="game-info">
+                                                            <h3>Назад, в прошлое: Государственный музей истории Санкт-Петербурга</h3>
+                                                            <p>Самый интересный и захватывающий способ познакомиться с историей
+                                                                города на Неве</p>
+                                                            <p class="price">
+                                                                <i class="fa fa-eur" aria-hidden="true"></i>
+                                                                <span>10</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide">
+                                                        <div class="image-box">
+                                                            <img src="img/city.jpg" alt="image">
+                                                            <div class="btn-wrap">
+                                                                <button type="button" class="btn btn-booking">Бронировать</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infographics">
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>2 ч.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>0,4 км.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                                        <span>157</span>
+                                                    </span>
+                                                        </div>
+                                                        <div class="game-info">
+                                                            <h3>Петергоф - столица фонтанов</h3>
+                                                            <p>Незабываемая квест-экскурсия по Нижнему парку и знакомство с
+                                                                одними из лучших в мире фонтанов</p>
+                                                            <p class="price">
+                                                                <i class="fa fa-eur" aria-hidden="true"></i>
+                                                                <span>15</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide">
+                                                        <div class="image-box">
+                                                            <img src="img/city.jpg" alt="image">
+                                                            <div class="btn-wrap">
+                                                                <button type="button" class="btn btn-booking">Бронировать</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infographics">
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>2 ч.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>0,4 км.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                                        <span>157</span>
+                                                    </span>
+                                                        </div>
+                                                        <div class="game-info">
+                                                            <h3>Русский музей: эпицентр русского искусства</h3>
+                                                            <p>Потрясающие картины, старейшие иконы, филигранно выполненные
+                                                                скульптуры – не упустите свой шанс наиболее захватывающе
+                                                                познакомиться с собранием Русского музея!</p>
+                                                            <p class="price">
+                                                                <i class="fa fa-eur" aria-hidden="true"></i>
+                                                                <span>35</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-group-name="nav-level-3">
+                                            <img src="img/city-list-2.jpg" alt="city-img">
+                                            <p>Париж <span>(2)</span></p>
+                                        </a>
+                                        <ul class="game-list">
+                                            <li class="title" data-action="back" data-target="nav-level-3"><a href="#">Все игры в городе Петербург <span>(5 игр)</span></a></li>
+                                            <li class="active">
+                                                <div class="menu-slider">
+                                                    <div class="slide">
+                                                        <div class="image-box">
+                                                            <img src="img/city.jpg" alt="image">
+                                                            <div class="btn-wrap">
+                                                                <button type="button" class="btn btn-booking">Бронировать</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infographics">
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>2 ч.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>0,4 км.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                                        <span>157</span>
+                                                    </span>
+                                                        </div>
+                                                        <div class="game-info">
+                                                            <h3>Легенды и тайны Михайловского замка</h3>
+                                                            <p>История самого мистического замка Петербурга и его загадочного хозяина в
+                                                                формате квсет-экскурсии</p>
+                                                            <p class="price">
+                                                                <i class="fa fa-eur" aria-hidden="true"></i>
+                                                                <span>15</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide">
+                                                        <div class="image-box">
+                                                            <img src="img/city.jpg" alt="image">
+                                                            <div class="btn-wrap">
+                                                                <button type="button" class="btn btn-booking">Бронировать</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infographics">
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>2 ч.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>0,4 км.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                                        <span>157</span>
+                                                    </span>
+                                                        </div>
+                                                        <div class="game-info">
+                                                            <h3>Сокровища Эрмитажа</h3>
+                                                            <p>Главные шедевры одного из крупнейших художественных и
+                                                                культурно-исторических музеев не только России, но и мира –
+                                                                лучшее культурное наследие, которое мы собрали для Вас в одном
+                                                                квесте!</p>
+                                                            <p class="price">
+                                                                <i class="fa fa-eur" aria-hidden="true"></i>
+                                                                <span>25</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide">
+                                                        <div class="image-box">
+                                                            <img src="img/city.jpg" alt="image">
+                                                            <div class="btn-wrap">
+                                                                <button type="button" class="btn btn-booking">Бронировать</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infographics">
+                                                            <span>
+                                                                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                                <span>2 ч.</span>
+                                                            </span>
+                                                            <span>
+                                                                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                                <span>0,4 км.</span>
+                                                            </span>
+                                                            <span>
+                                                                <i class="fa fa-users" aria-hidden="true"></i>
+                                                                <span>157</span>
+                                                            </span>
+                                                        </div>
+                                                        <div class="game-info">
+                                                            <h3>Назад, в прошлое: Государственный музей истории Санкт-Петербурга</h3>
+                                                            <p>Самый интересный и захватывающий способ познакомиться с историей
+                                                                города на Неве</p>
+                                                            <p class="price">
+                                                                <i class="fa fa-eur" aria-hidden="true"></i>
+                                                                <span>10</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide">
+                                                        <div class="image-box">
+                                                            <img src="img/city.jpg" alt="image">
+                                                            <div class="btn-wrap">
+                                                                <button type="button" class="btn btn-booking">Бронировать</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infographics">
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>2 ч.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>0,4 км.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                                        <span>157</span>
+                                                    </span>
+                                                        </div>
+                                                        <div class="game-info">
+                                                            <h3>Петергоф - столица фонтанов</h3>
+                                                            <p>Незабываемая квест-экскурсия по Нижнему парку и знакомство с
+                                                                одними из лучших в мире фонтанов</p>
+                                                            <p class="price">
+                                                                <i class="fa fa-eur" aria-hidden="true"></i>
+                                                                <span>15</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide">
+                                                        <div class="image-box">
+                                                            <img src="img/city.jpg" alt="image">
+                                                            <div class="btn-wrap">
+                                                                <button type="button" class="btn btn-booking">Бронировать</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infographics">
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>2 ч.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>0,4 км.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                                        <span>157</span>
+                                                    </span>
+                                                        </div>
+                                                        <div class="game-info">
+                                                            <h3>Русский музей: эпицентр русского искусства</h3>
+                                                            <p>Потрясающие картины, старейшие иконы, филигранно выполненные
+                                                                скульптуры – не упустите свой шанс наиболее захватывающе
+                                                                познакомиться с собранием Русского музея!</p>
+                                                            <p class="price">
+                                                                <i class="fa fa-eur" aria-hidden="true"></i>
+                                                                <span>35</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-group-name="nav-level-3">
+                                            <img src="img/city-list-3.jpg" alt="city-img">
+                                            <p>Барселона <span>(4)</span></p>
+                                        </a>
+                                        <ul class="game-list">
+                                            <li class="title" data-action="back" data-target="nav-level-3"><a href="#">Все игры в городе Петербург <span>(5 игр)</span></a></li>
+                                            <li class="active">
+                                                <div class="menu-slider">
+                                                    <div class="slide">
+                                                        <div class="image-box">
+                                                            <img src="img/city.jpg" alt="image">
+                                                            <div class="btn-wrap">
+                                                                <button type="button" class="btn btn-booking">Бронировать</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infographics">
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>2 ч.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>0,4 км.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                                        <span>157</span>
+                                                    </span>
+                                                        </div>
+                                                        <div class="game-info">
+                                                            <h3>Легенды и тайны Михайловского замка</h3>
+                                                            <p>История самого мистического замка Петербурга и его загадочного хозяина в
+                                                                формате квсет-экскурсии</p>
+                                                            <p class="price">
+                                                                <i class="fa fa-eur" aria-hidden="true"></i>
+                                                                <span>15</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide">
+                                                        <div class="image-box">
+                                                            <img src="img/city.jpg" alt="image">
+                                                            <div class="btn-wrap">
+                                                                <button type="button" class="btn btn-booking">Бронировать</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infographics">
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>2 ч.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>0,4 км.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                                        <span>157</span>
+                                                    </span>
+                                                        </div>
+                                                        <div class="game-info">
+                                                            <h3>Сокровища Эрмитажа</h3>
+                                                            <p>Главные шедевры одного из крупнейших художественных и
+                                                                культурно-исторических музеев не только России, но и мира –
+                                                                лучшее культурное наследие, которое мы собрали для Вас в одном
+                                                                квесте!</p>
+                                                            <p class="price">
+                                                                <i class="fa fa-eur" aria-hidden="true"></i>
+                                                                <span>25</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide">
+                                                        <div class="image-box">
+                                                            <img src="img/city.jpg" alt="image">
+                                                            <div class="btn-wrap">
+                                                                <button type="button" class="btn btn-booking">Бронировать</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infographics">
+                                                            <span>
+                                                                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                                <span>2 ч.</span>
+                                                            </span>
+                                                            <span>
+                                                                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                                <span>0,4 км.</span>
+                                                            </span>
+                                                            <span>
+                                                                <i class="fa fa-users" aria-hidden="true"></i>
+                                                                <span>157</span>
+                                                            </span>
+                                                        </div>
+                                                        <div class="game-info">
+                                                            <h3>Назад, в прошлое: Государственный музей истории Санкт-Петербурга</h3>
+                                                            <p>Самый интересный и захватывающий способ познакомиться с историей
+                                                                города на Неве</p>
+                                                            <p class="price">
+                                                                <i class="fa fa-eur" aria-hidden="true"></i>
+                                                                <span>10</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide">
+                                                        <div class="image-box">
+                                                            <img src="img/city.jpg" alt="image">
+                                                            <div class="btn-wrap">
+                                                                <button type="button" class="btn btn-booking">Бронировать</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infographics">
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>2 ч.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>0,4 км.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                                        <span>157</span>
+                                                    </span>
+                                                        </div>
+                                                        <div class="game-info">
+                                                            <h3>Петергоф - столица фонтанов</h3>
+                                                            <p>Незабываемая квест-экскурсия по Нижнему парку и знакомство с
+                                                                одними из лучших в мире фонтанов</p>
+                                                            <p class="price">
+                                                                <i class="fa fa-eur" aria-hidden="true"></i>
+                                                                <span>15</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide">
+                                                        <div class="image-box">
+                                                            <img src="img/city.jpg" alt="image">
+                                                            <div class="btn-wrap">
+                                                                <button type="button" class="btn btn-booking">Бронировать</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infographics">
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>2 ч.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>0,4 км.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                                        <span>157</span>
+                                                    </span>
+                                                        </div>
+                                                        <div class="game-info">
+                                                            <h3>Русский музей: эпицентр русского искусства</h3>
+                                                            <p>Потрясающие картины, старейшие иконы, филигранно выполненные
+                                                                скульптуры – не упустите свой шанс наиболее захватывающе
+                                                                познакомиться с собранием Русского музея!</p>
+                                                            <p class="price">
+                                                                <i class="fa fa-eur" aria-hidden="true"></i>
+                                                                <span>35</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-group-name="nav-level-3">
+                                            <img src="img/city-list-4.jpg" alt="city-img">
+                                            <p>Вена <span>(3)</span></p>
+                                        </a>
+                                        <ul class="game-list">
+                                            <li class="title" data-action="back" data-target="nav-level-3"><a href="#">Все игры в городе Петербург <span>(5 игр)</span></a></li>
+                                            <li class="active">
+                                                <div class="menu-slider">
+                                                    <div class="slide">
+                                                        <div class="image-box">
+                                                            <img src="img/city.jpg" alt="image">
+                                                            <div class="btn-wrap">
+                                                                <button type="button" class="btn btn-booking">Бронировать</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infographics">
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>2 ч.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>0,4 км.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                                        <span>157</span>
+                                                    </span>
+                                                        </div>
+                                                        <div class="game-info">
+                                                            <h3>Легенды и тайны Михайловского замка</h3>
+                                                            <p>История самого мистического замка Петербурга и его загадочного хозяина в
+                                                                формате квсет-экскурсии</p>
+                                                            <p class="price">
+                                                                <i class="fa fa-eur" aria-hidden="true"></i>
+                                                                <span>15</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide">
+                                                        <div class="image-box">
+                                                            <img src="img/city.jpg" alt="image">
+                                                            <div class="btn-wrap">
+                                                                <button type="button" class="btn btn-booking">Бронировать</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infographics">
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>2 ч.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>0,4 км.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                                        <span>157</span>
+                                                    </span>
+                                                        </div>
+                                                        <div class="game-info">
+                                                            <h3>Сокровища Эрмитажа</h3>
+                                                            <p>Главные шедевры одного из крупнейших художественных и
+                                                                культурно-исторических музеев не только России, но и мира –
+                                                                лучшее культурное наследие, которое мы собрали для Вас в одном
+                                                                квесте!</p>
+                                                            <p class="price">
+                                                                <i class="fa fa-eur" aria-hidden="true"></i>
+                                                                <span>25</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide">
+                                                        <div class="image-box">
+                                                            <img src="img/city.jpg" alt="image">
+                                                            <div class="btn-wrap">
+                                                                <button type="button" class="btn btn-booking">Бронировать</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infographics">
+                                                            <span>
+                                                                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                                <span>2 ч.</span>
+                                                            </span>
+                                                            <span>
+                                                                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                                <span>0,4 км.</span>
+                                                            </span>
+                                                            <span>
+                                                                <i class="fa fa-users" aria-hidden="true"></i>
+                                                                <span>157</span>
+                                                            </span>
+                                                        </div>
+                                                        <div class="game-info">
+                                                            <h3>Назад, в прошлое: Государственный музей истории Санкт-Петербурга</h3>
+                                                            <p>Самый интересный и захватывающий способ познакомиться с историей
+                                                                города на Неве</p>
+                                                            <p class="price">
+                                                                <i class="fa fa-eur" aria-hidden="true"></i>
+                                                                <span>10</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide">
+                                                        <div class="image-box">
+                                                            <img src="img/city.jpg" alt="image">
+                                                            <div class="btn-wrap">
+                                                                <button type="button" class="btn btn-booking">Бронировать</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infographics">
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>2 ч.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>0,4 км.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                                        <span>157</span>
+                                                    </span>
+                                                        </div>
+                                                        <div class="game-info">
+                                                            <h3>Петергоф - столица фонтанов</h3>
+                                                            <p>Незабываемая квест-экскурсия по Нижнему парку и знакомство с
+                                                                одними из лучших в мире фонтанов</p>
+                                                            <p class="price">
+                                                                <i class="fa fa-eur" aria-hidden="true"></i>
+                                                                <span>15</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide">
+                                                        <div class="image-box">
+                                                            <img src="img/city.jpg" alt="image">
+                                                            <div class="btn-wrap">
+                                                                <button type="button" class="btn btn-booking">Бронировать</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infographics">
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>2 ч.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>0,4 км.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                                        <span>157</span>
+                                                    </span>
+                                                        </div>
+                                                        <div class="game-info">
+                                                            <h3>Русский музей: эпицентр русского искусства</h3>
+                                                            <p>Потрясающие картины, старейшие иконы, филигранно выполненные
+                                                                скульптуры – не упустите свой шанс наиболее захватывающе
+                                                                познакомиться с собранием Русского музея!</p>
+                                                            <p class="price">
+                                                                <i class="fa fa-eur" aria-hidden="true"></i>
+                                                                <span>35</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-group-name="nav-level-3">
+                                            <img src="img/city-list-5.jpg" alt="city-img">
+                                            <p>Берлин <span>(4)</span></p>
+                                        </a>
+                                        <ul class="game-list">
+                                            <li class="title" data-action="back" data-target="nav-level-3"><a href="#">Все игры в городе Петербург <span>(5 игр)</span></a></li>
+                                            <li class="active">
+                                                <div class="menu-slider">
+                                                    <div class="slide">
+                                                        <div class="image-box">
+                                                            <img src="img/city.jpg" alt="image">
+                                                            <div class="btn-wrap">
+                                                                <button type="button" class="btn btn-booking">Бронировать</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infographics">
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>2 ч.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>0,4 км.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                                        <span>157</span>
+                                                    </span>
+                                                        </div>
+                                                        <div class="game-info">
+                                                            <h3>Легенды и тайны Михайловского замка</h3>
+                                                            <p>История самого мистического замка Петербурга и его загадочного хозяина в
+                                                                формате квсет-экскурсии</p>
+                                                            <p class="price">
+                                                                <i class="fa fa-eur" aria-hidden="true"></i>
+                                                                <span>15</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide">
+                                                        <div class="image-box">
+                                                            <img src="img/city.jpg" alt="image">
+                                                            <div class="btn-wrap">
+                                                                <button type="button" class="btn btn-booking">Бронировать</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infographics">
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>2 ч.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>0,4 км.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                                        <span>157</span>
+                                                    </span>
+                                                        </div>
+                                                        <div class="game-info">
+                                                            <h3>Сокровища Эрмитажа</h3>
+                                                            <p>Главные шедевры одного из крупнейших художественных и
+                                                                культурно-исторических музеев не только России, но и мира –
+                                                                лучшее культурное наследие, которое мы собрали для Вас в одном
+                                                                квесте!</p>
+                                                            <p class="price">
+                                                                <i class="fa fa-eur" aria-hidden="true"></i>
+                                                                <span>25</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide">
+                                                        <div class="image-box">
+                                                            <img src="img/city.jpg" alt="image">
+                                                            <div class="btn-wrap">
+                                                                <button type="button" class="btn btn-booking">Бронировать</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infographics">
+                                                            <span>
+                                                                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                                <span>2 ч.</span>
+                                                            </span>
+                                                            <span>
+                                                                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                                <span>0,4 км.</span>
+                                                            </span>
+                                                            <span>
+                                                                <i class="fa fa-users" aria-hidden="true"></i>
+                                                                <span>157</span>
+                                                            </span>
+                                                        </div>
+                                                        <div class="game-info">
+                                                            <h3>Назад, в прошлое: Государственный музей истории Санкт-Петербурга</h3>
+                                                            <p>Самый интересный и захватывающий способ познакомиться с историей
+                                                                города на Неве</p>
+                                                            <p class="price">
+                                                                <i class="fa fa-eur" aria-hidden="true"></i>
+                                                                <span>10</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide">
+                                                        <div class="image-box">
+                                                            <img src="img/city.jpg" alt="image">
+                                                            <div class="btn-wrap">
+                                                                <button type="button" class="btn btn-booking">Бронировать</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infographics">
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>2 ч.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>0,4 км.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                                        <span>157</span>
+                                                    </span>
+                                                        </div>
+                                                        <div class="game-info">
+                                                            <h3>Петергоф - столица фонтанов</h3>
+                                                            <p>Незабываемая квест-экскурсия по Нижнему парку и знакомство с
+                                                                одними из лучших в мире фонтанов</p>
+                                                            <p class="price">
+                                                                <i class="fa fa-eur" aria-hidden="true"></i>
+                                                                <span>15</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide">
+                                                        <div class="image-box">
+                                                            <img src="img/city.jpg" alt="image">
+                                                            <div class="btn-wrap">
+                                                                <button type="button" class="btn btn-booking">Бронировать</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="infographics">
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>2 ч.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>0,4 км.</span>
+                                                    </span>
+                                                            <span>
+                                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                                        <span>157</span>
+                                                    </span>
+                                                        </div>
+                                                        <div class="game-info">
+                                                            <h3>Русский музей: эпицентр русского искусства</h3>
+                                                            <p>Потрясающие картины, старейшие иконы, филигранно выполненные
+                                                                скульптуры – не упустите свой шанс наиболее захватывающе
+                                                                познакомиться с собранием Русского музея!</p>
+                                                            <p class="price">
+                                                                <i class="fa fa-eur" aria-hidden="true"></i>
+                                                                <span>35</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </header>
+
+        <div class="content-slider">
+            <div class="slide filter-start">
+                <div class="main">
+                    <h1>
+                        <span>секретная</span> <br>
+                        <span>РИГА</span>
+                    </h1>
+                    <div class="main__buttons">
+                        <div>
+                            <button class="btn btn-start" data-action="next">начать игру</button>
+                        </div>
+                        <div>
+                            <button class="btn btn-about">инфо</button>
+                        </div>
+                        <div>
+                            <button class="btn btn-about">Демо-игра</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide filter-game-1" data-disallow="hintNav">
+                <div class="waypoint">
+                    <div class="waypoint__content">
+                        <h2><span>Улица Бривибас</span></h2>
+                        <div class="">
+                            <div class="info" data-action="next">
+                                <p>Здесь вы видите высокий дом, построенный в начале ХХ ве...</p>
+                            </div>
+                            <div class="directions-none">
+                                <h3>Улица Бривибас</h3>
+                                <img src="img/street.jpg" alt="image">
+                                <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
+                                <span class="btn-close"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="waypoint__map"></div>
+                </div>
+            </div>
+
+            <div class="slide filter-game-1 filter-description-1" data-disallow="hintNav">
+                <div class="waypoint">
+                    <div class="waypoint__content">
+                        <div class="directions">
+                            <h3>Улица Бривибас</h3>
+                            <img src="img/street.jpg" alt="image">
+                            <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
+                            <span class="btn-close" data-action="next"></span>
+                        </div>
+                    </div>
+                    <div class="waypoint__map"></div>
+                </div>
+            </div>
+
+            <div class="slide filter-game-1 filter-question-1" data-disallow="submit,nextNav">
+                <div class="slide__content">
+                   <div class="block">
+                       <h2>Улица Бривибас</h2>
+                       <h3>Вопрос 1</h3>
+                       <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
+
+                       <form id="answer-1" action="#" method="post">
+                           <p><input id="an1-1" name="answer" value="true" type="radio"><label for="an1-1">
+                               <span class="radio-button"></span>два</label></p>
+                           <p><input id="an2-1" name="answer" value="halfTrue" type="radio"><label for="an2-1">
+                               <span class="radio-button"></span>три</label></p>
+                           <p><input id="an3-1" name="answer" value="false" type="radio"><label for="an3-1">
+                               <span class="radio-button"></span>четыре</label></p>
+                           <p><input id="an4-1" name="answer" value="false" type="radio"><label for="an4-1">
+                               <span class="radio-button"></span>пять</label></p>
+                           <button type="submit" data-permit-name="submit">Дальше</button>
+                       </form>
+                   </div>
+
+                </div>
+
+            </div>
+
+            <div class="slide filter-hint-1" data-disallow="hintNav">
+                <div class="slide__content">
+                    <div class="block">
+                        <h2>Улица Бривибас</h2>
+                        <h3>Подсказка к вопросу 1</h3>
+                        <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
+                        <span class="btn-close" data-action="filter" data-filter="game"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide filter-correct-1" data-disallow="hintNav">
+                <div class="slide__content">
+                    <div class="block">
+                        <h2>Улица Бривибас</h2>
+                        <h4>Как называлась улица Бривибас раньше?</h4>
+                        <div class="message truly">Верно!</div>
+                        <div class="point-info">
+                            <p>12 очков!</p>
+                            <p>#архитектор</p>
+                            <p>#историк</p>
+                        </div>
+                        <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
+                        <span class="btn-close" data-action="next"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide filter-almost-correct-1" data-disallow="hintNav">
+                <div class="slide__content">
+                    <div class="block">
+                        <h2>Улица Бривибас</h2>
+                        <h4>Как называлась улица Бривибас раньше?</h4>
+                        <div class="message passably">Да, но могло быть лучше…</div>
+                        <div class="point-info">
+                            <p>12 очков!</p>
+                            <p>#архитектор</p>
+                            <p>#историк</p>
+                        </div>
+                        <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
+                        <span class="btn-close" data-action="next"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide filter-incorrect-1" data-disallow="hintNav">
+                <div class="slide__content">
+                    <div class="block">
+                        <h2>Улица Бривибас</h2>
+                        <h4>Как называлась улица Бривибас раньше?</h4>
+                        <div class="message wrong">Увы...</div>
+                        <div class="point-info">
+                            <p>12 очков!</p>
+                            <p>#архитектор</p>
+                            <p>#историк</p>
+                        </div>
+                        <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
+                        <span class="btn-close" data-action="next"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide filter-game-2">
+                <div class="waypoint">
+                    <div class="waypoint__content">
+                        <h2><span>Улица Бривибас</span></h2>
+                        <div class="">
+                            <div class="info" data-action="next">
+                                <p>Здесь вы видите высокий дом, построенный в начале ХХ ве...</p>
+                            </div>
+                            <div class="directions-none">
+                                <h3>Улица Бривибас</h3>
+                                <img src="img/street.jpg" alt="image">
+                                <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
+                                <span class="btn-close"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="waypoint__map"></div>
+                </div>
+            </div>
+
+            <div class="slide filter-game-2 filter-description-2">
+                <div class="waypoint">
+                    <div class="waypoint__content">
+                        <div class="directions">
+                            <h3>Улица Бривибас</h3>
+                            <img src="img/street.jpg" alt="image">
+                            <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
+                            <span class="btn-close" data-action="next"></span>
+                        </div>
+                    </div>
+                    <div class="waypoint__map"></div>
+                </div>
+            </div>
+
+            <div class="slide filter-game-2 filter-question-2">
+                <div class="slide__content">
+                    <div class="block">
+                        <h2>Улица Бривибас</h2>
+                        <h3>Вопрос 1</h3>
+                        <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
+
+                        <form id="answer-2" action="#" method="post">
+                            <p><input id="an1-2" name="answer" value="true" type="radio"><label for="an1-2">
+                                <span class="radio-button"></span>два</label></p>
+                            <p><input id="an2-2" name="answer" value="halfTrue" type="radio"><label for="an2-2">
+                                <span class="radio-button"></span>три</label></p>
+                            <p><input id="an3-2" name="answer" value="false" type="radio"><label for="an3-2">
+                                <span class="radio-button"></span>четыре</label></p>
+                            <p><input id="an4-2" name="answer" value="false" type="radio"><label for="an4-2">
+                                <span class="radio-button"></span>пять</label></p>
+                            <button type="submit" data-permit-name="submit">Дальше</button>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="slide filter-hint-2">
+                <div class="slide__content">
+                    <div class="block">
+                        <h2>Улица Бривибас</h2>
+                        <h3>Подсказка к вопросу 1</h3>
+                        <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
+                        <span class="btn-close" data-action="filter" data-filter="game"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide filter-correct-2">
+                <div class="slide__content">
+                    <div class="block">
+                        <h2>Улица Бривибас</h2>
+                        <h4>Как называлась улица Бривибас раньше?</h4>
+                        <div class="message truly">Верно!</div>
+                        <div class="point-info">
+                            <p>12 очков!</p>
+                            <p>#архитектор</p>
+                            <p>#историк</p>
+                        </div>
+                        <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
+                        <span class="btn-close" data-action="next"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide filter-almost-correct-2">
+                <div class="slide__content">
+                    <div class="block">
+                        <h2>Улица Бривибас</h2>
+                        <h4>Как называлась улица Бривибас раньше?</h4>
+                        <div class="message passably">Да, но могло быть лучше…</div>
+                        <div class="point-info">
+                            <p>12 очков!</p>
+                            <p>#архитектор</p>
+                            <p>#историк</p>
+                        </div>
+                        <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
+                        <span class="btn-close" data-action="next"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide filter-incorrect-2">
+                <div class="slide__content">
+                    <div class="block">
+                        <h2>Улица Бривибас</h2>
+                        <h4>Как называлась улица Бривибас раньше?</h4>
+                        <div class="message wrong">Увы...</div>
+                        <div class="point-info">
+                            <p>12 очков!</p>
+                            <p>#архитектор</p>
+                            <p>#историк</p>
+                        </div>
+                        <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
+                        <span class="btn-close" data-action="next"></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <div class="container-fluid">
+                <button type="button" class="btn btn-questions">
+                    <i class="fa fa-question" aria-hidden="true"></i>
+                    <span>вопросы</span>
+                </button>
+                <button type="button" class="btn btn-support" data-action="filter" data-filter="hint" data-permit-name="hintNav">
+                    <i class="fa fa-info" aria-hidden="true"></i>
+                    <span>подсказка</span>
+                </button>
+                <button type="button" class="btn btn-bonus">
+                    <i class="fa fa-gift" aria-hidden="true"></i>
+                    <span>бонус</span>
+                </button>
+                <button type="button" class="btn btn-next" data-action="next" data-permit-name="nextNav">
+                    <!--    <i class="fa fa-share" aria-hidden="true"></i>-->
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    <span>дальше</span>
+                </button>
+
+            </div><!-- /.container-fluid -->
+        </footer>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/ddcf86203d.js"></script>
+    <script src="js/slick.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>

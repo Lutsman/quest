@@ -77,48 +77,31 @@
         </nav>
     </header>
 
-    <section class="content">
+    <section class="content login-content">
         <div class="container-fluid">
-            <ul class="city-menu">
-                <h2>Узнавай города играючи!</h2>
-                <div class="welcome-text">
-                    <p>Tourgame - это экскурсия по городу в форме квеста.</p>
-                    <p>Следуйте по маршруту, узнавайте туристические и "тайные" места, отвечайте на вопросы, соревнуйтесь
-                        друг с другом, зарабатывайте баллы и специальные звания! <a href="info.html">Подробнее...</a></p>
-                    <h2>Выбрать город</h2>
+            <div class="form-wrap">
+                <div class="form-block">
+                    <h1>TourQuest</h1>
+
+                    <form class="login-form" method="post" action="mail/mailer.php">
+                        <input type="text" name="username" class="form-control" placeholder="Имя пользователя">
+                        <div class="input-link-box">
+                            <input type="password" name="password" class="form-control" placeholder="Пароль">
+                            <a href="#">Забыли?</a>
+                        </div>
+                        <button type="submit" class="btn btn-submit">Войти</button>
+
+                    </form>
+
                 </div>
-                <li>
-                    <a href="game-list.html">
-                        <img src="img/city-list-1.jpg" alt="city-img">
-                        <p>Петербург <span>(5)</span></p>
-                    </a>
-                </li>
-                <li>
-                    <a href="game-list.html">
-                        <img src="img/city-list-2.jpg" alt="city-img">
-                        <p>Париж <span>(2)</span></p>
-                    </a>
-                </li>
-                <li>
-                    <a href="game-list.html">
-                        <img src="img/city-list-3.jpg" alt="city-img">
-                        <p>Барселона <span>(4)</span></p>
-                    </a>
-                </li>
-                <li>
-                    <a href="game-list.html">
-                        <img src="img/city-list-4.jpg" alt="city-img">
-                        <p>Вена <span>(3)</span></p>
-                    </a>
-                </li>
-                <li>
-                    <a href="game-list.html">
-                        <img src="img/city-list-5.jpg" alt="city-img">
-                        <p>Берлин <span>(4)</span></p>
-                    </a>
-                </li>
-            </ul>
-        </div>
+
+                <div class="form-block-bottom">
+                    <p>Еще нет аккаунта? <a href="login.html">Зарегистрируйтесь</a></p>
+                </div>
+
+            </div>
+
+        </div><!--container-fluid-->
     </section>
 
 </div>

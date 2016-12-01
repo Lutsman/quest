@@ -77,48 +77,43 @@
         </nav>
     </header>
 
-    <section class="content">
+    <section class="content login-content">
         <div class="container-fluid">
-            <ul class="city-menu">
-                <h2>Узнавай города играючи!</h2>
-                <div class="welcome-text">
-                    <p>Tourgame - это экскурсия по городу в форме квеста.</p>
-                    <p>Следуйте по маршруту, узнавайте туристические и "тайные" места, отвечайте на вопросы, соревнуйтесь
-                        друг с другом, зарабатывайте баллы и специальные звания! <a href="info.html">Подробнее...</a></p>
-                    <h2>Выбрать город</h2>
+            <div class="form-wrap profile-edit">
+                <aside>
+                    <ul>
+                        <li><a class="active" href="#">Сменить пароль</a></li>
+                    </ul>
+                </aside>
+                <div class="profile-edit__box">
+                    <div>
+                        <img src="img/profile-userpic.jpg" alt="Добавить фото профиля">
+                        <p class="profile__username">UserNmame</p>
+                    </div>
+
+                    <form class="profile-edit-form" method="post" action="">
+                        <div class="form-group">
+                            <label for="oldPassword">Старый пароль</label>
+                            <input name="oldPassword" type="password" class="form-control" id="oldPassword" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="newPassword">Новый пароль</label>
+                            <input name="newPassword" type="password" class="form-control" id="newPassword" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="newPassword2">Новый пароль еще раз</label>
+                            <input name="newPassword2" type="password" class="form-control" id="newPassword2" placeholder="">
+                        </div>
+
+                        <button type="submit" class="btn" disabled="">Изменить пароль</button>
+
+                    </form>
+
                 </div>
-                <li>
-                    <a href="game-list.html">
-                        <img src="img/city-list-1.jpg" alt="city-img">
-                        <p>Петербург <span>(5)</span></p>
-                    </a>
-                </li>
-                <li>
-                    <a href="game-list.html">
-                        <img src="img/city-list-2.jpg" alt="city-img">
-                        <p>Париж <span>(2)</span></p>
-                    </a>
-                </li>
-                <li>
-                    <a href="game-list.html">
-                        <img src="img/city-list-3.jpg" alt="city-img">
-                        <p>Барселона <span>(4)</span></p>
-                    </a>
-                </li>
-                <li>
-                    <a href="game-list.html">
-                        <img src="img/city-list-4.jpg" alt="city-img">
-                        <p>Вена <span>(3)</span></p>
-                    </a>
-                </li>
-                <li>
-                    <a href="game-list.html">
-                        <img src="img/city-list-5.jpg" alt="city-img">
-                        <p>Берлин <span>(4)</span></p>
-                    </a>
-                </li>
-            </ul>
-        </div>
+
+            </div>
+
+        </div><!--container-fluid-->
     </section>
 
 </div>

@@ -52,7 +52,8 @@
                     </button>
 
                     <ul class="nav navbar-nav support-nav">
-                        <li><a class="balance" href="payment.html"><i class="fa fa-eur" aria-hidden="true"></i> <span>0.00</span></a></li>
+                        <li class="balance game-steps"><span>0/8</span></li>
+                        <li class="none"><a class="balance" href="payment.html"><i class="fa fa-eur" aria-hidden="true"></i> <span>0.00</span></a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle  choose-lang" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="img/ru.gif" alt="ru"> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -79,49 +80,28 @@
 
     <section class="content">
         <div class="container-fluid">
-            <ul class="city-menu">
-                <h2>Узнавай города играючи!</h2>
-                <div class="welcome-text">
-                    <p>Tourgame - это экскурсия по городу в форме квеста.</p>
-                    <p>Следуйте по маршруту, узнавайте туристические и "тайные" места, отвечайте на вопросы, соревнуйтесь
-                        друг с другом, зарабатывайте баллы и специальные звания! <a href="info.html">Подробнее...</a></p>
-                    <h2>Выбрать город</h2>
-                </div>
-                <li>
-                    <a href="game-list.html">
-                        <img src="img/city-list-1.jpg" alt="city-img">
-                        <p>Петербург <span>(5)</span></p>
-                    </a>
-                </li>
-                <li>
-                    <a href="game-list.html">
-                        <img src="img/city-list-2.jpg" alt="city-img">
-                        <p>Париж <span>(2)</span></p>
-                    </a>
-                </li>
-                <li>
-                    <a href="game-list.html">
-                        <img src="img/city-list-3.jpg" alt="city-img">
-                        <p>Барселона <span>(4)</span></p>
-                    </a>
-                </li>
-                <li>
-                    <a href="game-list.html">
-                        <img src="img/city-list-4.jpg" alt="city-img">
-                        <p>Вена <span>(3)</span></p>
-                    </a>
-                </li>
-                <li>
-                    <a href="game-list.html">
-                        <img src="img/city-list-5.jpg" alt="city-img">
-                        <p>Берлин <span>(4)</span></p>
-                    </a>
-                </li>
-            </ul>
+            <h4 class="step-title light-blue-bg">
+                1. Старт - улица Бривибас
+                <span>как дойти:</span>
+                <a href="game-step-3-waipoint.html" class="btn-close"></a>
+            </h4>
+            <div class="map-wrap">
+                <div class="map"></div>
+                <a href="#" class="waypoint-info">Найдите высотнуюгостинницу Латвия (см на фото) встаньте к ней спиной.
+                    Вы увидите перед собой высотный дом.</a>
+            </div>
+
         </div>
     </section>
 
 </div>
+
+<!--Pop-up-->
+<div class="text-popup">
+    <p>Здесь идет подробное описание, как добираться до точки маршрута, указанной на карте. Оно может занимать какое-то
+        место.</p>
+</div>
+
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
