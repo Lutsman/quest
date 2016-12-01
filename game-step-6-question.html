@@ -52,7 +52,8 @@
                     </button>
 
                     <ul class="nav navbar-nav support-nav">
-                        <li><a class="balance" href="payment.html"><i class="fa fa-eur" aria-hidden="true"></i> <span>0.00</span></a></li>
+                        <li class="balance game-steps"><span>0/8</span></li>
+                        <li class="none"><a class="balance" href="payment.html"><i class="fa fa-eur" aria-hidden="true"></i> <span>0.00</span></a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle  choose-lang" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="img/ru.gif" alt="ru"> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -78,46 +79,32 @@
     </header>
 
     <section class="content">
-        <div class="container-fluid">
-            <ul class="city-menu">
-                <h2>Узнавай города играючи!</h2>
-                <div class="welcome-text">
-                    <p>Tourgame - это экскурсия по городу в форме квеста.</p>
-                    <p>Следуйте по маршруту, узнавайте туристические и "тайные" места, отвечайте на вопросы, соревнуйтесь
-                        друг с другом, зарабатывайте баллы и специальные звания! <a href="info.html">Подробнее...</a></p>
-                    <h2>Выбрать город</h2>
-                </div>
-                <li>
-                    <a href="game-list.html">
-                        <img src="img/city-list-1.jpg" alt="city-img">
-                        <p>Петербург <span>(5)</span></p>
-                    </a>
-                </li>
-                <li>
-                    <a href="game-list.html">
-                        <img src="img/city-list-2.jpg" alt="city-img">
-                        <p>Париж <span>(2)</span></p>
-                    </a>
-                </li>
-                <li>
-                    <a href="game-list.html">
-                        <img src="img/city-list-3.jpg" alt="city-img">
-                        <p>Барселона <span>(4)</span></p>
-                    </a>
-                </li>
-                <li>
-                    <a href="game-list.html">
-                        <img src="img/city-list-4.jpg" alt="city-img">
-                        <p>Вена <span>(3)</span></p>
-                    </a>
-                </li>
-                <li>
-                    <a href="game-list.html">
-                        <img src="img/city-list-5.jpg" alt="city-img">
-                        <p>Берлин <span>(4)</span></p>
-                    </a>
-                </li>
-            </ul>
+        <div class="container-fluid step-content">
+            <h4 class="step-title red-bg">
+                1. Старт - улица Бривибас
+                <span>Вопрос №1</span>
+                <a href="game-step-5-waipoint.html" class="btn-close"></a>
+            </h4>
+            <div class="block">
+                <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
+
+                <form id="answer-1" action="#" method="post">
+                    <p><input id="an1-1" name="answer" value="true" type="radio"><label for="an1-1">
+                        <span class="radio-button"></span>два</label></p>
+                    <p><input id="an2-1" name="answer" value="halfTrue" type="radio"><label for="an2-1">
+                        <span class="radio-button"></span>три</label></p>
+                    <p><input id="an3-1" name="answer" value="false" type="radio"><label for="an3-1">
+                        <span class="radio-button"></span>четыре</label></p>
+                    <p><input id="an4-1" name="answer" value="false" type="radio"><label for="an4-1">
+                        <span class="radio-button"></span>пять</label></p>
+                </form>
+            </div>
+
+            <div class="btn-step-wrap">
+                <a href="game-step-7-answer.html" class="btn btn-step btn-green"><span>Это мой ответ</span></a>
+                <a href="game-step-7-question-help.html" class="btn btn-step btn-red"><span>Подсказка</span></a>
+            </div>
+
         </div>
     </section>
 

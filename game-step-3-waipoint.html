@@ -52,7 +52,8 @@
                     </button>
 
                     <ul class="nav navbar-nav support-nav">
-                        <li><a class="balance" href="payment.html"><i class="fa fa-eur" aria-hidden="true"></i> <span>0.00</span></a></li>
+                        <li class="balance game-steps"><span>0/8</span></li>
+                        <li class="none"><a class="balance" href="payment.html"><i class="fa fa-eur" aria-hidden="true"></i> <span>0.00</span></a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle  choose-lang" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="img/ru.gif" alt="ru"> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -78,46 +79,21 @@
     </header>
 
     <section class="content">
-        <div class="container-fluid">
-            <ul class="city-menu">
-                <h2>Узнавай города играючи!</h2>
-                <div class="welcome-text">
-                    <p>Tourgame - это экскурсия по городу в форме квеста.</p>
-                    <p>Следуйте по маршруту, узнавайте туристические и "тайные" места, отвечайте на вопросы, соревнуйтесь
-                        друг с другом, зарабатывайте баллы и специальные звания! <a href="info.html">Подробнее...</a></p>
-                    <h2>Выбрать город</h2>
+        <div class="container-fluid step-content">
+            <div class="waypoint__content">
+                <img src="img/waypoint.jpg" alt="фото точки маршрута">
+                <h2><span>1. Улица Бривибас</span></h2>
+                <a href="game-step-2-waipoint.html" class="waypoint-info">Здесь вы видите высокий дом, построенный в начале ХХ веке</a>
+                <div class="btn-small-wrap">
+                    <a href="game-step-2-waipoint.html" class="btn btn-small btn-light-blue">Как добраться?</a>
                 </div>
-                <li>
-                    <a href="game-list.html">
-                        <img src="img/city-list-1.jpg" alt="city-img">
-                        <p>Петербург <span>(5)</span></p>
-                    </a>
-                </li>
-                <li>
-                    <a href="game-list.html">
-                        <img src="img/city-list-2.jpg" alt="city-img">
-                        <p>Париж <span>(2)</span></p>
-                    </a>
-                </li>
-                <li>
-                    <a href="game-list.html">
-                        <img src="img/city-list-3.jpg" alt="city-img">
-                        <p>Барселона <span>(4)</span></p>
-                    </a>
-                </li>
-                <li>
-                    <a href="game-list.html">
-                        <img src="img/city-list-4.jpg" alt="city-img">
-                        <p>Вена <span>(3)</span></p>
-                    </a>
-                </li>
-                <li>
-                    <a href="game-list.html">
-                        <img src="img/city-list-5.jpg" alt="city-img">
-                        <p>Берлин <span>(4)</span></p>
-                    </a>
-                </li>
-            </ul>
+            </div>
+            <a href="game-step-2-waipoint.html" class="waypoint__map">
+                <div class="map"></div>
+            </a>
+
+            <a href="game-step-4-waipoint.html" class="btn btn-step btn-green"><span>Я на месте!</span> <h3>Читать описание</h3></a>
+
         </div>
     </section>
 
