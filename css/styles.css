@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*Import fonts from Google fonts */
 @import url(http://fonts.googleapis.com/css?family=Comfortaa&subset=latin,cyrillic);
 @import url(http://fonts.googleapis.com/css?family=Philosopher:400,700,400italic,700italic&subset=latin,cyrillic);
@@ -251,6 +252,11 @@ a, .btn, button {
     top: 20px;
     right: 15px; }
 
+.btn-evaluation {
+  display: block;
+  margin: 0 auto;
+  text-transform: uppercase; }
+
 .btn-close {
   display: block;
   position: absolute;
@@ -432,9 +438,14 @@ header {
   height: 11px;
   vertical-align: middle; }
 
-.game-steps {
-  padding: 7px 15px;
+.game-score {
+  padding: 7px;
+  font-size: 16px;
+  font-weight: bold;
   line-height: 20px; }
+  .game-score i {
+    margin-right: 5px;
+    font-size: 18px; }
 
 /*.active {
     > .city-menu, > .game-list {
@@ -980,16 +991,96 @@ footer {
   color: #fff;
   text-align: center; }
 
-.select-main {
-  z-index: 7; }
+.comment p {
+  text-align: center; }
+.comment textarea {
+  width: 100%;
+  height: 100px;
+  border: 2px solid #7f7f7f;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; }
 
-.slick-initialized .slide + .slide {
-  display: block; }
+.bonus-box {
+  width: 280px;
+  margin: 0 auto 20px; }
+  .bonus-box > p {
+    float: right;
+    width: 170px;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #5cc1d3; }
 
-.slide__content {
-  background-color: #fff; }
-  .slide__content img, .slide__content video {
-    margin-bottom: 20px; }
+.bonus-mark {
+  float: left;
+  position: relative;
+  z-index: 2;
+  width: 86px;
+  height: 86px;
+  margin-bottom: 50px; }
+  .bonus-mark::before, .bonus-mark::after {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 2;
+    bottom: -30px;
+    border: 15px solid #000;
+    border-top: 35px solid #000;
+    border-bottom: 10px solid #fff; }
+  .bonus-mark::before {
+    left: 0;
+    -ms-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    -webkit-transform: rotate(30deg);
+    -o-transform: rotate(30deg);
+    transform: rotate(30deg); }
+  .bonus-mark::after {
+    right: 0;
+    -ms-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -webkit-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    transform: rotate(-30deg); }
+  .bonus-mark p {
+    position: relative;
+    z-index: 5;
+    width: 86px;
+    height: 86px;
+    padding: 5px;
+    margin: 0 auto;
+    background-color: #000;
+    border: 3px solid #fff;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%; }
+  .bonus-mark span {
+    display: block;
+    width: 70px;
+    height: 70px;
+    margin: 0 auto;
+    color: #fff;
+    line-height: 64px;
+    text-align: center;
+    background-color: #5cc1d3;
+    border: 3px solid #fff;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%; }
+
+.stars-evaluation {
+  width: 235px;
+  margin: 40px auto; }
+  .stars-evaluation i {
+    float: right;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 40px;
+    color: #ff7a22; }
+    .stars-evaluation i:hover:before, .stars-evaluation i:hover ~ i:before {
+      content: "\f005"; }
+  .stars-evaluation i.evaluated:before {
+    content: "\f005"; }
 
 .point-info {
   margin-bottom: 10px;
@@ -997,6 +1088,52 @@ footer {
   font-weight: 500; }
   .point-info p {
     margin: 0; }
+
+.result-info {
+  margin-bottom: 10px; }
+  .result-info p {
+    margin: 0; }
+
+.scale {
+  padding: 3px;
+  border: 1px solid #333; }
+  .scale span {
+    display: block;
+    width: 83%;
+    /*будет меняться скриптом*/
+    height: 20px;
+    background-color: #0eb081; }
+
+.rank-badge {
+  max-width: 400px;
+  margin: 0 auto;
+  border: 1px solid #a9cde5;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+  overflow: hidden; }
+  .rank-badge h4 {
+    text-align: center;
+    background-color: #a9cde5; }
+  .rank-badge p {
+    float: right;
+    width: 60%;
+    margin: 10px; }
+  .rank-badge img {
+    float: left;
+    width: 25%;
+    margin: 10px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%; }
+
+.logo-link {
+  display: block;
+  font-size: 46px;
+  color: #5cc1d3;
+  text-align: center; }
+  .logo-link:hover {
+    text-decoration: none; }
 
 /*js classes*/
 .disable {
