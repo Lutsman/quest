@@ -81,23 +81,106 @@
 
     <section class="content">
         <div class="container-fluid step-content">
-            <h4 class="step-title green-bg">
-                1. Старт - улица Бривибас
-                <span>Описание</span>
-                <a href="game-step-5-waipoint.html" class="btn-close"></a>
-            </h4>
-            <div class="description">
-                <p>Высотный дом на Бривибас, построен в начале ХХ века, архитектор Пешкенс</p>
-                <img src="img/street.jpg" alt="image">
-                <p>Является местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
+            <div class="waypoint__content">
+                <img src="img/waypoint.jpg" alt="фото точки маршрута">
+                <h2><span>1. Улица Бривибас</span></h2>
+                <a href="#pop-up-description" class="waypoint-info">Здесь вы видите высокий дом, построенный в начале ХХ веке</a>
             </div>
+            <a href="#pop-up-map" class="waypoint__map">
+                <div class="map"></div>
+            </a>
 
-            <a href="game-step-6-question.html" class="btn btn-step btn-red"><span>К этому месту 2 вопроса</span> <h3 class="big">Вопрос 1</h3></a>
+            <a href="#pop-up-question" class="btn btn-step btn-red"><span>К этому месту 2 вопроса</span> <h3 class="big">Вопрос 1</h3></a>
 
         </div>
     </section>
 
 </div>
+
+
+<!--Pop-up-->
+
+<div id="pop-up-map" class="pop-up">
+    <h4 class="step-title light-blue-bg">
+        1. Старт - улица Бривибас
+        <span>как дойти:</span>
+        <a href="#" class="btn-close"></a>
+    </h4>
+    <div class="map-wrap">
+        <div class="map"></div>
+    </div>
+
+</div>
+
+<div id="pop-up-description" class="pop-up">
+    <h4 class="step-title green-bg">
+        1. Старт - улица Бривибас
+        <span>Описание</span>
+        <a href="#" class="btn-close"></a>
+    </h4>
+    <div class="description">
+        <p>Высотный дом на Бривибас, построен в начале ХХ века, архитектор Пешкенс</p>
+        <img src="img/street.jpg" alt="image">
+        <p>Является местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
+    </div>
+
+    <a href="#pop-up-question" class="btn btn-step btn-red"><span>К этому месту 2 вопроса</span> <h3 class="big">Вопрос 1</h3></a>
+
+</div>
+
+<div id="pop-up-question" class="pop-up pop-up-question">
+    <h4 class="step-title red-bg">
+        1. Старт - улица Бривибас
+        <span>Вопрос №1</span>
+        <a href="#" class="btn-close"></a>
+    </h4>
+    <div class="block">
+        <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
+
+        <form id="answer-1" action="#" method="post">
+            <p>
+                <input id="an1-1" name="answer" value="true" type="radio">
+                <label for="an1-1"><span class="radio-button"></span>два</label>
+            </p>
+            <p>
+                <input id="an2-1" name="answer" value="halfTrue" type="radio">
+                <label for="an2-1"><span class="radio-button"></span>три</label>
+            </p>
+            <p>
+                <input id="an3-1" name="answer" value="false" type="radio">
+                <label for="an3-1"><span class="radio-button"></span>четыре</label>
+            </p>
+            <p>
+                <input id="an4-1" name="answer" value="false" type="radio">
+                <label for="an4-1"><span class="radio-button"></span>пять</label>
+            </p>
+        </form>
+    </div>
+
+    <div class="btn-step-wrap">
+        <a href="game-step-2.html" class="btn btn-step btn-green"><span>Это мой ответ</span></a>
+        <a href="#pop-up-question-help" class="btn btn-step btn-red"><span>Подсказка</span></a>
+    </div>
+
+</div>
+
+<div id="pop-up-question-help" class="pop-up pop-up-question-help">
+    <h4 class="step-title red-bg">
+        1. Старт - улица Бривибас
+        <span>Вопрос №1</span>
+        <a href="#" class="btn-close"></a>
+    </h4>
+    <div class="prompt red-bg">
+        <h4>Подсказка</h4>
+        <p>Высотный дом на Бривибас, построен в начале ХХ века, архитектор Пешкенс</p>
+        <img src="img/street.jpg" alt="image">
+        <p>Является местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
+    </div>
+
+    <a href="#" class="btn btn-step btn-red"><h2>Назад к вопросу</h2></a>
+
+</div>
+
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

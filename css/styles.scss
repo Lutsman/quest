@@ -537,7 +537,7 @@ footer {
         margin-top: -50px;
     }
     .step-content {
-        padding-bottom: 70px;
+        height: calc(100vh - 50px);
     }
   /*  .slide {
         width: 100%;
@@ -1026,13 +1026,6 @@ footer {
     color: #fff;
 }
 
-.map-wrap {
-    position: relative;
-    z-index: 2;
-    height: 370px;
-    background-image: url("../img/map_bg.jpg");
-    background-size: cover;
-}
 .waypoint-info {
     display: block;
     position: absolute;
@@ -1052,37 +1045,15 @@ footer {
     }
 }
 
-.directions {
-    width: 100%;
-    padding: 20px;
-    background-color: #fff;
-    h3 {
-        margin-top: 0;
-        margin-bottom: 20px;
-        text-align: center;
-    }
-    img, video {
-        margin-bottom: 10px;
-    }
-}
 .block {
     position: relative;
     z-index: 2;
+    height: calc(100% - 130px);
     padding: 10px 20px;
+    background-color: #fff;
+    overflow: auto;
     label {
         margin-left: 20px;
-    }
-}
-.prompt {
-    position: relative;
-    z-index: 2;
-    padding: 20px;
-    color: #fff;
-    img, video {
-        margin-bottom: 10px;
-    }
-    .btn-close {
-        top: 5px;
     }
 }
 
@@ -1295,10 +1266,74 @@ Pop up
   z-index: 99;
 }*/
 
+.pop-up {
+    display: none;
+    position: absolute;
+    z-index: 100;
+    top: 50px;
+    left: 50%;
+    width: 100%;
+    max-width: 600px;
+    height: calc(100vh - 50px);
+    @include transform(translate3d(-50%, 0, 0));
+}
+
+.pop-up-question {
+    z-index: 110;
+}
+
+.pop-up-question-help {
+    z-index: 120;
+}
+
+.map-wrap {
+    position: relative;
+    z-index: 2;
+    height: calc(100% - 60px);
+    background-image: url("../img/map_bg.jpg");
+    background-size: cover;
+}
+
+.description {
+    width: 100%;
+    height: calc(100% - 130px);
+    padding: 20px;
+    background-color: #fff;
+    overflow: auto;
+    h3 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    img, video {
+        margin-bottom: 10px;
+    }
+}
+
+.prompt {
+    position: relative;
+    z-index: 2;
+    height: calc(100% - 130px);
+    padding: 20px;
+    color: #fff;
+    overflow: auto;
+    img, video {
+        margin-bottom: 10px;
+    }
+    .btn-close {
+        top: 5px;
+    }
+}
+
 .exit-profile-menu {
     display: none;
+    position: absolute;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
     width: 80%;
     max-width: 500px;
+    @include transform(translate3d(-50%, -50%, 0));
     button {
         display: block;
         width: 100%;
@@ -1311,6 +1346,7 @@ Pop up
         }
     }
 }
+
 
 .text-popup {
     display: none;
