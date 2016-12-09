@@ -608,24 +608,98 @@ $(document).ready(function () {
     /*lightbox*/
     (function(){
         function LightBox(options) {
-            this._lighboxAttr = options.lighboxAttr || '[data-component="lighbox"]';
+            this._lightbox = options.lighbox || '[data-component="lighbox"]';
             this._opener = options.opener || '[data-role="open"]';
             this._closer = options.closer || '[data-role="close"]';
             this._modal = options.modal || '[data-role="modal"]';
-            this._overlay =
+            this._overlay = options.overlay || '[data-role="overlay"]';
+            this._animate = options.animate || 'fade';
+            this._targetAttr = options.targetAttr || 'data-target';
         }
         LightBox.prototype.init = function () {
             
         };
         LightBox.prototype.show = function () {
-            
+            switch (this._animate) {
+                case 'none':
+                    callback(this);
+                    break;
+                case 'simple':
+                    $(target).show();
+                    callback(this);
+                    break;
+                case 'slide':
+                    if (!target) {
+                        callback(this);
+                    } else {
+                        $(target).slideDown('normal', 'linear', callback);
+                    }
+                    break;
+                case 'fade':
+                    if (!target) {
+                        callback();
+                    } else {
+                        $(target).fadeIn('normal', 'linear', callback);
+                    }
+                    break;
+            }
         };
         LightBox.prototype.hide = function () {
-            
+            switch (this._animate) {
+                case 'none':
+                    callback(this);
+                    break;
+                case 'simple':
+                    $(target).show();
+                    callback(this);
+                    break;
+                case 'slide':
+                    if (!target) {
+                        callback(this);
+                    } else {
+                        $(target).slideDown('normal', 'linear', callback);
+                    }
+                    break;
+                case 'fade':
+                    if (!target) {
+                        callback();
+                    } else {
+                        $(target).fadeIn('normal', 'linear', callback);
+                    }
+                    break;
+            }
         };
         LightBox.prototype.clickHandler = function (e) {
             var elem = e.target;
-            var target = elem.closest()
+            var lightboxComponent = elem.closest(this._lightbox);
+            
+            if (!lightboxComponent) return;
+            e.preventDefault();
+            
+            var target = lightboxComponent.getAttribute(this._targetAttr) ?
+                lightboxComponent.getAttribute(this._targetAttr) :
+                lightboxComponent.getAttribute('href');
+            
+            if (lightboxComponent.matches(this._opener)) {
+                target = lightboxComponent.getAttribute(this._targetAttr) ?
+                    lightboxComponent.getAttribute(this._targetAttr) :
+                    lightboxComponent.getAttribute('href');
+                
+                if (!target) return;
+                
+                this.show(target);
+                return;
+            }
+    
+            if (lightboxComponent.matches(this._closer)) {
+                this.hide(target);
+                return;
+            }
+    
+            if (lightboxComponent.matches(this._overlay)) {
+                this.hide(target);
+                return;
+            }
             
         };
         
