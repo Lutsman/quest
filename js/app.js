@@ -194,7 +194,7 @@
 
 $(document).ready(function () {
     /*menu*/
-    (function(){
+    /*(function(){
         function TopMenuController() {
             this.init();
         }
@@ -269,11 +269,11 @@ $(document).ready(function () {
         };
         
         var menuController = new TopMenuController();
-    })();
+    })();*/
     
     /*slider*/
-    (function(){
-        /*menu-slider*/
+    /*(function(){
+        /!*menu-slider*!/
         (function(){
             var $menuSlider = $('.menu-slider');
     
@@ -282,7 +282,7 @@ $(document).ready(function () {
             });
         })();
         
-        /*content slider*/
+        /!*content slider*!/
         (function(){
             var s = $gameSlider = $('.content-slider');
             var nextAttr = '[data-action="next"]';
@@ -334,7 +334,7 @@ $(document).ready(function () {
     
             //console.dir(s.slick.Slick.getSlick);
             //s.slick('getSlick');
-            /*$gameSlider.on('init', function (e, slickObj) {
+            /!*$gameSlider.on('init', function (e, slickObj) {
                 console.log('slick init');
                 console.dir(slickObj);
                 
@@ -373,7 +373,7 @@ $(document).ready(function () {
                     return false;
             
                 });*!/
-            });*/
+            });*!/
     
             
             
@@ -412,7 +412,7 @@ $(document).ready(function () {
             
             
             
-            /*(function(){
+            /!*(function(){
                 var $slider = $('.content-slider');
             	//console.log($gameSlider.slick('slickCurrentSlide'));
                 //console.dir($gameSlider.slick('getSlick'));
@@ -439,7 +439,7 @@ $(document).ready(function () {
                 $slider.on('afterChange', function () {
                     console.log('afterChange');
                 });
-            })();*/
+            })();*!/
     
     
             function filteringAfter(e, slick, currSlide) {
@@ -466,7 +466,7 @@ $(document).ready(function () {
                 
                 //console.log('afterChange');
                 
-               /* s.slick('slickUnfilter');
+               /!* s.slick('slickUnfilter');
                 s.slick('slickFilter', function () {
                     //console.log('slick filtered');
                     var attr = this.getAttribute('data-role');
@@ -479,7 +479,7 @@ $(document).ready(function () {
             
                     return true;
             
-                });*/
+                });*!/
             }
     
             function setFilter(filter, index) {
@@ -499,11 +499,11 @@ $(document).ready(function () {
                 s.slick('slickFilter', filter);
                 slick.currentSlide = index;
                 
-                /*setTimeout(function () {
+                /!*setTimeout(function () {
                     slick.currentSlide = index + 2;
                     console.log(slick.currentSlide);
                     s.slick('goTo', index + 1);
-                },1000);*/
+                },1000);*!/
                 
                 //s.slick('goTo', index);
     
@@ -511,26 +511,24 @@ $(document).ready(function () {
             }
     
             function goTo(index, s, noAnimate) {
-                console.log('wrapper');
+                //console.log('wrapper');
                 
-                var result = function inner (e, slick) {
+                return function inner (e, slick) {
                     console.log('goto');
                     //slick.goTo(index, noAnimate);
                     //slick.$slider.off('reInit', inner);
                     //s.slick('goTo', +index);
-                    /*slick.changeSlide({
-                        data: {
-                            message: 'index',
-                            index: parseInt(index)
-                        }
-                    }, noAnimate);*/
+                    /!*slick.changeSlide({
+                     data: {
+                     message: 'index',
+                     index: parseInt(index)
+                     }
+                     }, noAnimate);*!/
                     //slick.currentSlide = 3;
                     //console.log(slick);
                     s.slick('goTo', index, noAnimate);
                     //s.off('reInit', inner);
                 };
-                
-                return result;
             }
     
             function getFilter() {
@@ -605,5 +603,34 @@ $(document).ready(function () {
         
     	
        
+    })();*/
+    
+    /*lightbox*/
+    (function(){
+        function LightBox(options) {
+            this._lighboxAttr = options.lighboxAttr || '[data-component="lighbox"]';
+            this._opener = options.opener || '[data-role="open"]';
+            this._closer = options.closer || '[data-role="close"]';
+            this._modal = options.modal || '[data-role="modal"]';
+            this._overlay =
+        }
+        LightBox.prototype.init = function () {
+            
+        };
+        LightBox.prototype.show = function () {
+            
+        };
+        LightBox.prototype.hide = function () {
+            
+        };
+        LightBox.prototype.clickHandler = function (e) {
+            var elem = e.target;
+            var target = elem.closest()
+            
+        };
+        
+        
     })();
+    
+    
 });

@@ -52,9 +52,7 @@
                     </button>
 
                     <ul class="nav navbar-nav support-nav">
-                        <li class="game-score"><span>0/8</span></li>
-                        <li class="game-score"><i class="fa fa-signal" aria-hidden="true"></i><span>0/150</span></li>
-                        <li class="none"><a class="balance" href="payment.html"><i class="fa fa-eur" aria-hidden="true"></i> <span>0.00</span></a></li>
+                        <li><a class="balance" href="payment.html"><i class="fa fa-eur" aria-hidden="true"></i> <span>0.00</span></a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle  choose-lang" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="img/ru.gif" alt="ru"> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -79,36 +77,34 @@
         </nav>
     </header>
 
-    <section class="content">
-        <div class="container-fluid step-content">
-            <h4 class="step-title red-bg">
-                1. Старт - улица Бривибас
-                <span>Вопрос №1</span>
-                <a href="game-step-5-waipoint.html" class="btn-close"></a>
-            </h4>
-            <div class="block">
-                <p>местом собраний горожан, а впоследствии перешел в собственность Брастства Черноголовых.</p>
+    <section class="content login-content">
+        <div class="container-fluid">
+            <div class="form-wrap profile">
+                <div>
+                    <button class="btn-add-userpic" title="Добавить фото профиля"><img src="img/profile-userpic.jpg" alt="Добавить фото профиля"></button>
+                </div>
+                <div>
+                    <div class="profile__top-line">
+                        <p class="profile__username">UserNmame</p>
+                        <a href="#" class="btn-exit">&#9675; &#9675; &#9675;</a>
+                        <a href="profile-edit.html" class="btn btn-edit-profile">Редактировать профиль</a>
+                    </div>
+                    <div>
+                        <p>Фамилия Имя</p>
+                    </div>
+                </div>
 
-                <form id="answer-1" action="#" method="post">
-                    <p><input id="an1-1" name="answer" value="true" type="radio"><label for="an1-1">
-                        <span class="radio-button"></span>два</label></p>
-                    <p><input id="an2-1" name="answer" value="halfTrue" type="radio"><label for="an2-1">
-                        <span class="radio-button"></span>три</label></p>
-                    <p><input id="an3-1" name="answer" value="false" type="radio"><label for="an3-1">
-                        <span class="radio-button"></span>четыре</label></p>
-                    <p><input id="an4-1" name="answer" value="false" type="radio"><label for="an4-1">
-                        <span class="radio-button"></span>пять</label></p>
-                </form>
             </div>
 
-            <div class="btn-step-wrap">
-                <a href="game-step-7-answer.html" class="btn btn-step btn-green"><span>Это мой ответ</span></a>
-                <a href="game-step-7-question-help.html" class="btn btn-step btn-red"><span>Подсказка</span></a>
-            </div>
-
-        </div>
+        </div><!--container-fluid-->
     </section>
 
+</div>
+
+<!--Pop-up-->
+<div class="exit-profile-menu">
+    <button>Выйти</button>
+    <button>Отмена</button>
 </div>
 
 

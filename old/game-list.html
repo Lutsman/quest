@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="keywords" content="">  <!--Ключевые слова-->
+    <meta name="description" content=""> <!--Описание-->
+
+    <title>Quest-game</title>
+
+    <!--Start Open Graph-->
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="">   <!--Заголовок-->
+    <meta property="og:description" content=""> <!--Краткое описание, которое выводится при формировании превью ссылки-->
+    <meta property="og:url" content="http://"> <!--Ссылка на страницу сайта-->
+    <meta property="og:image" content="http://"> <!--Ссылка на картинку, которая будет отображаться в посте-->
+    <!--End Open Graph-->
+
+    <!--Favicon-->
+    <!--  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+      <link rel="apple-touch-icon-precomposed" href="images/favicon.png"/>-->
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!--For improved cross-browser rendering-->
+    <link rel="stylesheet" href="../css/normalize.css">
+
+    <!--Plugin CSS-->
+    <link rel="stylesheet" href="../css/slick.css">
+    <link rel="stylesheet" href="../css/slick-theme.css">
+
+    <!-- Custom styles CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<div class="page-wrap">
+    <header>
+        <nav class="navbar navbar-fixed-top top-menu">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-action="reset-nav" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <ul class="nav navbar-nav support-nav">
+                        <li><a class="balance" href="payment.html"><i class="fa fa-eur" aria-hidden="true"></i> <span>0.00</span></a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle  choose-lang" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="../img/ru.gif" alt="ru"> <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><img src="../img/gb.gif" alt="en"></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="login.html"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                    </ul>
+
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav top-menu__nav">
+                        <li><a href="game-list.html">Выбрать игру в городе (Рига)</a></li>
+                        <li><a href="index.html">Выбрать город</a></li>
+                        <li><a href="info.html">Как играть (помощь)</a></li>
+                        <li><a href="payment.html">Оплата</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </header>
+
+    <section class="content">
+        <div class="container-fluid">
+            <ul class="game-list">
+                <h2>Все игры в городе Петербург <span>(5 игр)</span></h2>
+                <li class="active">
+                    <div class="menu-slider">
+                        <div class="slide">
+                            <div class="image-box">
+                                <img src="../img/city.jpg" alt="image">
+                                <div class="btn-wrap">
+                                    <button type="button" class="btn btn-booking">Бронировать</button>
+                                </div>
+                            </div>
+                            <div class="infographics">
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>2 ч.</span>
+                                                    </span>
+                                <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>0,4 км.</span>
+                                                    </span>
+                                <span>
+                                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                                        <span>157</span>
+                                                    </span>
+                            </div>
+                            <div class="game-info">
+                                <h3>Легенды и тайны Михайловского замка</h3>
+                                <p>История самого мистического замка Петербурга и его загадочного хозяина в
+                                    формате квсет-экскурсии</p>
+                                <p class="price">
+                                    <i class="fa fa-eur" aria-hidden="true"></i>
+                                    <span>15</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <div class="image-box">
+                                <img src="../img/city.jpg" alt="image">
+                                <div class="btn-wrap">
+                                    <button type="button" class="btn btn-booking">Бронировать</button>
+                                </div>
+                            </div>
+                            <div class="infographics">
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>2 ч.</span>
+                                                    </span>
+                                <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>0,4 км.</span>
+                                                    </span>
+                                <span>
+                                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                                        <span>157</span>
+                                                    </span>
+                            </div>
+                            <div class="game-info">
+                                <h3>Сокровища Эрмитажа</h3>
+                                <p>Главные шедевры одного из крупнейших художественных и
+                                    культурно-исторических музеев не только России, но и мира –
+                                    лучшее культурное наследие, которое мы собрали для Вас в одном
+                                    квесте!</p>
+                                <p class="price">
+                                    <i class="fa fa-eur" aria-hidden="true"></i>
+                                    <span>25</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <div class="image-box">
+                                <img src="../img/city.jpg" alt="image">
+                                <div class="btn-wrap">
+                                    <button type="button" class="btn btn-booking">Бронировать</button>
+                                </div>
+                            </div>
+                            <div class="infographics">
+                                                            <span>
+                                                                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                                <span>2 ч.</span>
+                                                            </span>
+                                <span>
+                                                                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                                <span>0,4 км.</span>
+                                                            </span>
+                                <span>
+                                                                <i class="fa fa-users" aria-hidden="true"></i>
+                                                                <span>157</span>
+                                                            </span>
+                            </div>
+                            <div class="game-info">
+                                <h3>Назад, в прошлое: Государственный музей истории Санкт-Петербурга</h3>
+                                <p>Самый интересный и захватывающий способ познакомиться с историей
+                                    города на Неве</p>
+                                <p class="price">
+                                    <i class="fa fa-eur" aria-hidden="true"></i>
+                                    <span>10</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <div class="image-box">
+                                <img src="../img/city.jpg" alt="image">
+                                <div class="btn-wrap">
+                                    <button type="button" class="btn btn-booking">Бронировать</button>
+                                </div>
+                            </div>
+                            <div class="infographics">
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>2 ч.</span>
+                                                    </span>
+                                <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>0,4 км.</span>
+                                                    </span>
+                                <span>
+                                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                                        <span>157</span>
+                                                    </span>
+                            </div>
+                            <div class="game-info">
+                                <h3>Петергоф - столица фонтанов</h3>
+                                <p>Незабываемая квест-экскурсия по Нижнему парку и знакомство с
+                                    одними из лучших в мире фонтанов</p>
+                                <p class="price">
+                                    <i class="fa fa-eur" aria-hidden="true"></i>
+                                    <span>15</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <div class="image-box">
+                                <img src="../img/city.jpg" alt="image">
+                                <div class="btn-wrap">
+                                    <button type="button" class="btn btn-booking">Бронировать</button>
+                                </div>
+                            </div>
+                            <div class="infographics">
+                                                    <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>2 ч.</span>
+                                                    </span>
+                                <span>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        <span>0,4 км.</span>
+                                                    </span>
+                                <span>
+                                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                                        <span>157</span>
+                                                    </span>
+                            </div>
+                            <div class="game-info">
+                                <h3>Русский музей: эпицентр русского искусства</h3>
+                                <p>Потрясающие картины, старейшие иконы, филигранно выполненные
+                                    скульптуры – не упустите свой шанс наиболее захватывающе
+                                    познакомиться с собранием Русского музея!</p>
+                                <p class="price">
+                                    <i class="fa fa-eur" aria-hidden="true"></i>
+                                    <span>35</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </section>
+
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://use.fontawesome.com/ddcf86203d.js"></script>
+<script src="../js/slick.js"></script>
+<script src="../js/app.js"></script>
+
+</body>
+</html>
