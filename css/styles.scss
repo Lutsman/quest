@@ -253,6 +253,11 @@ a, .btn, button {
         right: 15px;
     }
 }
+.btn-evaluation {
+    display: block;
+    margin: 0 auto;
+    text-transform: uppercase;
+}
 
 .btn-close {
     display: block;
@@ -462,9 +467,16 @@ header {
     height: 11px;
     vertical-align: middle;
 }
-.game-steps {
-    padding: 7px 15px;
+
+.game-score {
+    padding: 7px;
+    font-size: 16px;
+    font-weight: bold;
     line-height: 20px;
+    i {
+        margin-right: 5px;
+        font-size: 18px;
+    }
 }
 
 /*.active {
@@ -525,7 +537,7 @@ footer {
         margin-top: -50px;
     }
     .step-content {
-        padding-bottom: 70px;
+        height: calc(100vh - 50px);
     }
   /*  .slide {
         width: 100%;
@@ -1014,13 +1026,6 @@ footer {
     color: #fff;
 }
 
-.map-wrap {
-    position: relative;
-    z-index: 2;
-    height: 370px;
-    background-image: url("../img/map_bg.jpg");
-    background-size: cover;
-}
 .waypoint-info {
     display: block;
     position: absolute;
@@ -1040,37 +1045,15 @@ footer {
     }
 }
 
-.directions {
-    width: 100%;
-    padding: 20px;
-    background-color: #fff;
-    h3 {
-        margin-top: 0;
-        margin-bottom: 20px;
-        text-align: center;
-    }
-    img, video {
-        margin-bottom: 10px;
-    }
-}
 .block {
     position: relative;
     z-index: 2;
+    height: calc(100% - 130px);
     padding: 10px 20px;
+    background-color: #fff;
+    overflow: auto;
     label {
         margin-left: 20px;
-    }
-}
-.prompt {
-    position: relative;
-    z-index: 2;
-    padding: 20px;
-    color: #fff;
-    img, video {
-        margin-bottom: 10px;
-    }
-    .btn-close {
-        top: 5px;
     }
 }
 
@@ -1081,37 +1064,152 @@ footer {
     color: #fff;
     text-align: center;
 }
-
-
-
-
-
-
-.select-main {
-    z-index: 7;
+.comment {
+    p {
+        text-align: center;
+    }
+    textarea {
+        width: 100%;
+        height: 100px;
+        border: 2px solid $menu-border;
+        @include border-radius(10px);
+    }
 }
-.slick-initialized {
-    .slide + .slide {
+.bonus-box {
+    width: 280px;
+    margin: 0 auto 20px;
+    > p {
+        float: right;
+        width: 170px;
+        padding: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        color: $light-blue;
+    }
+}
+.bonus-mark {
+    float: left;
+    position: relative;
+    z-index: 2;
+    width: 86px;
+    height: 86px;
+    margin-bottom: 50px;
+    &::before, &::after {
+        content: '';
         display: block;
+        position: absolute;
+        z-index: 2;
+        bottom: -30px;
+        border: 15px solid #000;
+        border-top: 35px solid #000;
+        border-bottom: 10px solid #fff;
+    }
+    &::before {
+        left: 0;
+        @include transform(rotate(30deg));
+    }
+    &::after {
+        right: 0;
+        @include transform(rotate(-30deg));
+    }
+    p {
+        position: relative;
+        z-index: 5;
+        width: 86px;
+        height: 86px;
+        padding: 5px;
+        margin: 0 auto;
+        background-color: #000;
+        border: 3px solid #fff;
+        @include border-radius(50%);
+    }
+    span {
+        display: block;
+        width: 70px;
+        height: 70px;
+        margin: 0 auto;
+        color: #fff;
+        line-height: 64px;
+        text-align: center;
+        background-color: $light-blue;
+        border: 3px solid #fff;
+        @include border-radius(50%);
     }
 }
 
-
-
-
-.slide__content {
-    background-color: #fff;
-    img, video {
-        margin-bottom: 20px;
+.stars-evaluation {
+    width: 235px;
+    margin: 40px auto;
+    i {
+        float: right;
+        margin: 0 5px;
+        cursor: pointer;
+        font-size: 40px;
+        color: $orange;
+        &:hover:before, &:hover~i:before {
+            content: "\f005";
+        }
+    }
+    i.evaluated:before {
+        content: "\f005";
     }
 }
-
 .point-info {
     margin-bottom: 10px;
     font-size: 18px;
     font-weight: 500;
     p {
         margin: 0;
+    }
+}
+.result-info {
+    margin-bottom: 10px;
+    p {
+        margin: 0;
+    }
+}
+.scale {
+    padding: 3px;
+    border: 1px solid #333;
+
+    span {
+        display: block;
+        width: 83%; /*будет меняться скриптом*/
+        height: 20px;
+        background-color: $green;
+    }
+}
+.rank-badge {
+    max-width: 400px;
+    margin: 0 auto;
+    border: 1px solid $rank-blue;
+    @include border-radius(15px);
+    overflow: hidden;
+    h4 {
+        text-align: center;
+        background-color: $rank-blue;
+    }
+    p {
+        float: right;
+        width: 60%;
+        margin: 10px;
+    }
+    img {
+        float: left;
+        width: 25%;
+        margin: 10px;
+        @include border-radius(50%);
+    }
+
+}
+
+.logo-link {
+    display: block;
+    font-size: 46px;
+    color: $light-blue;
+    text-align: center;
+    &:hover {
+        text-decoration: none;
     }
 }
 
@@ -1168,10 +1266,74 @@ Pop up
   z-index: 99;
 }*/
 
+.pop-up {
+    display: none;
+    position: absolute;
+    z-index: 100;
+    top: 50px;
+    left: 50%;
+    width: 100%;
+    max-width: 600px;
+    height: calc(100vh - 50px);
+    @include transform(translate3d(-50%, 0, 0));
+}
+
+.pop-up-question {
+    z-index: 110;
+}
+
+.pop-up-question-help {
+    z-index: 120;
+}
+
+.map-wrap {
+    position: relative;
+    z-index: 2;
+    height: calc(100% - 60px);
+    background-image: url("../img/map_bg.jpg");
+    background-size: cover;
+}
+
+.description {
+    width: 100%;
+    height: calc(100% - 130px);
+    padding: 20px;
+    background-color: #fff;
+    overflow: auto;
+    h3 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    img, video {
+        margin-bottom: 10px;
+    }
+}
+
+.prompt {
+    position: relative;
+    z-index: 2;
+    height: calc(100% - 130px);
+    padding: 20px;
+    color: #fff;
+    overflow: auto;
+    img, video {
+        margin-bottom: 10px;
+    }
+    .btn-close {
+        top: 5px;
+    }
+}
+
 .exit-profile-menu {
     display: none;
+    position: absolute;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
     width: 80%;
     max-width: 500px;
+    @include transform(translate3d(-50%, -50%, 0));
     button {
         display: block;
         width: 100%;
@@ -1184,6 +1346,7 @@ Pop up
         }
     }
 }
+
 
 .text-popup {
     display: none;
