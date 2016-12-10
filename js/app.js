@@ -192,6 +192,159 @@
     }
 })();
 
+/*lightbox Class*/
+(function(){
+    function LightBox(options) {
+        //this._listenedBlock = options.listenedBlock || document.body;
+        //this._lightbox = options.lighbox || '[data-component="lighbox"]';
+        this._opener = options.opener; //|| '[data-role="openLighbox"]';
+        this._closer = options.closer || '[data-role="close"]';
+        //this._modal = options.modal || '[data-role="modal"]';
+        this._isOverlay = options.isOverlay || true;
+        this._overlay = '[data-role="overlay"]';
+        this._overlayClass = options.overlayClass || 'lighbox-overlay';
+        this._animate = options.animate || 'fade';
+        this._targetAttr = options.targetAttr || 'data-target';
+    }
+    LightBox.prototype.init = function () {
+        $(this._opener).on('click', this.openHandler.bind(this));
+    };
+    LightBox.prototype.show = function () {
+        if (!this._activeModal.length) return;
+        
+        switch (this._animate) {
+            case 'none':
+                //callback(this);
+                break;
+            case 'simple':
+                this._activeModal.show();
+                
+                //callback(this);
+                break;
+            case 'slide':
+                this._activeModal.slideDown();
+                
+                /*if (!target) {
+                 callback(this);
+                 } else {
+                 $(target).slideDown('normal', 'linear', callback);
+                 }*/
+                break;
+            case 'fade':
+                this._activeModal.fadeIn();
+                
+                /*if (!target) {
+                 callback();
+                 } else {
+                 $(target).fadeIn('normal', 'linear', callback);
+                 }*/
+                break;
+        }
+    };
+    LightBox.prototype.hide = function () {
+        if (!this._activeModal || !this._activeModal.length) return;
+        
+        switch (this._animate) {
+            case 'none':
+                //callback(this);
+                break;
+            case 'simple':
+                this._activeModal.hide();
+                
+                //callback(this);
+                break;
+            case 'slide':
+                this._activeModal.slideUp();
+                
+                /*if (!target) {
+                 callback(this);
+                 } else {
+                 $(target).slideDown('normal', 'linear', callback);
+                 }*/
+                break;
+            case 'fade':
+                this._activeModal.fadeOut();
+                
+                /*if (!target) {
+                 callback();
+                 } else {
+                 $(target).fadeIn('normal', 'linear', callback);
+                 }*/
+                break;
+        }
+        
+        this.stripModal();
+    };
+    LightBox.prototype.openHandler = function (e) {
+        var target = this._opener.getAttribute(this._targetAttr) ?
+            this._opener.getAttribute(this._targetAttr) :
+            this._opener.getAttribute('href');
+        
+        if (!$(target).length) return;
+        e.preventDefault();
+    
+        this.renderModal(target);
+        this.show();
+    };
+    LightBox.prototype.closeHandler = function (e) {
+        e.preventDefault();
+        console.log(e.target);
+        
+        this.hide();
+    };
+    LightBox.prototype.renderModal = function (target) {
+        var $target = $(target);
+        
+        if (!$target.length) return;
+    
+        var $overlay = $target.closest(this._overlay);
+        var closeSelectors = [this._closer];
+        
+        
+        if (this._isOverlay) {
+            if (!$overlay.length){
+                $overlay = $('<div data-role="overlay"></div>');
+                $overlay.addClass(this._overlayClass);
+            }
+            
+            $target.wrap($overlay);
+            this._activeModal = $overlay;
+            closeSelectors.push(this._overlay);
+        } else {
+            this._activeModal = $target;
+        }
+        
+        
+        //var $overlay = $('<div data-role="overlay"></div>');
+        //$overlay.addClass(this._overlayClass);
+        
+        this._closeSelectors = closeSelectors.join(',');
+        
+        $target.on('click', this._closeSelectors, this.closeHandler.bind(this));
+    };
+    LightBox.prototype.stripModal = function () {
+        if (this._isOverlay) {
+            this._activeModal.unwrap();
+        }
+        
+        this._activeModal.off('click', this._closeSelectors, this.closeHandler);
+        this._activeModal = null;
+        this._closeSelectors = '';
+    };
+    
+    
+    $.fn.lightBox = function () {
+        var options = typeof arguments[0] === 'object' ? arguments[0] : {};
+        
+        $(this).each(function () {
+            options.opener = this;
+            
+            var controller = new LightBox(options);
+            controller.init();
+        });
+    };
+})();
+
 $(document).ready(function () {
     /*menu*/
     /*(function(){
@@ -607,104 +760,8 @@ $(document).ready(function () {
     
     /*lightbox*/
     (function(){
-        function LightBox(options) {
-            this._lightbox = options.lighbox || '[data-component="lighbox"]';
-            this._opener = options.opener || '[data-role="open"]';
-            this._closer = options.closer || '[data-role="close"]';
-            this._modal = options.modal || '[data-role="modal"]';
-            this._overlay = options.overlay || '[data-role="overlay"]';
-            this._animate = options.animate || 'fade';
-            this._targetAttr = options.targetAttr || 'data-target';
-        }
-        LightBox.prototype.init = function () {
-            
-        };
-        LightBox.prototype.show = function () {
-            switch (this._animate) {
-                case 'none':
-                    callback(this);
-                    break;
-                case 'simple':
-                    $(target).show();
-                    callback(this);
-                    break;
-                case 'slide':
-                    if (!target) {
-                        callback(this);
-                    } else {
-                        $(target).slideDown('normal', 'linear', callback);
-                    }
-                    break;
-                case 'fade':
-                    if (!target) {
-                        callback();
-                    } else {
-                        $(target).fadeIn('normal', 'linear', callback);
-                    }
-                    break;
-            }
-        };
-        LightBox.prototype.hide = function () {
-            switch (this._animate) {
-                case 'none':
-                    callback(this);
-                    break;
-                case 'simple':
-                    $(target).show();
-                    callback(this);
-                    break;
-                case 'slide':
-                    if (!target) {
-                        callback(this);
-                    } else {
-                        $(target).slideDown('normal', 'linear', callback);
-                    }
-                    break;
-                case 'fade':
-                    if (!target) {
-                        callback();
-                    } else {
-                        $(target).fadeIn('normal', 'linear', callback);
-                    }
-                    break;
-            }
-        };
-        LightBox.prototype.clickHandler = function (e) {
-            var elem = e.target;
-            var lightboxComponent = elem.closest(this._lightbox);
-            
-            if (!lightboxComponent) return;
-            e.preventDefault();
-            
-            var target = lightboxComponent.getAttribute(this._targetAttr) ?
-                lightboxComponent.getAttribute(this._targetAttr) :
-                lightboxComponent.getAttribute('href');
-            
-            if (lightboxComponent.matches(this._opener)) {
-                target = lightboxComponent.getAttribute(this._targetAttr) ?
-                    lightboxComponent.getAttribute(this._targetAttr) :
-                    lightboxComponent.getAttribute('href');
-                
-                if (!target) return;
-                
-                this.show(target);
-                return;
-            }
-    
-            if (lightboxComponent.matches(this._closer)) {
-                this.hide(target);
-                return;
-            }
-    
-            if (lightboxComponent.matches(this._overlay)) {
-                this.hide(target);
-                return;
-            }
-            
-        };
+    	var $popUp = $('[data-role="openLighbox"]');
         
-        
+        $popUp.lightBox();
     })();
-    
-    
 });

@@ -1254,7 +1254,7 @@ footer {
 Pop up
 ---------------------------------------------- */
 
-/*.pop-up-bg {
+.lighbox-overlay {
   position: fixed;
   display: none;
   width:100%;
@@ -1264,7 +1264,7 @@ Pop up
   background-color: rgba(0,0,0,0.8);
   overflow:hidden;
   z-index: 99;
-}*/
+}
 
 .pop-up {
     display: none;
