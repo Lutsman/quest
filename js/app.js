@@ -200,76 +200,56 @@
         this._opener = options.opener; //|| '[data-role="openLighbox"]';
         this._closer = options.closer || '[data-role="close"]';
         this._modal = options.modal || '[data-role="modal"]';
-        this._isOverlay = options.isOverlay || true;
+        this._isOverlay = options.isOverlay === undefined;
         this._overlay = '[data-role="overlay"]';
         this._overlayClass = options.overlayClass || 'lighbox-overlay';
         this._animate = options.animate || 'fade';
         this._targetAttr = options.targetAttr || 'data-target';
+        this._onAfterOpen = options.onAfterOpen || null;
     }
     LightBox.prototype.init = function () {
         $(this._opener).on('click', this.openHandler.bind(this));
     };
     LightBox.prototype.show = function () {
         if (!this._activeModal.length) return;
-        
-        
+
+        var onAfterOpen = typeof this._onAfterOpen === 'function' ? this._onAfterOpen: function (){};
+
         switch (this._animate) {
-            case 'none':
-                //callback(this);
-                break;
             case 'simple':
                 this._activeModal.show();
-                
-                //callback(this);
+                onAfterOpen();
                 break;
             case 'slide':
-                this._activeModal.slideDown();
-                
-                /*if (!target) {
-                 callback(this);
-                 } else {
-                 $(target).slideDown('normal', 'linear', callback);
-                 }*/
+                this._activeModal.slideDown(null, null, onAfterOpen);
                 break;
             case 'fade':
-                this._activeModal.fadeIn();
-                /*if (!target) {
-                 callback();
-                 } else {
-                 $(target).fadeIn('normal', 'linear', callback);
-                 }*/
+                this._activeModal.fadeIn(null, null, onAfterOpen);
                 break;
         }
     };
     LightBox.prototype.hide = function () {
         if (!this._activeModal || !this._activeModal.length) return;
-        
+
+        var onAfterClose = typeof this._onAfterClose === 'function' ? this._onAfterClose: function (){};
+
         switch (this._animate) {
-            case 'none':
-                //callback(this);
-                break;
             case 'simple':
                 this._activeModal.hide();
+                onAfterClose();
                 this.stripModal();
-                //callback(this);
                 break;
             case 'slide':
-                this._activeModal.slideUp(null, null, this.stripModal.bind(this));
-                
-                /*if (!target) {
-                 callback(this);
-                 } else {
-                 $(target).slideDown('normal', 'linear', callback);
-                 }*/
+                this._activeModal.slideUp(null, null, function () {
+                    onAfterClose();
+                    this.stripModal();
+                }.bind(this));
                 break;
             case 'fade':
-                this._activeModal.fadeOut(null, null, this.stripModal.bind(this));
-                
-                /*if (!target) {
-                 callback();
-                 } else {
-                 $(target).fadeIn('normal', 'linear', callback);
-                 }*/
+                this._activeModal.fadeOut(null, null, function () {
+                    onAfterClose();
+                    this.stripModal();
+                }.bind(this));
                 break;
         }
     };
@@ -278,7 +258,7 @@
             this._opener.getAttribute(this._targetAttr) :
             this._opener.getAttribute('href');
         
-        if (!$(target).length) return;
+        if (!document.body.querySelector(target)) return;
         e.preventDefault();
     
         this.renderModal(target);
@@ -288,22 +268,20 @@
         var elem = e.target;
         
         if (!(elem.closest(this._closer) || elem.matches(this._overlay))) return;
-        
         e.preventDefault();
-        console.log(e.target);
+        //console.log(e.target);
         
         this.hide();
     };
     LightBox.prototype.renderModal = function (target) {
         var $target = $(target);
-        
-        
+
         if (!$target.length) return;
     
         var $overlay = $target.closest(this._overlay);
         //var closeSelectors = [this._closer];
-        
-        
+
+        //console.log(this._isOverlay);
         if (this._isOverlay) {
             if (!$overlay.length){
                 $overlay = $('<div data-role="overlay"></div>');
@@ -320,12 +298,19 @@
         } else {
             this._activeModal = $target;
         }
+
+        //this._closeSelectors = closeSelectors.join(', ');
+
+        //console.log(this._closeSelectors);
+        //console.log(this._activeModal);
         
-        this._activeModal.on('click', this._closer, this.closeHandler.bind(this));
+        this._activeModal.on('click', this.closeHandler.bind(this));
     };
     LightBox.prototype.stripModal = function () {
-        
-        this._activeModal.off('click', this.closeHandler);
+        //console.log(this._activeModal);
+        if (!this._activeModal) return;
+
+        this._activeModal.off('click');
     
         if (this._isOverlay) {
             //var $modal =  this._activeModal.find(this._modal);
@@ -336,7 +321,7 @@
         }
         
         this._activeModal = null;
-        this._closeSelectors = '';
+        //this._closeSelectors = '';
     };
     
     
@@ -767,8 +752,89 @@ $(document).ready(function () {
     
     /*lightbox*/
     (function(){
-    	var $popUp = $('[data-role="openLighbox"]');
+    	var $popUpNoOverlay = $('[data-role="openLighbox"]');
+        var $popUpWithMapNoOverlay = $('[data-role="openLighbox&map"]');
+        var $popUpWithOverlay = $('[data-role="openLighbox&overlay"]');
+
         
-        $popUp.lightBox();
+        $popUpNoOverlay.lightBox({
+            isOverlay: false
+        });
+
+        $popUpWithMapNoOverlay.lightBox({
+            isOverlay: false,
+            onAfterOpen: mapInit()
+        });
+
+        $popUpWithOverlay.lightBox();
+
+        function mapInit() {
+            var isInit = false;
+
+            return function () {
+                if (isInit) return;
+                
+                var canvas = $(this).find('.map');
+                console.log(this);
+
+                //var markers = [];
+                var myLatlng = new google.maps.LatLng(canvas.attr("data-lat"), canvas.attr("data-long"));
+                var map = new google.maps.Map(canvas[0], {
+                    /*mapTypeId: google.maps.MapTypeId.ROADMAP,*/
+                    zoom: parseInt(canvas.attr("data-zoom")),
+                    center: myLatlng,
+                    streetViewControl: false,
+                    scaleControl: false,
+                    panControl: false,
+                    zoomControl: true,
+                    zoomControlOptions: {
+                        style: google.maps.ZoomControlStyle.BIG
+                    }
+                });
+
+                var marker = new google.maps.Marker({
+                    position: myLatlng,
+                    map: map,
+                    title: canvas.attr("data-name"),
+                    draggable: false
+                });
+
+                google.maps.event.addListenerOnce(map, 'idle', function () { // решает проблемму с загрузкой второй карты на странице
+                    google.maps.event.trigger(map, 'resize');
+                });
+
+                isInit = true;
+            };
+        }
     })();
+
+        /*waipoint_map size*/
+        (function(){
+        	var mapLink = document.querySelector('.waypoint__map');
+
+            if(!mapLink) return;
+
+            setSize(mapLink);
+
+            window.addEventListener('resize', setSize.bind(null, mapLink));
+
+            function setSize(elem) {
+                var parent = elem.parentElement;
+                var parentHeight = parent.clientHeight;
+                var children = parent.children;
+                var heightSum = 0;
+
+                for (var i=0; i < children.length; i++) {
+                    if (children[i] === elem) continue;
+
+                    heightSum += children[i].offsetHeight;
+                }
+
+                calcHeight = parentHeight - heightSum;
+
+                elem.style.height = calcHeight > 0 ? calcHeight + 'px' : '';
+            }
+        })();
+        
+        
 });

@@ -1182,6 +1182,9 @@ Pop up
   height: calc(100% - 60px);
   background-image: url("../img/map_bg.jpg");
   background-size: cover; }
+  .map-wrap .map {
+    height: 100%;
+    width: 100%; }
 
 .description {
   width: 100%;
