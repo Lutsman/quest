@@ -199,7 +199,7 @@
         //this._lightbox = options.lighbox || '[data-component="lighbox"]';
         this._opener = options.opener; //|| '[data-role="openLighbox"]';
         this._closer = options.closer || '[data-role="close"]';
-        //this._modal = options.modal || '[data-role="modal"]';
+        this._modal = options.modal || '[data-role="modal"]';
         this._isOverlay = options.isOverlay || true;
         this._overlay = '[data-role="overlay"]';
         this._overlayClass = options.overlayClass || 'lighbox-overlay';
@@ -211,6 +211,7 @@
     };
     LightBox.prototype.show = function () {
         if (!this._activeModal.length) return;
+        
         
         switch (this._animate) {
             case 'none':
@@ -232,7 +233,6 @@
                 break;
             case 'fade':
                 this._activeModal.fadeIn();
-                
                 /*if (!target) {
                  callback();
                  } else {
@@ -250,11 +250,11 @@
                 break;
             case 'simple':
                 this._activeModal.hide();
-                
+                this.stripModal();
                 //callback(this);
                 break;
             case 'slide':
-                this._activeModal.slideUp();
+                this._activeModal.slideUp(null, null, this.stripModal.bind(this));
                 
                 /*if (!target) {
                  callback(this);
@@ -263,7 +263,7 @@
                  }*/
                 break;
             case 'fade':
-                this._activeModal.fadeOut();
+                this._activeModal.fadeOut(null, null, this.stripModal.bind(this));
                 
                 /*if (!target) {
                  callback();
@@ -272,8 +272,6 @@
                  }*/
                 break;
         }
-        
-        this.stripModal();
     };
     LightBox.prototype.openHandler = function (e) {
         var target = this._opener.getAttribute(this._targetAttr) ?
@@ -287,6 +285,10 @@
         this.show();
     };
     LightBox.prototype.closeHandler = function (e) {
+        var elem = e.target;
+        
+        if (!(elem.closest(this._closer) || elem.matches(this._overlay))) return;
+        
         e.preventDefault();
         console.log(e.target);
         
@@ -295,39 +297,44 @@
     LightBox.prototype.renderModal = function (target) {
         var $target = $(target);
         
+        
         if (!$target.length) return;
     
         var $overlay = $target.closest(this._overlay);
-        var closeSelectors = [this._closer];
+        //var closeSelectors = [this._closer];
         
         
         if (this._isOverlay) {
             if (!$overlay.length){
                 $overlay = $('<div data-role="overlay"></div>');
                 $overlay.addClass(this._overlayClass);
+                $target.wrap($overlay)
+                    .show()
+                    .attr('data-role', 'modal');
+                
+                $overlay = $target.closest(this._overlay);
             }
             
-            $target.wrap($overlay);
             this._activeModal = $overlay;
-            closeSelectors.push(this._overlay);
+            //closeSelectors.push(this._overlay);
         } else {
             this._activeModal = $target;
         }
         
-        
-        //var $overlay = $('<div data-role="overlay"></div>');
-        //$overlay.addClass(this._overlayClass);
-        
-        this._closeSelectors = closeSelectors.join(',');
-        
-        $target.on('click', this._closeSelectors, this.closeHandler.bind(this));
+        this._activeModal.on('click', this._closer, this.closeHandler.bind(this));
     };
     LightBox.prototype.stripModal = function () {
+        
+        this._activeModal.off('click', this.closeHandler);
+    
         if (this._isOverlay) {
-            this._activeModal.unwrap();
+            //var $modal =  this._activeModal.find(this._modal);
+            this._activeModal.find(this._modal)
+                .hide()
+                .unwrap()
+                .removeAttr('data-role');
         }
         
-        this._activeModal.off('click', this._closeSelectors, this.closeHandler);
         this._activeModal = null;
         this._closeSelectors = '';
     };
