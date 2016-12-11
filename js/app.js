@@ -775,7 +775,7 @@ $(document).ready(function () {
                 if (isInit) return;
                 
                 var canvas = $(this).find('.map');
-                console.log(this);
+                //console.log(this);
 
                 //var markers = [];
                 var myLatlng = new google.maps.LatLng(canvas.attr("data-lat"), canvas.attr("data-long"));
@@ -819,22 +819,56 @@ $(document).ready(function () {
             window.addEventListener('resize', setSize.bind(null, mapLink));
 
             function setSize(elem) {
+                elem.style.display = 'none';
+
                 var parent = elem.parentElement;
-                var parentHeight = parent.clientHeight;
-                var children = parent.children;
-                var heightSum = 0;
+                var parentStyles = getComputedStyle(parent);
+                var parentHeight = parent.clientHeight - parseInt(parentStyles.paddingTop) - parseInt(parentStyles.paddingBottom);
+                var calcHeight = parentHeight - parent.children[0].offsetHeight;
 
-                for (var i=0; i < children.length; i++) {
-                    if (children[i] === elem) continue;
+                elem.style.display = '';
+                elem.style.height = calcHeight > 70 ? calcHeight + 'px' : '';
 
-                    heightSum += children[i].offsetHeight;
-                }
-
-                calcHeight = parentHeight - heightSum;
-
-                elem.style.height = calcHeight > 0 ? calcHeight + 'px' : '';
             }
         })();
         
-        
+        /*google maps*/
+        (function(){
+
+            var $mapCanvas = $('#map');
+
+            if (!$mapCanvas.length) return;
+
+            init($mapCanvas);
+
+            function init (canvas) {
+                    //var markers = [];
+                    var myLatlng = new google.maps.LatLng(canvas.attr("data-lat"), canvas.attr("data-long"));
+                    var map = new google.maps.Map(canvas[0], {
+                        /*mapTypeId: google.maps.MapTypeId.ROADMAP,*/
+                        zoom: parseInt(canvas.attr("data-zoom")),
+                        center: myLatlng,
+                        streetViewControl: false,
+                        scaleControl: false,
+                        panControl: false,
+                        zoomControl: true,
+                        zoomControlOptions: {
+                            style: google.maps.ZoomControlStyle.BIG
+                        }
+                    });
+
+                    var marker = new google.maps.Marker({
+                        position: myLatlng,
+                        map: map,
+                        title: canvas.attr("data-name"),
+                        draggable: false
+                    });
+
+                    google.maps.event.addListenerOnce(map, 'idle', function () { // решает проблемму с загрузкой второй карты на странице
+                        google.maps.event.trigger(map, 'resize');
+                    });
+                }
+        })();
+
+
 });
