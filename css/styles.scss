@@ -407,7 +407,7 @@ header {
             }
         }
         i {
-            font-size: 18px;
+            font-size: 20px;
         }
         .balance {
             font-size: 24px;
@@ -536,9 +536,15 @@ footer {
         padding: 50px 0 0;
         margin-top: -50px;
     }
-    .step-content {
-        height: calc(100vh - 50px);
+    .container-map {
+        height: 100vh;
     }
+    .step-content {
+        padding-bottom: 70px;
+    }
+    /*.step-content {
+        height: calc(100vh - 50px);
+    }*/
   /*  .slide {
         width: 100%;
         height: 100%;
@@ -757,7 +763,18 @@ footer {
         border-color: #3897f0;
         @include border-radius(3px);
         &:hover {
+            color: #fff;
             background: #3897f0;
+        }
+    }
+    .btn-reverse {
+        margin: -10px 0 0;
+        color: #3897f0;
+        background: #fff;
+        border-color: #fff;
+        &:hover {
+            color: #3897f0;
+            background: #fff;
         }
     }
     .input-link-box {
@@ -988,6 +1005,7 @@ footer {
         height: 85px;
     }
 }
+
 .waypoint__map {
     display: block;
     position: relative;
@@ -1026,6 +1044,19 @@ footer {
     color: #fff;
 }
 
+.map-wrap {
+    position: relative;
+    z-index: 2;
+    /*height: 370px;*/
+    height: calc(100% - 60px);
+    background-image: url("../img/map_bg.jpg");
+    background-size: cover;
+    .map {
+        height: 100%;
+        width: 100%;
+    }
+}
+
 .waypoint-info {
     display: block;
     position: absolute;
@@ -1045,15 +1076,44 @@ footer {
     }
 }
 
+.description {
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    h3 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    img, video {
+        margin-bottom: 10px;
+    }
+}
+
 .block {
     position: relative;
     z-index: 2;
-    height: calc(100% - 130px);
+    /*height: calc(100% - 130px);*/
     padding: 10px 20px;
     /*background-color: #fff;*/
-    overflow: auto;
+    /*overflow: auto;*/
     label {
         margin-left: 20px;
+    }
+}
+
+.prompt {
+    position: relative;
+    z-index: 2;
+    /*height: calc(100% - 130px);*/
+    padding: 20px;
+    color: #fff;
+   /* overflow: auto;*/
+    img, video {
+        margin-bottom: 10px;
+    }
+    .btn-close {
+        top: 5px;
     }
 }
 
@@ -1286,7 +1346,7 @@ Pop up
     z-index: 120;
 }
 
-.map-wrap {
+.map-wrap-pop-up {
     position: relative;
     z-index: 2;
     height: calc(100% - 60px);
@@ -1298,7 +1358,7 @@ Pop up
     }
 }
 
-.description {
+.description-pop-up {
     width: 100%;
     height: calc(100% - 130px);
     padding: 20px;
@@ -1314,7 +1374,19 @@ Pop up
     }
 }
 
-.prompt {
+.block-pop-up {
+    position: relative;
+    z-index: 2;
+    height: calc(100% - 130px);
+    padding: 10px 20px;
+    background-color: #fff;
+    overflow: auto;
+    label {
+        margin-left: 20px;
+    }
+}
+
+.prompt-pop-up {
     position: relative;
     z-index: 2;
     height: calc(100% - 130px);
