@@ -1050,7 +1050,7 @@ footer {
     z-index: 2;
     height: calc(100% - 130px);
     padding: 10px 20px;
-    background-color: #fff;
+    /*background-color: #fff;*/
     overflow: auto;
     label {
         margin-left: 20px;
@@ -1138,7 +1138,7 @@ footer {
 }
 
 .stars-evaluation {
-    width: 235px;
+    width: 240px;
     margin: 40px auto;
     i {
         float: right;
