@@ -27,14 +27,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!--For improved cross-browser rendering-->
-    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="css/normalize.css">
 
     <!--Plugin CSS-->
-    <link rel="stylesheet" href="../css/slick.css">
-    <link rel="stylesheet" href="../css/slick-theme.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/slick-theme.css">
 
     <!-- Custom styles CSS -->
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
@@ -54,9 +54,9 @@
                     <ul class="nav navbar-nav support-nav">
                         <li><a class="balance" href="payment.html"><i class="fa fa-eur" aria-hidden="true"></i> <span>0.00</span></a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle  choose-lang" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="../img/ru.gif" alt="ru"> <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle  choose-lang" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="img/ru.gif" alt="ru"> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#"><img src="../img/gb.gif" alt="en"></a></li>
+                                <li><a href="#"><img src="img/gb.gif" alt="en"></a></li>
                             </ul>
                         </li>
                         <li><a href="login.html"><i class="fa fa-user" aria-hidden="true"></i></a></li>
@@ -77,26 +77,40 @@
         </nav>
     </header>
 
-    <section class="content login-content">
+    <section class="content">
         <div class="container-fluid">
-            <div class="form-wrap">
-                <div class="form-block">
-                    <h1>TourQuest</h1>
-
-                    <form class="login-form" method="post" action="mail/mailer.php">
-                        <img src="../img/userpic.jpg" alt="userpic">
-                        <button class="btn">Войти как username</button>
-
-                    </form>
-
+            <div class="text-block game-reference">
+                <h3>Секретная Рига</h3>
+                <div class="game-data">
+                    <p>Примерное время прохождения - <span>1 ч 20 мин</span></p>
+                    <p>Количество станций маршрута - <span>8</span></p>
                 </div>
+                <p><i>Узнайте Ригу как ее знают туристы, и узнайте секретные места, которые знают только местные.
+                    Увлекательный сценарий, который позволяет увидеть город как он есть, почувствовать себя здесь своим,
+                    познакомиться с историей, жизнью и духом города.</i></p>
+                <p class="notice">Внимание! Для того, чтобы начать игру вас необходимо зарегистрироваться
+                    и заплатить 10 евро!</p>
+            </div>
+            <div class="text-block">
+                <h3>Как играть в Touruest</h3>
+                <p>Вы идете по маршруту, который придумал для вас местный проводник (это может быть экскурсовод,
+                    или просто энтузиаст своего города). От пункта к пункту. И по каждому пунктуотвечаете на вопросы...</p>
+                <h3>Продолжительность игры</h3>
+                <p>Обычная игра включает 8-10 пунктов маршрута, которыеможно пройти за 1-1,5 часа. В процессе игры
+                    можно сделать перерыв.</p>
+                <h3><b>Вам потребуется подключение к интернету</b></h3>
+                <p>В процессе игры вам потребуется либо подключаться к wifi в городе, либо использовать свой интернет
+                    по роумингу. Мы стараемся не добавлять в игру больших объемных картинок и видео, чтобы траффик
+                    не был очень дорогим.</p>
+                <h3>Это платно?</h3>
+                <p>Да. Игра стоит 10 евро. Вы можете пройти короткий бесплатный маршрут, включающий только 3 станции.</p>
+                <p>Мы рекомендуем оплатить игру заранее, стационарный надежный интернет. Убедиться, что деньги поступили и тогда ...</p>
 
-                <div class="form-block-bottom">
-                    <p>Не username? <a href="switch-account.html">Сменить аккаунт</a></p>
+                <div class="btn-wrap">
+                    <a href="#" class="btn btn-pink">Оплатить</a>
                 </div>
 
             </div>
-
         </div><!--container-fluid-->
     </section>
 
@@ -106,8 +120,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="https://use.fontawesome.com/ddcf86203d.js"></script>
-<script src="../js/slick.js"></script>
-<script src="../js/app.js"></script>
+<script src="js/slick.js"></script>
+<script src="js/app.js"></script>
 
 </body>
 </html>
