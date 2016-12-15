@@ -34,45 +34,45 @@
 </head>
 <body>
 
+<header>
+    <nav class="navbar navbar-fixed-top top-menu">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-action="reset-nav" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <ul class="nav navbar-nav support-nav">
+                    <li><a class="balance" href="payment.html"><i class="fa fa-eur" aria-hidden="true"></i> <span>0.00</span></a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle  choose-lang" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="img/ru.gif" alt="ru"> <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><img src="img/gb.gif" alt="en"></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="login.html"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                </ul>
+
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav top-menu__nav">
+                    <li><a href="game-list.html">Выбрать игру в городе (Рига)</a></li>
+                    <li><a href="index.html">Выбрать город</a></li>
+                    <li><a href="info.html">Как играть (помощь)</a></li>
+                    <li><a href="payment.html">Оплата</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+</header>
+
 <div class="page-wrap">
-    <header>
-        <nav class="navbar navbar-fixed-top top-menu">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-action="reset-nav" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <ul class="nav navbar-nav support-nav">
-                        <li><a class="balance" href="payment.html"><i class="fa fa-eur" aria-hidden="true"></i> <span>0.00</span></a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle  choose-lang" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="img/ru.gif" alt="ru"> <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#"><img src="img/gb.gif" alt="en"></a></li>
-                            </ul>
-                        </li>
-                        <li><a href="login.html"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-                    </ul>
-
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav top-menu__nav">
-                        <li><a href="game-list.html">Выбрать игру в городе (Рига)</a></li>
-                        <li><a href="index.html">Выбрать город</a></li>
-                        <li><a href="info.html">Как играть (помощь)</a></li>
-                        <li><a href="payment.html">Оплата</a></li>
-                    </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
-    </header>
-
     <section class="content login-content">
         <div class="container-fluid">
             <div class="form-wrap">
@@ -95,7 +95,7 @@
                 </div>
 
                 <div class="form-block-bottom">
-                    <p>Еще нет аккаунта? <a href="login.html">Зарегистрируйтесь</a></p>
+                    <p>Еще нет аккаунта? <a href="#pop-up-registration">Зарегистрируйтесь</a></p>
                 </div>
 
             </div>
@@ -105,6 +105,36 @@
 
 </div>
 
+
+<!--Pop-up-->
+
+<div id="pop-up-registration" class="pop-up">
+    <div class="form-block">
+        <h1>TourQuest</h1>
+
+        <form class="login-form" method="post" action="mail/mailer.php">
+            <p>Зарегистрируйтесь, чтобы смотреть фото и видео ваших друзей.</p>
+            <button class="btn btn-fb-login"><i class="fa fa-facebook-official" aria-hidden="true"></i> Войти через Facebook</button>
+            <div class="delimiter">или</div>
+
+            <input type="text" name="emailOrPhone" class="form-control" placeholder="Моб. телефон или эл. адрес">
+            <input type="text" name="fullName" class="form-control" placeholder="Имя и фамилия">
+            <input type="text" name="username" class="form-control" placeholder="Имя пользователя">
+            <input type="password" name="password" class="form-control" placeholder="Пароль">
+            <button type="submit" class="btn btn-submit">Регистрация</button>
+
+            <p>Регистрируясь, вы соглашаетесь с нашими <a href="#" target="_blank">Условиями</a>
+                и <a href="#" target="_blank">Политикой конфиденциальности</a></p>
+
+        </form>
+
+    </div>
+
+    <div class="form-block-bottom">
+        <p>Есть аккаунт? <a href="switch-account.html">Вход</a></p>
+    </div>
+
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

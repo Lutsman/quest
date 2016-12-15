@@ -333,7 +333,7 @@ a, .btn, button {
  ---------------------------------------------- */
 header {
   position: fixed;
-  z-index: 10;
+  z-index: 200;
   top: 0;
   left: 0;
   height: 50px;
@@ -1205,18 +1205,19 @@ Pop up
 
 .pop-up {
   display: none;
-  position: absolute;
+  position: fixed;
   z-index: 100;
   top: 50px;
   left: 50%;
   width: 100%;
   max-width: 600px;
-  height: calc(100vh - 50px);
+  height: calc(100% - 50px);
   -ms-transform: translate3d(-50%, 0, 0);
   -moz-transform: translate3d(-50%, 0, 0);
   -webkit-transform: translate3d(-50%, 0, 0);
   -o-transform: translate3d(-50%, 0, 0);
-  transform: translate3d(-50%, 0, 0); }
+  transform: translate3d(-50%, 0, 0);
+  overflow: auto; }
 
 .pop-up-question {
   z-index: 110; }
