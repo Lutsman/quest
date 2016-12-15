@@ -1282,14 +1282,16 @@ Pop up
   -webkit-transform: translate3d(-50%, -50%, 0);
   -o-transform: translate3d(-50%, -50%, 0);
   transform: translate3d(-50%, -50%, 0); }
-  .exit-profile-menu button {
+  .exit-profile-menu a {
     display: block;
     width: 100%;
     font-weight: 600;
     line-height: 50px;
     background-color: #fff;
-    border-bottom: 1px solid #dbdbdb; }
-    .exit-profile-menu button:hover {
+    border-bottom: 1px solid #dbdbdb;
+    text-decoration: none;
+    text-align: center; }
+    .exit-profile-menu a:hover {
       background-color: #efefef; }
 
 .text-popup {

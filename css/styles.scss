@@ -1410,13 +1410,15 @@ Pop up
     width: 80%;
     max-width: 500px;
     @include transform(translate3d(-50%, -50%, 0));
-    button {
+    a {
         display: block;
         width: 100%;
         font-weight: 600;
         line-height: 50px;
         background-color: #fff;
         border-bottom: 1px solid #dbdbdb;
+        text-decoration: none;
+        text-align: center;
         &:hover {
             background-color: #efefef;
         }
