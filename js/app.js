@@ -808,67 +808,67 @@ $(document).ready(function () {
         }
     })();
 
-        /*waipoint_map size*/
-        (function(){
-        	var mapLink = document.querySelector('.waypoint__map');
+    /*waipoint_map size*/
+    (function(){
+        var mapLink = document.querySelector('.waypoint__map');
 
-            if(!mapLink) return;
+        if(!mapLink) return;
 
-            setSize(mapLink);
+        setSize(mapLink);
 
-            window.addEventListener('resize', setSize.bind(null, mapLink));
+        window.addEventListener('resize', setSize.bind(null, mapLink));
 
-            function setSize(elem) {
-                elem.style.display = 'none';
+        function setSize(elem) {
+            elem.style.display = 'none';
 
-                var parent = elem.parentElement;
-                var parentStyles = getComputedStyle(parent);
-                var parentHeight = parent.clientHeight - parseInt(parentStyles.paddingTop) - parseInt(parentStyles.paddingBottom);
-                var calcHeight = parentHeight - parent.children[0].offsetHeight;
+            var parent = elem.parentElement;
+            var parentStyles = getComputedStyle(parent);
+            var parentHeight = parent.clientHeight - parseInt(parentStyles.paddingTop) - parseInt(parentStyles.paddingBottom);
+            var calcHeight = parentHeight - parent.children[0].offsetHeight;
 
-                elem.style.display = '';
-                elem.style.height = calcHeight > 70 ? calcHeight + 'px' : '';
+            elem.style.display = '';
+            elem.style.height = calcHeight > 70 ? calcHeight + 'px' : '';
 
-            }
-        })();
+        }
+    })();
         
-        /*google maps*/
-        (function(){
+    /*google maps*/
+    (function(){
 
-            var $mapCanvas = $('#map');
+        var $mapCanvas = $('#map');
 
-            if (!$mapCanvas.length) return;
+        if (!$mapCanvas.length) return;
 
-            init($mapCanvas);
+        init($mapCanvas);
 
-            function init (canvas) {
-                    //var markers = [];
-                    var myLatlng = new google.maps.LatLng(canvas.attr("data-lat"), canvas.attr("data-long"));
-                    var map = new google.maps.Map(canvas[0], {
-                        /*mapTypeId: google.maps.MapTypeId.ROADMAP,*/
-                        zoom: parseInt(canvas.attr("data-zoom")),
-                        center: myLatlng,
-                        streetViewControl: false,
-                        scaleControl: false,
-                        panControl: false,
-                        zoomControl: true,
-                        zoomControlOptions: {
-                            style: google.maps.ZoomControlStyle.BIG
-                        }
-                    });
+        function init (canvas) {
+                //var markers = [];
+                var myLatlng = new google.maps.LatLng(canvas.attr("data-lat"), canvas.attr("data-long"));
+                var map = new google.maps.Map(canvas[0], {
+                    /*mapTypeId: google.maps.MapTypeId.ROADMAP,*/
+                    zoom: parseInt(canvas.attr("data-zoom")),
+                    center: myLatlng,
+                    streetViewControl: false,
+                    scaleControl: false,
+                    panControl: false,
+                    zoomControl: true,
+                    zoomControlOptions: {
+                        style: google.maps.ZoomControlStyle.BIG
+                    }
+                });
 
-                    var marker = new google.maps.Marker({
-                        position: myLatlng,
-                        map: map,
-                        title: canvas.attr("data-name"),
-                        draggable: false
-                    });
+                var marker = new google.maps.Marker({
+                    position: myLatlng,
+                    map: map,
+                    title: canvas.attr("data-name"),
+                    draggable: false
+                });
 
-                    google.maps.event.addListenerOnce(map, 'idle', function () { // решает проблемму с загрузкой второй карты на странице
-                        google.maps.event.trigger(map, 'resize');
-                    });
-                }
-        })();
+                google.maps.event.addListenerOnce(map, 'idle', function () { // решает проблемму с загрузкой второй карты на странице
+                    google.maps.event.trigger(map, 'resize');
+                });
+            }
+    })();
 
 
 });
