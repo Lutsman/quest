@@ -75,7 +75,7 @@
 <div class="page-wrap">
     <section class="content login-content">
         <div class="container-fluid">
-            <div class="form-wrap">
+            <div id="sing-in" class="form-wrap">
                 <div class="form-block">
                     <h1>TourQuest</h1>
 
@@ -95,11 +95,36 @@
                 </div>
 
                 <div class="form-block-bottom">
-                    <p>Еще нет аккаунта? <a href="#pop-up-registration" data-role="openLighbox">Зарегистрируйтесь</a></p>
+                    <p>Еще нет аккаунта? <a href="#sing-up" data-role="changeLightbox">Зарегистрируйтесь</a></p>
                 </div>
 
             </div>
+            <div id="sing-up" class="hidden-light">
+                <div class="form-block">
+                    <h1>TourQuest</h1>
 
+                    <form class="login-form" method="post" action="mail/mailer.php">
+                        <p>Зарегистрируйтесь, чтобы смотреть фото и видео ваших друзей.</p>
+                        <button class="btn btn-fb-login"><i class="fa fa-facebook-official" aria-hidden="true"></i> Войти через Facebook</button>
+                        <div class="delimiter">или</div>
+
+                        <input type="text" name="emailOrPhone" class="form-control" placeholder="Моб. телефон или эл. адрес">
+                        <input type="text" name="fullName" class="form-control" placeholder="Имя и фамилия">
+                        <input type="text" name="username" class="form-control" placeholder="Имя пользователя">
+                        <input type="password" name="password" class="form-control" placeholder="Пароль">
+                        <button type="submit" class="btn btn-submit">Регистрация</button>
+
+                        <p>Регистрируясь, вы соглашаетесь с нашими <a href="#" target="_blank">Условиями</a>
+                            и <a href="#" target="_blank">Политикой конфиденциальности</a></p>
+
+                    </form>
+
+                </div>
+
+                <div class="form-block-bottom">
+                    <p>Есть аккаунт? <a href="#" data-role="close">Вход</a></p>
+                </div>
+            </div>
         </div><!--container-fluid-->
     </section>
 
@@ -109,30 +134,7 @@
 <!--Pop-up-->
 
 <div id="pop-up-registration" class="pop-up">
-    <div class="form-block">
-        <h1>TourQuest</h1>
 
-        <form class="login-form" method="post" action="mail/mailer.php">
-            <p>Зарегистрируйтесь, чтобы смотреть фото и видео ваших друзей.</p>
-            <button class="btn btn-fb-login"><i class="fa fa-facebook-official" aria-hidden="true"></i> Войти через Facebook</button>
-            <div class="delimiter">или</div>
-
-            <input type="text" name="emailOrPhone" class="form-control" placeholder="Моб. телефон или эл. адрес">
-            <input type="text" name="fullName" class="form-control" placeholder="Имя и фамилия">
-            <input type="text" name="username" class="form-control" placeholder="Имя пользователя">
-            <input type="password" name="password" class="form-control" placeholder="Пароль">
-            <button type="submit" class="btn btn-submit">Регистрация</button>
-
-            <p>Регистрируясь, вы соглашаетесь с нашими <a href="#" target="_blank">Условиями</a>
-                и <a href="#" target="_blank">Политикой конфиденциальности</a></p>
-
-        </form>
-
-    </div>
-
-    <div class="form-block-bottom">
-        <p>Есть аккаунт? <a href="#" data-role="close">Вход</a></p>
-    </div>
 
 </div>
 

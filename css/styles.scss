@@ -55,6 +55,10 @@ section {
     display: none !important;
 }
 
+.hidden-light {
+    display: none;
+}
+
 /* ----------------------------------------------
  Fonts Paragrahps
  ---------------------------------------------- */
@@ -1335,6 +1339,7 @@ Pop up
     width: 100%;
     max-width: 600px;
     height: calc(100% - 50px);
+    background-color: #fff;
     @include transform(translate3d(-50%, 0, 0));
     overflow: auto;
 }

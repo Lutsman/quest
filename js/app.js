@@ -205,7 +205,10 @@
         this._overlayClass = options.overlayClass || 'lighbox-overlay';
         this._animate = options.animate || 'fade';
         this._targetAttr = options.targetAttr || 'data-target';
+        this._onOpen = options.onOpen || null;
+        this._onClose = options.onClose || null;
         this._onAfterOpen = options.onAfterOpen || null;
+        this._onAfterClose = options.onAfterClose || null;
     }
     LightBox.prototype.init = function () {
         $(this._opener).on('click', this.openHandler.bind(this));
@@ -213,17 +216,21 @@
     LightBox.prototype.show = function () {
         if (!this._activeModal.length) return;
 
+        var onOpen = typeof this._onOpen === 'function' ? this._onOpen: function (){};
         var onAfterOpen = typeof this._onAfterOpen === 'function' ? this._onAfterOpen: function (){};
 
         switch (this._animate) {
             case 'simple':
+                onOpen();
                 this._activeModal.show();
                 onAfterOpen();
                 break;
             case 'slide':
+                onOpen();
                 this._activeModal.slideDown(null, null, onAfterOpen);
                 break;
             case 'fade':
+                onOpen();
                 this._activeModal.fadeIn(null, null, onAfterOpen);
                 break;
         }
@@ -231,21 +238,25 @@
     LightBox.prototype.hide = function () {
         if (!this._activeModal || !this._activeModal.length) return;
 
+        var onClose = typeof this._onClose === 'function' ? this._onClose: function (){};
         var onAfterClose = typeof this._onAfterClose === 'function' ? this._onAfterClose: function (){};
 
         switch (this._animate) {
             case 'simple':
+                onClose();
                 this._activeModal.hide();
                 onAfterClose();
                 this.stripModal();
                 break;
             case 'slide':
+                onClose();
                 this._activeModal.slideUp(null, null, function () {
                     onAfterClose();
                     this.stripModal();
                 }.bind(this));
                 break;
             case 'fade':
+                onClose();
                 this._activeModal.fadeOut(null, null, function () {
                     onAfterClose();
                     this.stripModal();
@@ -755,6 +766,7 @@ $(document).ready(function () {
     	var $popUpNoOverlay = $('[data-role="openLighbox"]');
         var $popUpWithMapNoOverlay = $('[data-role="openLighbox&map"]');
         var $popUpWithOverlay = $('[data-role="openLighbox&overlay"]');
+        var $login = $('[data-role="changeLightbox"]');
 
         
         $popUpNoOverlay.lightBox({
@@ -767,6 +779,16 @@ $(document).ready(function () {
         });
 
         $popUpWithOverlay.lightBox();
+
+        $login.lightBox({
+            isOverlay: false,
+            onOpen: function () {
+                $('#sing-in').fadeOut();
+            },
+            onClose: function () {
+                $('#sing-in').fadeIn();
+            }
+        });
 
         function mapInit() {
             var isInit = false;
