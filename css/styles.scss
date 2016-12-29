@@ -1048,6 +1048,20 @@ footer {
     color: #fff;
 }
 
+.message-block {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 50px 20px 15px;
+    color: #fff;
+    span {
+        display: block;
+        font-size: 16px;
+    }
+}
+
 .map-wrap {
     position: relative;
     z-index: 2;

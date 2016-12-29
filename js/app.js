@@ -892,5 +892,15 @@ $(document).ready(function () {
             }
     })();
 
+    /*message block*/
+    (function () {
+        var messBlock = document.body.querySelector('.message-block');
 
+        if (!messBlock) return;
+
+        $('.message-block .btn-close').on('click', function (e) {
+            e.preventDefault();
+            $(this).parent('.message-block').fadeOut();
+        });
+    })();
 });
