@@ -2,6 +2,47 @@
 /*Import fonts from Google fonts */
 @import url(http://fonts.googleapis.com/css?family=Comfortaa&subset=latin,cyrillic);
 @import url(http://fonts.googleapis.com/css?family=Philosopher:400,700,400italic,700italic&subset=latin,cyrillic);
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i&subset=cyrillic");
+@font-face {
+  font-family: 'Museo Sans';
+  font-style: normal;
+  font-weight: 100;
+  src: local("Museo Sans Cyrl 100"), url("fonts/MuseoSansCyrl100.otf") format("opentype"); }
+@font-face {
+  font-family: 'Museo Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Museo Sans Cyrl 300"), url("fonts/MuseoSansCyrl300.otf") format("opentype"); }
+@font-face {
+  font-family: 'Museo Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Museo Sans Cyrl 500"), url("fonts/MuseoSansCyrl500.otf") format("opentype"); }
+@font-face {
+  font-family: 'Museo Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Museo Sans Cyrl 700"), url("fonts/MuseoSansCyrl700.otf") format("opentype"); }
+@font-face {
+  font-family: 'Museo Sans';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Museo Sans Cyrl 900"), url("fonts/MuseoSansCyrl900.otf") format("opentype"); }
+@font-face {
+  font-family: 'Museo';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Museo Cyrl 500"), url("fonts/MuseoCyrl500.woff") format("woff"); }
+@font-face {
+  font-family: 'Museo';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Museo Cyrl 700"), url("fonts/MuseoCyrl700.woff") format("woff"); }
+@font-face {
+  font-family: 'Museo';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Museo Cyrl 900"), url("fonts/MuseoCyrl900.woff") format("woff"); }
 /*@import 'head';*/
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
@@ -75,23 +116,23 @@ section {
  Fonts Paragrahps
  ---------------------------------------------- */
 h1 {
-  font: 46px "Museo Sans", Arial, sans-serif;
+  font: 50px "Museo Sans", Arial, sans-serif;
   font-weight: 300;
   margin: 0; }
 
 h2 {
   margin: 0;
-  font: 24px "Museo Sans", Arial, sans-serif;
+  font: 28px "Museo Sans", Arial, sans-serif;
   font-weight: 500;
   text-align: center; }
 
 h3 {
-  font: 22px "Museo Sans", Arial, sans-serif;
+  font: 26px "Museo Sans", Arial, sans-serif;
   font-weight: bold; }
 
 h4 {
   margin: 0;
-  font: 18px "Museo Sans", Arial, sans-serif;
+  font: 22px "Museo Sans", Arial, sans-serif;
   font-weight: 500; }
 
 /* ----------------------------------------------
@@ -171,7 +212,9 @@ a, .btn, button {
     position: static;
     float: left;
     width: 50%;
-    padding: 24px 10px; }
+    padding: 17px 10px; }
+    .btn-step-wrap .btn-step span {
+      font-size: 28px; }
 
 .btn-fb-login i {
   margin-right: 5px; }
@@ -351,6 +394,7 @@ header {
   .top-menu .navbar-toggle {
     float: left;
     margin-left: 15px;
+    margin-right: 5px;
     border-color: #7f7f7f; }
   .top-menu .icon-bar {
     background-color: #fff; }
@@ -364,7 +408,7 @@ header {
       float: left;
       border-left: 1px solid #7f7f7f; }
       .top-menu .support-nav > li > a {
-        padding: 7px 15px;
+        padding: 7px 11px;
         background-color: transparent;
         border-color: transparent; }
         .top-menu .support-nav > li > a:focus, .top-menu .support-nav > li > a:hover {
@@ -902,7 +946,7 @@ footer {
       display: inline-block;
       padding: 10px 15px;
       margin: 20px 0;
-      background-color: rgba(255, 255, 255, 0.6);
+      background-color: rgba(255, 255, 255, 0.9);
       /*@include border-radius(4px);*/ }
   .waypoint__content .waypoint-info {
     top: 100px;
@@ -944,6 +988,9 @@ footer {
     display: block;
     font-size: 16px; }
 
+.title-line {
+  line-height: 40px; }
+
 .result-title {
   padding: 10px 15px;
   font-size: 28px;
@@ -981,13 +1028,15 @@ footer {
   width: 100%;
   height: 70px;
   padding: 10px 15px;
-  font: 14px "Museo Sans", Arial, sans-serif;
-  text-overflow: ellipsis;
-  background-color: rgba(255, 255, 255, 0.8);
-  overflow: hidden; }
+  font: 15px "Philosopher", sans-serif;
+  background-color: rgba(255, 255, 255, 0.9); }
   .waypoint-info:hover {
     color: #333;
     text-decoration: none; }
+  .waypoint-info span {
+    display: block;
+    height: 100%;
+    overflow: hidden; }
 
 .description {
   width: 100%;
@@ -1008,7 +1057,9 @@ footer {
   /*background-color: #fff;*/
   /*overflow: auto;*/ }
   .block label {
-    margin-left: 20px; }
+    display: block;
+    margin-left: 20px;
+    margin-bottom: 20px; }
 
 .prompt {
   position: relative;
@@ -1132,6 +1183,13 @@ footer {
   .result-info p {
     margin: 0; }
 
+.result-box {
+  padding: 10px 0;
+  margin-top: 10px;
+  border: 2px solid #ea1f54; }
+  .result-box > p {
+    margin-left: 10px; }
+
 .scale {
   padding: 3px;
   border: 1px solid #333; }
@@ -1253,7 +1311,7 @@ Pop up
 
 .description-pop-up {
   width: 100%;
-  height: calc(100% - 130px);
+  height: calc(100% - 137px);
   padding: 20px;
   background-color: #fff;
   overflow: auto; }

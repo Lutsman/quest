@@ -2,6 +2,47 @@
 /*Import fonts from Google fonts */
 @import url(http://fonts.googleapis.com/css?family=Comfortaa&subset=latin,cyrillic);
 @import url(http://fonts.googleapis.com/css?family=Philosopher:400,700,400italic,700italic&subset=latin,cyrillic);
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,700,700i&subset=cyrillic");
+@font-face {
+  font-family: 'Museo Sans';
+  font-style: normal;
+  font-weight: 100;
+  src: local("Museo Sans Cyrl 100"), url("fonts/MuseoSansCyrl100.otf") format("opentype"); }
+@font-face {
+  font-family: 'Museo Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Museo Sans Cyrl 300"), url("fonts/MuseoSansCyrl300.otf") format("opentype"); }
+@font-face {
+  font-family: 'Museo Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Museo Sans Cyrl 500"), url("fonts/MuseoSansCyrl500.otf") format("opentype"); }
+@font-face {
+  font-family: 'Museo Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Museo Sans Cyrl 700"), url("fonts/MuseoSansCyrl700.otf") format("opentype"); }
+@font-face {
+  font-family: 'Museo Sans';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Museo Sans Cyrl 900"), url("fonts/MuseoSansCyrl900.otf") format("opentype"); }
+@font-face {
+  font-family: 'Museo';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Museo Cyrl 500"), url("fonts/MuseoCyrl500.woff") format("woff"); }
+@font-face {
+  font-family: 'Museo';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Museo Cyrl 700"), url("fonts/MuseoCyrl700.woff") format("woff"); }
+@font-face {
+  font-family: 'Museo';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Museo Cyrl 900"), url("fonts/MuseoCyrl900.woff") format("woff"); }
 /*@import 'head';*/
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {

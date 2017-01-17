@@ -64,23 +64,23 @@ section {
  ---------------------------------------------- */
 
 h1 {
-    font: 46px $museoSans;
+    font: 50px $museoSans;
     font-weight: 300;
     margin: 0;
 }
 h2 {
     margin: 0;
-    font: 24px $museoSans;
+    font: 28px $museoSans;
     font-weight: 500;
     text-align: center;
 }
 h3 {
-    font: 22px $museoSans;
+    font: 26px $museoSans;
     font-weight: bold;
 }
 h4 {
     margin: 0;
-    font: 18px $museoSans;
+    font: 22px $museoSans;
     font-weight: 500;
 }
 
@@ -166,7 +166,11 @@ a, .btn, button {
         position: static;
         float: left;
         width: 50%;
-        padding: 24px 10px;
+        padding: 17px 10px;
+
+        span {
+            font-size: 28px;
+        }
     }
 }
 
@@ -365,6 +369,7 @@ header {
     .navbar-toggle {
         float: left;
         margin-left: 15px;
+        margin-right: 5px;
         border-color: $menu-border;
     }
     .icon-bar {
@@ -381,7 +386,7 @@ header {
             float: left;
             border-left: 1px solid $menu-border;
             > a {
-                padding: 7px 15px;
+                padding: 7px 11px;
                 background-color: transparent;
                 border-color: transparent;
                 &:focus, &:hover {
@@ -997,7 +1002,7 @@ footer {
             display: inline-block;
             padding: 10px 15px;
             margin: 20px 0;
-            background-color: rgba(255, 255, 255, 0.6);
+            background-color: rgba(255, 255, 255, 0.9);
             /*@include border-radius(4px);*/
         }
     }
@@ -1042,6 +1047,9 @@ footer {
         font-size: 16px;
     }
 }
+.title-line {
+    line-height: 40px;
+}
 .result-title {
     padding: 10px 15px;
     font-size: 28px;
@@ -1084,13 +1092,17 @@ footer {
     width: 100%;
     height: 70px;
     padding: 10px 15px;
-    font: 14px $museoSans;
-    text-overflow: ellipsis;
-    background-color: rgba(255, 255, 255, 0.8);
-    overflow: hidden;
+    font: 15px $philosopher;
+    background-color: rgba(255, 255, 255, 0.9);
+
     &:hover {
         color: #333;
         text-decoration: none;
+    }
+    span {
+        display: block;
+        height: 100%;
+        overflow: hidden;
     }
 }
 
@@ -1116,7 +1128,9 @@ footer {
     /*background-color: #fff;*/
     /*overflow: auto;*/
     label {
+        display: block;
         margin-left: 20px;
+        margin-bottom: 20px;
     }
 }
 
@@ -1244,6 +1258,15 @@ footer {
     margin-bottom: 10px;
     p {
         margin: 0;
+    }
+}
+.result-box {
+    padding: 10px 0;
+    margin-top: 10px;
+    border: 2px solid $red;
+
+    > p {
+        margin-left: 10px;
     }
 }
 .scale {
@@ -1380,7 +1403,7 @@ Pop up
 
 .description-pop-up {
     width: 100%;
-    height: calc(100% - 130px);
+    height: calc(100% - 137px);
     padding: 20px;
     background-color: #fff;
     overflow: auto;
