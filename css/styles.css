@@ -1325,7 +1325,7 @@ Pop up
 .block-pop-up {
   position: relative;
   z-index: 2;
-  height: calc(100% - 130px);
+  height: calc(100% - 135px);
   padding: 10px 20px;
   background-color: #fff;
   overflow: auto; }
@@ -1335,7 +1335,7 @@ Pop up
 .prompt-pop-up {
   position: relative;
   z-index: 2;
-  height: calc(100% - 130px);
+  height: calc(100% - 141px);
   padding: 20px;
   color: #fff;
   overflow: auto; }
