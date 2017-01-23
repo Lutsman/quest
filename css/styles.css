@@ -106,6 +106,9 @@ section {
   min-height: 100vh;
   margin: 0 auto; }
 
+.fs20 {
+  font-size: 20px; }
+
 .none {
   display: none !important; }
 
@@ -1313,6 +1316,7 @@ Pop up
   width: 100%;
   height: calc(100% - 137px);
   padding: 20px;
+  font-size: 20px;
   background-color: #fff;
   overflow: auto; }
   .description-pop-up h3 {
